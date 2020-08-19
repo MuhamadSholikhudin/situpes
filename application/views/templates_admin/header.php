@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Jquery DataTable | Bootstrap Based Admin Template - Material Design</title>
+    <title>SITUPES DISNAKER</title>
     <!-- Favicon-->
     <link rel="icon" href="<?= base_url('assets/'); ?>favicon.ico" type="image/x-icon">
 
@@ -29,6 +29,9 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?= base_url('assets/'); ?>css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 </head>
 
 <body class="theme-red">

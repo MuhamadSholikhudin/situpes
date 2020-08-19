@@ -29,6 +29,7 @@ class Pengguna extends CI_Controller
         $this->load->view('templates_admin/footer');
     }
 
+    
     public function tambah_aksi()
     {
 
@@ -45,9 +46,61 @@ class Pengguna extends CI_Controller
             'level' => $level
         );
 
-        $this->model_user->tambah_user($data, 'user');
+        $datat = array(
+            'nama' => $nama,
+            'nip' => $username
+        );
+
+        $this->Model_user->tambah_user($data, 'user');
+        $this->Model_data_pegawai->tambah_data_pegawai($datat, 'data_pegawai');
         redirect('sekre/pengguna/');
     }
 
+    public function edit($id_user)
+    {
+
+        $where = array('id_user' => $id_user);
+        $data['user'] = $this->Model_user->edit_user($where, 'user')->result();
+
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('sekre/edit_pengguna', $data);
+        $this->load->view('templates_admin/footer');
+    }
+
+    public function update()
+    {
+        $id_user = $this->input->post('id_user');
+        $nama = $this->input->post('nama');
+        $username = $this->input->post('username');
+        $nip = $this->input->post('username');
+        $usernamelama = $this->input->post('usernamelama');
+        $password = $this->input->post('password');
+        $level = $this->input->post('level');
+
+        $data = array(
+            'nama' => $nama,
+            'username' => $username,
+            'password' => $password,
+            'level' => $level
+        );
+
+        $where = [
+            'id_user' => $id_user
+        ];
+
+        $datat = [
+            'nip' => $nip,
+            'nama' => $nama
+        ];
+
+        $wheret = [
+            'nip' => $usernamelama
+        ];
+
+        $this->Model_user->update_data($where, $data, 'user');
+        $this->Model_data_pegawai->update_datat($wheret, $datat, 'data_pegawai');
+        redirect('sekre/pengguna/');
+    }
 
 }
