@@ -21,32 +21,75 @@ class Surat extends CI_Controller
     public function index()
     {
 
-        // $data['pengguna'] = $this->db->get('user')->result();
+        $data['surat'] = $this->db->get('surat_penugasan')->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('sekre/surat');
+        $this->load->view('sekre/surat', $data);
+        $this->load->view('templates_admin/footer');
+    }
+
+    public function lihat($no_surat)
+    {
+        $where = array('no_surat' => $no_surat);
+        $data['surat'] = $this->Model_surat_penugasan->edit_surat_penugasan($where, 'surat_penugasan')->result();
+
+        $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+ 
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('sekre/lihat_surat', $data);
+        $this->load->view('templates_admin/footer');
+    }
+
+    public function edit($no_surat)
+    {
+        $where = array('no_surat' => $no_surat);
+        $data['surat'] = $this->Model_surat_penugasan->edit_surat_penugasan($where, 'surat_penugasan')->result();
+
+        $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('sekre/edit_surat', $data);
         $this->load->view('templates_admin/footer');
     }
 
     public function tambah_aksi()
     {
 
-        $judul = $this->input->post('judul');
+        // $judul = $this->input->post('judul');
         $keterangan = $this->input->post('keterangan');
-        $tgl_berlaku = $this->input->post('tgl_berlaku');
-        $status_surat = 0;
+        $alamat = $this->input->post('alamat');
+        // $status_surat = 0;
 
 
         $data = array(
-            'judul' => $judul,
+            // 'judul' => $judul,
             'keterangan' => $keterangan,
-            'tgl_berlaku' => $tgl_berlaku,
-            'status_surat' => $status_surat
+            'alamat' => $alamat
         );
 
-        $this->model_surat->tambah_surat($data, 'surat_penugasan');
-        redirect('sekre/pengguna/');
+        $this->Model_surat->tambah_surat($data, 'surat_penugasan');
+        redirect('sekre/surat/');
+    }
+
+    public function edit_surat_aksi()
+    {
+        $keterangan = $this->input->post('keterangan');
+        $alamat = $this->input->post('alamat');
+        $no_surat = $this->input->post('no_surat');
+
+        $data = [
+            'keterangan' => $keterangan,
+            'alamat' => $alamat
+        ];
+        $where = [
+            'no_surat' => $no_surat
+        ];
+
+        $this->Model_surat_penugasan->update_data($where, $data, 'surat_penugasan');
+        redirect('sekre/surat/');
     }
 
 
