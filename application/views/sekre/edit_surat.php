@@ -81,7 +81,68 @@
                                     <br>
                                     <a href="<?= base_url('sekre/surat') ?>" class="btn btn-success">Kembali </a>
                                     <button type="submit" class="btn btn-primary">Edit Surat </button>
-                                    <button class="btn btn-dark">Tambah Pegawai</button>
+                                    <button class="btn btn-dark" data-target="#defaultModal" data-toggle="modal">Tambah Pegawai</button>
+<div tabindex="-1" class="modal fade" id="defaultModal" role="dialog" style="display: none;">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="card">
+                                            <div class="header">
+                                                <h2>
+                                                    Tambah Pegawai Bertugas
+                                                </h2>
+                                                
+                                            </div>
+                                            <div class="body">
+                                                <form action="<?= base_url('sekre/surat/tambah_pegawai_bertugas') ?>" method="POST" enctype="multipart/form-data">
+
+                                                    <label for="nip">nip</label>
+                                                    <div class="form-group">
+                                                        <select class="selectpicker form-line" name="nip" id="nip">
+                                                            <option value="1">Mustard</option>
+                                                            <option value="2">Ketchup</option>
+                                                            <option value="3">Barbecue</option>
+                                                        </select>
+                                                    </div>
+                                                    <label for="nama">Nama</label>
+                                                    <div class="form-group">
+                                                        <div class="form-line">
+                                                            <input class="form-control" id="nama" type="text" name="nama" placeholder="Masukkan nama pegawai">
+<?php foreach ($surat as $sur) : ?>
+<input class="form-control" id="no" type="text" name="no_surat" value="<?= $sur->no_surat ?>">
+<?php endforeach; ?>                                                       
+                                                        </div>
+                                                    </div>
+
+                                                    <label for="jabatan">Jabatan</label>
+                                                    <div class="form-group">
+                                                        <select class="selectpicker form-line" name="jabatan" id="jabatan">
+                                                            <option value="1">Mustard</option>
+                                                            <option value="2">Ketchup</option>
+                                                            <option value="3">Barbecue</option>
+                                                        </select>
+                                                    </div>
+                                                    <label for="pangkat">Pangkat</label>
+                                                    <div class="form-group">
+                                                        <select class="selectpicker form-line" name="pangkat" id="pangkat">
+                                                            <option value="1">Mustard</option>
+                                                            <option value="2">Ketchup</option>
+                                                            <option value="3">Barbecue</option>
+                                                        </select>
+                                                    </div>
+                                                    <br>
+                                                    <button class="btn btn-primary m-t-15 waves-effect" type="submit">TAMBAH</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- <button class="btn btn-link waves-effect" type="button">SAVE CHANGES</button> -->
+                                        <button class="btn btn-link waves-effect" type="button" data-dismiss="modal">CLOSE</button>
+                                    </div>
+                                </div>
+                            </div>
+
                                 </div>
                             </div>
                         </form>
