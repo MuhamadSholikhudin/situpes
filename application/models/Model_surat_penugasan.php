@@ -5,6 +5,7 @@ class Model_surat_penugasan extends CI_Model
 {
     public function tampil_data()
     {
+        $this->db->order_by('no_surat', 'desc');
         return $this->db->get('surat_penugasan');
     }
 

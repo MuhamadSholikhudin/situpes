@@ -21,7 +21,7 @@ class Surat extends CI_Controller
     public function index()
     {
 
-        $data['surat'] = $this->db->get('surat_penugasan')->result();
+        $data['surat'] = $this->db->query("SELECT * FROM surat_penugasan ORDER BY no_surat DESC")->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
@@ -49,6 +49,12 @@ class Surat extends CI_Controller
 
         $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
 
+        $data['datatugas'] = $this->db->query(" SELECT * FROM  data_pegawai  WHERE no_surat = $no_surat ")->result();
+        $data['dagas'] = $this->db->query(" SELECT * FROM  data_pegawai  WHERE no_surat = $no_surat ");
+
+
+        $data['user'] = $this->db->query(" SELECT * FROM user ")->result();
+
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('sekre/edit_surat', $data);
@@ -74,6 +80,27 @@ class Surat extends CI_Controller
         redirect('sekre/surat/');
     }
 
+    public function tambah_pegawai_aksi()
+    {
+
+        $nip = $this->input->post('nip');
+        $no_surat = $this->input->post('no_surat');
+        $nama = $this->input->post('nama');
+        $jabatan = $this->input->post('jabatan');
+        $pangkat = $this->input->post('pangkat');
+
+        $data = array(
+            'nip' => $nip,
+            'no_surat' => $no_surat,
+            'nama' => $nama,
+            'jabatan' => $jabatan,
+            'pangkat' => $pangkat
+        );
+
+        $this->Model_data_pegawai->tambah_data_pegawai($data, 'data_pegawai');
+        redirect('sekre/surat/edit/' . $no_surat);
+    }
+
     public function edit_surat_aksi()
     {
         $keterangan = $this->input->post('keterangan');
@@ -83,6 +110,35 @@ class Surat extends CI_Controller
         $data = [
             'keterangan' => $keterangan,
             'alamat' => $alamat
+        ];
+        $where = [
+            'no_surat' => $no_surat
+        ];
+
+        $this->Model_surat_penugasan->update_data($where, $data, 'surat_penugasan');
+        redirect('sekre/surat/');
+    }
+
+
+    public function hapus_pegawai_aksi($no_surat, $nip)
+    {
+
+        // $nip = $this->input->post('nip');
+        // $no_surat = $this->input->post('no_surat');
+
+
+        $where = ['nip' => $nip , 'no_surat' => $no_surat];
+
+        $this->Model_data_pegawai->hapus_data($where, 'data_pegawai');
+        redirect('sekre/surat/edit/' . $no_surat);
+    }
+
+    public function ajukan_surat($no_surat)
+    {
+        
+
+        $data = [
+                       'status_surat' => 1
         ];
         $where = [
             'no_surat' => $no_surat

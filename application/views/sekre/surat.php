@@ -99,15 +99,32 @@
                                         <?php foreach ($surat as $sus) : ?>
                                             <tr>
                                                 <td><?= $no++ ?></td>
-                                                <td><a href="<?= base_url('sekre/surat/lihat/'). $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
+                                                <td><a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
                                                 <td><?= $sus->alamat ?></td>
                                                 <td><?= $sus->keterangan ?></td>
-                                                <td><a href="<?= base_url('sekre/surat/status/') ?>" class="btn btn-primary waves-effect" type="button">
-                                                        <i class="material-icons">done</i>
-                                                    </a></td>
-                                                <td><a href="<?= base_url('sekre/surat/edit/') . $sus->no_surat ?>" class="btn btn-warning waves-effect" type="button">
-                                                        <i class="material-icons">mode_edit</i>
-                                                    </a></td>
+                                                <td>
+
+                                                    <?php if ($sus->status_surat == 0) { ?>
+                                                        <a href="<?= base_url('sekre/surat/ajukan_surat/') . $sus->no_surat ?>" class="btn btn-primary waves-effect" type="button">
+                                                            <i class="material-icons">done</i>
+                                                        </a>
+                                                    <?php } elseif ($sus->status_surat == 1) { ?>
+                                                        <button class="btn btn-warning waves-effect" type="button">
+                                                            <i class="material-icons">call_missed_outgoing</i>
+                                                        </button>
+                                                    <?php } ?>
+                                                </td>
+                                                <td><?php if ($sus->status_surat == 0) { ?>
+                                                        <a href="<?= base_url('sekre/surat/edit/') . $sus->no_surat ?>" class="btn btn-warning waves-effect" type="button">
+                                                            <i class="material-icons">mode_edit</i>
+                                                        </a>
+                                                    <?php } elseif ($sus->status_surat == 1) { ?>
+                                                        <a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>" class="btn btn-warning waves-effect" type="button">
+                                                            <i class="material-icons">remove_red_eye</i>
+                                                        </a>
+                                                    <?php } ?>
+
+                                                </td>
                                                 <td><a href="<?= base_url('sekre/surat/hapus/') ?>" class="btn btn-danger waves-effect" type="button">
                                                         <i class="material-icons">delete_forever</i>
                                                     </a></td>

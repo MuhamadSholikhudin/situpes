@@ -42,6 +42,18 @@
         $('select').selectpicker();
     });
 </script>
+<script>
+    $(document).ready(function() {
+        $("button").click(function() {
+            $.ajax({
+                url: "<?= base_url('git.txt') ?>",
+                success: function(result) {
+                    $("#div1").html(result);
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>

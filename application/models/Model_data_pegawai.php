@@ -52,4 +52,6 @@ class Model_data_pegawai extends CI_Model
         $query = $this->db->query("SELECT COUNT(kode_data_pegawai), kecamatan FROM data_pegawai GROUP BY kecamatan");
         return $query->result();
     }
+
+    
 }
