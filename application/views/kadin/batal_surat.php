@@ -25,7 +25,7 @@
 
             </div>
             <div class="body">
-                <form action="<?= base_url('kadin/surat/acc/') ?>" enctype="multipart/form-data" method="POST">
+                <form action="<?= base_url('kadin/surat/batalkan/') ?>" enctype="multipart/form-data" method="POST">
                     <h3 class="text-center"><u>SURAT TUGAS</u> </h3>
                     <?php foreach ($surat as $sur) : ?>
                         <h4 class="text-center">NO : <?= $sur->no_surat ?>/DINBLK/20/08/2020</h4>
@@ -66,7 +66,7 @@
                                                     </td>
                                                     <td>
                                                         <h4>&nbsp;<?= $dsur->nama ?> &nbsp; &nbsp;</h4>
-                                                        <input class="form-control" type="hidden" name="status_pegawai[]" value="1">
+                                                        <input class="form-control" type="hidden" name="status_pegawai[]" value="0">
 
                                                     </td>
                                                     <td>
@@ -120,9 +120,7 @@
                                 <div>
                                     <br>
                                     <div class="justify-content-center">
-
-                                        <a href="<?= base_url('kadin/surat/kembalikan_surat/'). $no_surat ?>" class="btn btn-warning">Kembalikan Surat </a>
-                                        <button type="submit" class="btn btn-primary">ACC Surat </button>
+                                        <button type="submit" class="btn btn-danger btn-lg btn-block">Batalkan Acc Surat </button>
                                     </div>
                                     <br>
                                 </div>
