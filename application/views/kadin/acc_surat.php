@@ -25,7 +25,9 @@
 
             </div>
             <div class="body">
-
+            <form action="<?= base_url('kadin/surat/acc_surat') ?>" method="POST" enctype="multipart/form-data">
+            
+            
                 <h3 class="text-center"><u>SURAT TUGAS</u> </h3>
                 <?php foreach ($surat as $sur) : ?>
                     <h4 class="text-center">NO : <?= $sur->no_surat ?>/DINBLK/20/08/2020</h4>
@@ -51,7 +53,6 @@
                             </div>
                             <div class="col-sm-5">
                                 <div>
-
                                     <table>
                                         <tbody class="text-left">
                                             <?php $no = 1; ?>
@@ -59,8 +60,10 @@
                                                 <tr>
                                                     <td>
                                                         <h4>&nbsp;<?= $no++; ?> &nbsp;: &nbsp;</h4>
+                                                    <input class="form-control" type="hidden" name="id[]"  value="<?= $dsur->id ?>">
                                                     </td>
                                                     <td>
+                                                    <input class="form-control" type="hidden" name="status_pegawai[]"  value="2">
                                                         <h4>&nbsp;<?= $dsur->nama ?> &nbsp; &nbsp;</h4>
                                                     </td>
                                                     <td>
@@ -73,7 +76,6 @@
                                 </div>
                             </div>
                             <div class="col-sm-2">
-
 
                             </div>
                         </div>
@@ -125,9 +127,10 @@
                             <h4 class="text-center">NIP :<?= $kad->username ?></h4>
                         </div>
                     <?php endforeach; ?>
-
+                    
                 </div>
             </div>
         </div>
+        </form>
     </div>
 </section>

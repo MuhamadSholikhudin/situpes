@@ -48,25 +48,33 @@ class Surat extends CI_Controller
         $this->load->view('templates_admin/footer');
     }
 
-    public function edit_aksi()
+    public function acc_surat()
     {
 
-
         //Update data attribut
+        $id = $this->input->post('id');
         $no_surat = $this->input->post('no_surat');
-        $id = $this->input->post('no_jadwal');
         $result = array();
-        foreach ($no_surat as $key => $val) {
+        foreach ($id as $key => $val) {
             $result[] = array(
-                "no_surat" => $no_surat[$key],
-                "status_surat" => $_POST['status_surat'][$key]
-                // "jumlah"  =>$_POST['nilai'][$key]
-                // "jumlah"  => $_POST['skor'][$key] * $_POST['nilai'][$key]
+                "id" => $id[$key],
+                "status_peg" => $_POST['status_pegawai'][$key]
+
             );
         }
-        $this->db->update_batch('data_pegawai', $result, 'status_surat');
+        $this->db->update_batch('data_pegawai', $result, 'status_pegawai');
 
-        redirect('kadin/surat/');
+
+        $data = [
+            'status_surat' => 2
+        ];
+        $where = [
+        'no_surat' => $no_surat
+        ];
+        $this->Model_surat_penugasan->update_data($where, $data, 'surat_penugasan');
+
+
+        redirect('kadin/surat/lihat/'. $no_surat);
     }
 
 }
