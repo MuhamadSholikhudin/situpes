@@ -25,19 +25,7 @@
 
             </div>
             <div class="body">
-            <form action="<?= base_url('kadin/surat/acc_surat') ?>" method="POST" enctype="multipart/form-data">
-            
-            
-                <h3 class="text-center"><u>SURAT TUGAS</u> </h3>
-                <?php foreach ($surat as $sur) : ?>
-                    <h4 class="text-center">NO : <?= $sur->no_surat ?>/DINBLK/20/08/2020</h4>
-                <?php endforeach; ?>
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <form action="<?= base_url('kadin/surat/acc/') ?>" enctype="multipart/form-data" method="POST">
+                <form action="<?= base_url('kadin/surat/batalkan/') ?>" enctype="multipart/form-data" method="POST">
                     <h3 class="text-center"><u>SURAT TUGAS</u> </h3>
                     <?php foreach ($surat as $sur) : ?>
                         <h4 class="text-center">NO : <?= $sur->no_surat ?>/DINBLK/20/08/2020</h4>
@@ -48,7 +36,6 @@
                     <br>
                     <br>
                     <br>
-
                     <?php foreach ($surat as $sur) : ?>
                         <p class="lead">
 
@@ -66,6 +53,7 @@
                             </div>
                             <div class="col-sm-5">
                                 <div>
+
                                     <table>
                                         <tbody class="text-left">
                                             <?php $no = 1; ?>
@@ -75,12 +63,10 @@
                                                         <h4>&nbsp;<?= $no++; ?> &nbsp;: &nbsp;</h4>
                                                         <input class="form-control" type="hidden" name="id[]" value="<?= $dsur->id; ?>">
 
-
                                                     </td>
                                                     <td>
-                                                    <input class="form-control" type="hidden" name="status_pegawai[]"  value="2">
                                                         <h4>&nbsp;<?= $dsur->nama ?> &nbsp; &nbsp;</h4>
-                                                        <input class="form-control" type="hidden" name="status_pegawai[]" value="1">
+                                                        <input class="form-control" type="hidden" name="status_pegawai[]" value="0">
 
                                                     </td>
                                                     <td>
@@ -93,6 +79,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-2">
+
 
                             </div>
                         </div>
@@ -123,6 +110,7 @@
                                 <a href="<?= base_url('kadin/surat') ?>" class="btn btn-success">Kembali </a>
                             </div>
                         </div>
+
                         <div class="col-sm-4 ">
                             <?php foreach ($kadin as $kad) : ?>
                                 <div>
@@ -132,9 +120,7 @@
                                 <div>
                                     <br>
                                     <div class="justify-content-center">
-
-                                        <a href="<?= base_url('kadin/surat/kembalikan_surat/'). $no_surat ?>" class="btn btn-warning">Kembalikan Surat </a>
-                                        <button type="submit" class="btn btn-primary">ACC Surat </button>
+                                        <button type="submit" class="btn btn-danger btn-lg btn-block">Batalkan Acc Surat </button>
                                     </div>
                                     <br>
                                 </div>
@@ -147,9 +133,7 @@
                         </div>
                     </div>
                 </form>
-
             </div>
 
         </div>
 </section>
-

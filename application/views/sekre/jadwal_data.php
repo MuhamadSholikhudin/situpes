@@ -28,37 +28,32 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>No Surat</th>
-                                        <th>keterangan</th>
-                                        <th>Alamat</th>
-                                        <th>Status</th>
-                                        <th>Ubah</th>
+                                        <th>NIP</th>
+                                        <th>Nama</th>
+                                        <th>Jabatan</th>
+                                        <th>Pangkat</th>
+                                        <th>Jadwal</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <?php $no = 1; ?>
-                                    <?php foreach ($surat as $sus) : ?>
+                                    <?php foreach ($pegawai as $peg) : ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
-                                            <td><a href="<?= base_url('sekre/jadwal/data/') . $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
-                                            <td><?= $sus->alamat ?></td>
-                                            <td><?= $sus->keterangan ?></td>
-                                            <td>
+                                            <td><a href="<?= base_url('sekre/jadwal/data/') . $peg->nip ?>"><?= $peg->nip ?></a></td>
+                                            <td><?= $peg->nama ?></td>
+                                            <td><?= $peg->jabatan ?></td>
+                                            <td><?= $peg->pangkat ?></td>
 
-                                                    <button class="btn btn-warning waves-effect" type="button">
-                                                        <i class="material-icons">call_missed_outgoing</i>
-                                                    </button>
-                                       
-                                            </td>
                                             <td>
-                                                    <a href="<?= base_url('sekre/jadwal/data/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
-                                                        <i class="material-icons">remove_red_eye</i>
-                                                    </a>
-                                                
+                                                <a href="<?= base_url('sekre/jadwal/pegawai/') .  $peg->id?>" class="btn btn-success waves-effect" >
+                                                    <i class="material-icons">remove_red_eye</i>
+                                                </a>
+
 
                                             </td>
-                                           
+
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

@@ -134,9 +134,7 @@ class Surat extends CI_Controller
     }
 
     public function ajukan_surat($no_surat)
-    {
-        
-
+    {      
         $data = [
                        'status_surat' => 1
         ];
