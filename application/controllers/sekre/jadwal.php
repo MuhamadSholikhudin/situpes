@@ -31,7 +31,6 @@ class Jadwal extends CI_Controller
 
     public function data($no_surat)
     {
-
         $data['pegawai'] = $this->db->query("SELECT * FROM data_pegawai WHERE no_surat = $no_surat ORDER BY no_surat DESC")->result();
 
         $this->load->view('templates_admin/header');
@@ -49,6 +48,17 @@ class Jadwal extends CI_Controller
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('sekre/jadwal_pegawai', $data);
+        $this->load->view('templates_admin/footer');
+    }
+
+    public function pegawai_edit($id_jadwal)
+    {
+
+        $data['jadwal'] = $this->db->query("SELECT * FROM jadwal_penugasan WHERE id_jadwal = $id_jadwal ")->result();
+
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('sekre/edit_pegawai', $data);
         $this->load->view('templates_admin/footer');
     }
 
