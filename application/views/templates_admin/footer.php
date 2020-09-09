@@ -52,6 +52,37 @@
                 }
             });
         });
+
+
+    });
+</script>
+<script>
+    $(function() {
+
+
+        $('#Modalubahbutton').click(function() {
+            // $('#iki').html('Ubah Data Mahasiswa');
+            const id_jadwal = $(this).data('id_jadwal');
+
+            $.ajax({
+                url: '<?= base_url('sekre/jadwal/buka') ?>',
+                data: {
+                    id_jadwal: id_jadwal
+                },
+                method: 'post',
+                dataType: 'json',
+                success: function(data) {
+                    // $('#ujadwal').val(data.jadwal);
+                    // $('#uid_jadwal').val(data.id_jadwal);
+                    console.log(data);
+                    // alert(data);
+
+                }
+            });
+
+        });
+
+
     });
 </script>
 </body>

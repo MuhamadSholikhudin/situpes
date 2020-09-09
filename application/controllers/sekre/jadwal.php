@@ -44,7 +44,7 @@ class Jadwal extends CI_Controller
     {
         $data['pegawai'] = $this->db->query("SELECT * FROM data_pegawai WHERE id = $id ")->result();
 
-        $data['jadwal'] = $this->db->query("SELECT * FROM jadwal_penugasan WHERE id = $id ")->result();
+        $data['jadwal'] = $this->db->query("SELECT * FROM jadwal_penugasan WHERE id = $id ORDER BY id_jadwal DESC")->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
@@ -75,11 +75,27 @@ class Jadwal extends CI_Controller
     }
 
 
-    public function jadwal_lihat($id_jadwal)
+    public function jadwal_lihat()
     {
+        // $id_jadwal = $_POST['id_jadwal'];
+        // $where = array('id_jadwal' => $id_jadwal);
+        // echo json_encode($this->Model_jadwal_penugasan->edit_jadwal_penugasan($where, 'jadwal_penugasan')->result());
+        // echo json_encode($_POST['id_jadwal']);
+
+        echo $_POST['id_jadwal'];
+       
+    }
+
+    public function buka()
+    {
+        $id_jadwal = $_POST['id_jadwal'];
         $where = array('id_jadwal' => $id_jadwal);
         echo json_encode($this->Model_jadwal_penugasan->edit_jadwal_penugasan($where, 'jadwal_penugasan')->result());
-       
+        // $this->Model_jadwal_penugasan->edit_jadwal_penugasan($where, 'jadwal_penugasan')->result();
+        // echo json_encode($_POST['id']);
+
+        // echo $_POST['id'];
+        // echo "ok";
     }
 
 }
