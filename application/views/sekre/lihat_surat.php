@@ -30,7 +30,6 @@
                     <?php foreach ($surat as $sur) : ?>
                         <p class="lead">
                             <?= $sur->alamat ?>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
                         </p>
                         <br>
                         <br>
@@ -47,10 +46,7 @@
                                     <h4>
                                         <i class="material-icons">delete</i> &nbsp;1 : Herman
                                     </h4>
-                                    <h4>1 : Herman</h4>
-                                    <h4>1 : Herman</h4>
-                                    <h4>1 : Herman</h4>
-                                    <h4>1 : Herman</h4>
+                      
                                 </div>
                             </div>
                         </div>

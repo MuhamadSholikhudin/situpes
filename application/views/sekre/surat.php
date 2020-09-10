@@ -30,12 +30,12 @@
                                                 </ul>
                                             </div>
                                             <div class="body">
-                                                <form action="<?= base_url('sekre/pengguna/tambah_aksi') ?>" method="POST" enctype="multipart/form-data">
+                                                <form action="<?= base_url('sekre/surat/tambah_aksi') ?>" method="POST" enctype="multipart/form-data">
                                                     <label for="judul">judul </label>
                                                     <div class="form-group">
                                                         <div class="form-line">
                                                             <!-- <input class="form-control" id="judul" type="text" name="judul" placeholder="Enter your email address"> -->
-                                                            <textarea name="judul" id="judul" cols="70" rows="10"></textarea>
+                                                            <textarea name="alamat" id="judul" cols="70" rows="10"></textarea>
 
                                                         </div>
                                                     </div>

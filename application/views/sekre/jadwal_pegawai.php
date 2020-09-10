@@ -29,9 +29,9 @@
                                                     </div>
                                                     <?php foreach ($pegawai as $peg) : ?>
 
-                                                        <input class="form-control" id="no_surat" type="hidden" name="no_surat" value="<?= $peg->no_surat ?>">
-                                                        <input class="form-control" id="id" type="hidden" name="id" value="<?= $peg->id ?>">
-                                                        <input class="form-control" id="nip" type="hidden" name="nip" value="<?= $peg->nip ?>">
+                                                        <input class="form-control" id="no_surat" type="text" name="no_surat" value="<?= $peg->no_surat ?>">
+                                                        <input class="form-control" id="id" type="text" name="id" value="<?= $peg->id ?>">
+                                                        <input class="form-control" id="nip" type="text" name="nip" value="<?= $peg->nip ?>">
                                                     <?php endforeach; ?>
 
                                                     <br>
@@ -47,9 +47,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-                        
 
 
 
@@ -77,7 +74,7 @@
                                                 <td><?= $jad->status_jadwal ?></td>
 
 
-                                                <td><a href="<?= base_url('sekre/jadwal/pegawai_edit/') . $jad->id_jadwal ?>" id="Modalubahbutton" class="btn btn-dark waves-effect" data-toggle="modal" data-target="#ubahModal" data-id_jadwal="<?= $jad->id_jadwal ?>">
+                                                <td><a href="<?= base_url('sekre/jadwal/pegawai_edit/') . $jad->id_jadwal ?>"  class="btn btn-dark waves-effect">
                                                         <i class="material-icons">edit</i>
                                                     </a></td>
                                                 <td><a href="<?= base_url('sekre/jadwal/pegawai_hapus/') ?>" class="btn btn-danger waves-effect" type="button">

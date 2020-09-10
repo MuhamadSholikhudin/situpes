@@ -76,7 +76,7 @@ class Surat extends CI_Controller
             'alamat' => $alamat
         );
 
-        $this->Model_surat->tambah_surat($data, 'surat_penugasan');
+        $this->Model_surat_penugasan->tambah_surat_penugasan($data, 'surat_penugasan');
         redirect('sekre/surat/');
     }
 
