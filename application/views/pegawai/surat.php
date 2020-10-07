@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Jadwal Penugasan
+                            Data Surat Tugas pegawai
                         </h2>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
@@ -28,34 +28,34 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>NIP</th>
-                                        <th>Nama</th>
-                                        <th>Jabatan</th>
-                                        <th>Pangkat</th>
-                                        <th>Jadwal</th>
+                                        <th>Surat</th>
+                                        <th>Berlaku</th>
+                                        <th>Jumlah Absensi</th>
+                                        <th>Lihat</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <?php $no = 1; ?>
-                                    <?php foreach ($pegawai as $peg) : ?>
+                                    <?php foreach ($surat as $su) : ?>
                                         <tr>
-                                            <td><?= $no++ ?></td>
-                                            <td><a href="<?= base_url('sekre/jadwal/pegawai/') . $peg->id ?>"><?= $peg->nip ?></a></td>
-                                            <td><?= $peg->nama ?></td>
-                                            <td><?= $peg->jabatan ?></td>
-                                            <td><?= $peg->pangkat ?></td>
-
-                                            <td>
-                                                <a href="<?= base_url('sekre/jadwal/pegawai/') .  $peg->id?>" class="btn btn-success waves-effect" >
-                                                    <i class="material-icons">remove_red_eye</i>
-                                                </a>
-
-
-                                            </td>
-
+                                            <td>a</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><?= $su->alamat ?></td>
+                                            <td><a href="<?= base_url("pegawai/absensi/pegawai/") . $su->no_surat ?>"><i class="material-icons">edit</i></a></td>
+                                            <td><?= $su->alamat ?></td>
                                         </tr>
                                     <?php endforeach; ?>
+
+                                    <tr>
+                                        <td>b</td>
+                                        <td>123</td>
+                                        <td>adel</td>
+                                        <td>sekretaris</td>
+                                        <td>sekre</td>
+                                        <td></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

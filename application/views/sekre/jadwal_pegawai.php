@@ -48,8 +48,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -72,12 +70,10 @@
                                                 <td><?= $jad->nip ?></td>
                                                 <td><?= $jad->jadwal ?></td>
                                                 <td><?= $jad->status_jadwal ?></td>
-
-
                                                 <td><a href="<?= base_url('sekre/jadwal/pegawai_edit/') . $jad->id_jadwal ?>"  class="btn btn-dark waves-effect">
                                                         <i class="material-icons">edit</i>
                                                     </a></td>
-                                                <td><a href="<?= base_url('sekre/jadwal/pegawai_hapus/') ?>" class="btn btn-danger waves-effect" type="button">
+                                                <td><a href="<?= base_url('sekre/jadwal/pegawai_hapus/'). $jad->id . '/'. $jad->id_jadwal  ?>" class="btn btn-danger waves-effect" type="button">
                                                         <i class="material-icons">delete_forever</i>
                                                     </a></td>
                                             </tr>

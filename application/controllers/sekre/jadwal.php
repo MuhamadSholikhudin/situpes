@@ -62,6 +62,24 @@ class Jadwal extends CI_Controller
         $this->load->view('templates_admin/footer');
     }
 
+    public function edit_jadwal_aksi()
+    {
+        $id_jadwal = $this->input->post('id_jadwal');
+        $jadwal = $this->input->post('jadwal');
+        $id = $this->input->post('id');
+
+        $data = array(
+            'jadwal' => $jadwal
+        );
+
+        $where = [
+            'id_jadwal' => $id_jadwal
+        ];
+
+        $this->Model_jadwal_penugasan->update_data($where, $data, 'jadwal_penugasan');
+        redirect('sekre/jadwal/pegawai/' . $id);
+    }
+
     public function tambah_aksi()
     {
 
@@ -106,6 +124,14 @@ class Jadwal extends CI_Controller
 
         // echo $_POST['id'];
         // echo "ok";
+    }
+
+    public function pegawai_hapus($id, $id_jadwal)
+    {
+
+        $where = ['id_jadwal' => $id_jadwal];
+        $this->Model_jadwal_penugasan->hapus_data($where, 'jadwal_penugasan');
+        redirect('sekre/jadwal/pegawai/' . $id);
     }
 
 }

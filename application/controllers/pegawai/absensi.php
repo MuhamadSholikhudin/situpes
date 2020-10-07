@@ -20,12 +20,41 @@ class Absensi extends CI_Controller
 
     public function index()
     {
+        $username = $this->session->userdata('username');
 
-        // $data['pengguna'] = $this->db->get('user')->result();
+        $data['surat'] = $this->db->query("SELECT surat_penugasan.no_surat, surat_penugasan.alamat FROM surat_penugasan JOIN data_pegawai ON surat_penugasan.no_surat = data_pegawai.no_surat WHERE status_surat = 2 AND data_pegawai.nip = '$username' ORDER BY surat_penugasan.no_surat DESC")->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('sekre/absensi');
+        $this->load->view('pegawai/surat', $data);
+        $this->load->view('templates_admin/footer');
+    }
+
+    public function pegawai($no_surat)
+    {
+        $username = $this->session->userdata('username');
+
+        $data['jadwal'] = $this->db->query("SELECT id_jadwal, jadwal, nip, status_jadwal FROM jadwal_penugasan WHERE no_surat = $no_surat AND nip = '$username' ORDER BY jadwal ASC")->result();
+
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('pegawai/pegawai', $data);
+        $this->load->view('templates_admin/footer');
+    }
+
+    public function input($id_jadwal)
+    {
+          $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('pegawai/input');
+        $this->load->view('templates_admin/footer');
+    }
+
+    public function edit($id_jadwal)
+    {
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('pegawai/update');
         $this->load->view('templates_admin/footer');
     }
 
