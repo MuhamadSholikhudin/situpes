@@ -30,6 +30,12 @@ class Model_jadwal_penugasan extends CI_Model
         $this->db->update($table, $data);
     }
 
+    public function update_datat($where, $datat, $table)
+    {
+        $this->db->where($where);
+        $this->db->update($table, $datat);
+    }
+
     public function hapus_data($where, $table)
     {
         $this->db->where($where);

@@ -74,8 +74,6 @@
 
                                     </table>
 
-
-
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -109,7 +107,7 @@
                                 <br>
                                 <a href="<?= base_url('sekre/surat') ?>" class="btn btn-success">Kembali </a>
                                 <button type="submit" class="btn btn-primary">Edit Surat </button>
-                                <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH SURAT TUGAS</button>
+                                <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH PEGAWAI BERTUGAS</button>
 
 
                             </div>

@@ -5,21 +5,21 @@ class Model_absensi extends CI_Model
 {
     public function tampil_data()
     {
-        return $this->db->get('kriteria_penilaian');
+        return $this->db->get('absensi');
     }
 
-    public function tampil_kriteria_penilaian()
+    public function tampil_absensi()
     {
         $tahun = date('Y');
-        return $this->db->get_where('kriteria_penilaian', array('tahun' => $tahun));
+        return $this->db->get_where('absensi', array('tahun' => $tahun));
     }
 
-    public function tambah_kriteria_penilaian($data, $table)
+    public function tambah_absensi($data, $table)
     {
         $this->db->insert($table, $data);
     }
 
-    public function edit_kriteria_penilaian($where, $table)
+    public function edit_absensi($where, $table)
     {
         return $this->db->get_where($table, $where);
     }

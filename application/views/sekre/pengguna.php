@@ -57,7 +57,23 @@
                                                             <option value="3">Pegawai</option>
                                                         </select>
                                                     </div>
-                                                    
+                                                    <label for="jabatan">Jabatan</label>
+                                                    <div class="form-group">
+                                                        <select class="selectpicker form-line" name="jabatan" id="jabatan">
+                                                            <option value="1">Mustard</option>
+                                                            <option value="2">Ketchup</option>
+                                                            <option value="3" selected>Barbecue</option>
+                                                        </select>
+                                                    </div>
+                                                    <label for="pangkat">Pangkat</label>
+                                                    <div class="form-group">
+                                                        <select class="selectpicker form-line" name="pangkat" id="pangkat">
+                                                            <option value="1">Mustard</option>
+                                                            <option value="2">Ketchup</option>
+                                                            <option value="3" selected>Barbecue</option>
+                                                        </select>
+                                                    </div>
+
                                                     <br>
                                                     <button class="btn btn-primary m-t-15 waves-effect" type="submit">SIMPAN</button>
                                                 </form>
@@ -71,18 +87,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+
                     </div>
                     <div class="body">
                         <div class="table-responsive">

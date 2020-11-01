@@ -34,7 +34,7 @@ class Absensi extends CI_Controller
     {
         $username = $this->session->userdata('username');
 
-        $data['jadwal'] = $this->db->query("SELECT id_jadwal, jadwal, nip, status_jadwal FROM jadwal_penugasan WHERE no_surat = $no_surat AND nip = '$username' ORDER BY jadwal ASC")->result();
+        $data['jadwal'] = $this->db->query("SELECT no_surat, id_jadwal, jadwal, nip, status_jadwal FROM jadwal_penugasan WHERE no_surat = $no_surat AND nip = '$username' ORDER BY jadwal ASC")->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
@@ -42,11 +42,20 @@ class Absensi extends CI_Controller
         $this->load->view('templates_admin/footer');
     }
 
-    public function input($id_jadwal)
+    public function input($id_jadwal , $no_surat)
     {
-          $this->load->view('templates_admin/header');
+        $username = $this->session->userdata('username');
+        $nama = $this->session->userdata('nama');
+        $where = array('no_surat' => $no_surat);
+        $data['surat'] = $this->Model_surat_penugasan->edit_surat_penugasan($where, 'surat_penugasan')->result();
+        $where = array('id_jadwal' => $id_jadwal);
+        $data['jadwal'] = $this->Model_jadwal_penugasan->edit_jadwal_penugasan($where, 'jadwal_penugasan')->result();
+        
+
+
+        $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('pegawai/input');
+        $this->load->view('pegawai/input', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -56,6 +65,41 @@ class Absensi extends CI_Controller
         $this->load->view('templates_admin/sidebar');
         $this->load->view('pegawai/update');
         $this->load->view('templates_admin/footer');
+    }
+
+
+    public function tugas()
+    {
+        $nip = $this->session->userdata('username');
+        $tanggal = date('Y-m-d');
+        $keterangan = $this->input->post('keterangan');
+        $status_absensi = $this->input->post('status_absensi');
+        $no_surat = $this->input->post('no_surat');
+        $id_jadwal = $this->input->post('id_jadwal');
+
+        $data = array(
+            'nip' => $nip,
+            'id_jadwal' => $id_jadwal,
+            'tanggal' => $tanggal,
+            'keterangan' => $keterangan,
+            'status_absensi' => $status_absensi
+        );
+
+        $this->Model_absensi->tambah_absensi($data, 'absensi');
+
+
+
+        $datat = array(
+            'status_jadwal' => $status_absensi
+        );
+
+        $where = [
+            'id_jadwal' => $id_jadwal
+        ];
+
+        $this->Model_jadwal_penugasan->update_datat($where, $datat, 'jadwal_penugasan');
+
+        redirect('pegawai/absensi/pegawai/' . $no_surat);
     }
 
 }

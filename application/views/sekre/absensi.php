@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            Absensi
+                            Laporan Surat
                         </h2>
                         <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
@@ -29,30 +29,25 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Judul Surat</th>
-                                        <th>NIP</th>
-                                        <th>Nama</th>
-                                        <th>Jabatan</th>
+                                        <th>alamat</th>
+                                        <th>Keterangan</th>
                                         <th>Tanggal</th>
-                                        <th>Ubah</th>
-                                        <th>Hapus</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>a</td>
-                                        <td>Latihan Kewiraushaan Kec Bae</td>
-                                        <td>121212</td>
-                                        <td>Sri Lestari</td>
-                                        <td>Pegawai</td>
-                                        <td>19</td>
-                                        <td><a href="<?= base_url('sekre/absensi/edit/') ?>" class="btn btn-warning waves-effect" type="button">
-                                                <i class="material-icons">mode_edit</i>
-                                            </a></td>
-                                        <td><a href="<?= base_url('sekre/absensi/hapus/') ?>" class="btn btn-danger waves-effect" type="button">
-                                                <i class="material-icons">delete_forever</i>
-                                            </a></td>
-                                    </tr>
+                                    <?php foreach ($surat as $sur) : ?>
+
+                                        <tr>
+                                            <td>a</td>
+                                            <td><?= $sur->judul ?></td>
+                                            <td><?= $sur->alamat ?></td>
+                                            <td><?= $sur->keterangan ?></td>
+                                            <td><?= $sur->tgl_buat ?></td>
+                                            <td><?= $sur->status_surat ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

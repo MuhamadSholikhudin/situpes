@@ -27,7 +27,15 @@
     <div class="navbar-header">
       <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
       <a href="javascript:void(0);" class="bars"></a>
-      <a class="navbar-brand" href="index.html">ADMINBSB - MATERIAL DESIGN</a>
+
+      <?php if($this->session->userdata('level') == 1){?>
+        <a class="navbar-brand" href="<?= base_url('sekre/dashboard/index'); ?>">SISTEM PENUGASAN DINAS TENAGA KERJA KABUPATEN KUDUS</a>
+      <?php }elseif ($this->session->userdata('level') == 2) { ?>
+        <a class="navbar-brand" href="<?= base_url('pegawai/dashboard/index'); ?>">SISTEM PENUGASAN DINAS TENAGA KERJA KABUPATEN KUDUS</a>
+      <?php }elseif ($this->session->userdata('level') == 3) { ?>
+        <a class="navbar-brand" href="<?= base_url('kadin/dashboard/index'); ?>">SISTEM PENUGASAN DINAS TENAGA KERJA KABUPATEN KUDUS</a>
+      <?php }
+      ?>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">

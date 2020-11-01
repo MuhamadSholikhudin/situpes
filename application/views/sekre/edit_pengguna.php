@@ -43,6 +43,22 @@
                                         <input class="form-control" id="hakakses" type="number" name="level" value="<?= $us->level ?>">
                                     </div>
                                 </div>
+                                <label for="jabatan">Jabatan</label>
+                                <div class="form-group">
+                                    <select class="selectpicker form-line" name="jabatan" id="jabatan">
+                                        <option value="1">Mustard</option>
+                                        <option value="2">Ketchup</option>
+                                        <option value="3" selected>Barbecue</option>
+                                    </select>
+                                </div>
+                                <label for="pangkat">Pangkat</label>
+                                <div class="form-group">
+                                    <select class="selectpicker form-line" name="pangkat" id="pangkat">
+                                        <option value="1">Mustard</option>
+                                        <option value="2">Ketchup</option>
+                                        <option value="3" selected>Barbecue</option>
+                                    </select>
+                                </div>
 
                                 <br>
                                 <button class="btn btn-primary m-t-15 waves-effect" type="submit">SIMPAN</button>

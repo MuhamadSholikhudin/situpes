@@ -21,31 +21,31 @@ class Laporan extends CI_Controller
     public function pegawai()
     {
 
-        // $data['pengguna'] = $this->db->get('user')->result();
+        $data['user'] = $this->db->get('user')->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('kadin/laporan');
+        $this->load->view('sekre/laporan', $data);
         $this->load->view('templates_admin/footer');
     }
     public function surat()
     {
 
-        // $data['pengguna'] = $this->db->get('user')->result();
+        $data['surat'] = $this->db->get('surat_penugasan')->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('kadin/laporan_surat');
+        $this->load->view('sekre/laporan_surat', $data);
         $this->load->view('templates_admin/footer');
     }
     public function absensi()
     {
 
-        // $data['pengguna'] = $this->db->get('user')->result();
+        $data['surat'] = $this->db->get('surat_penugasan')->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('kadin/laporan_absensi');
+        $this->load->view('sekre/laporan_absensi', $data);
         $this->load->view('templates_admin/footer');
     }
 }

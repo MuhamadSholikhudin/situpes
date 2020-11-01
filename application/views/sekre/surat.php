@@ -16,40 +16,33 @@
                                                 <h2>
                                                     TAMBAH SURAT TUGAS
                                                 </h2>
-                                                <ul class="header-dropdown m-r--5">
-                                                    <li class="dropdown">
-                                                        <a class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true" href="javascript:void(0);" data-toggle="dropdown">
-                                                            <i class="material-icons">more_vert</i>
-                                                        </a>
-                                                        <ul class="dropdown-menu pull-right">
-                                                            <li><a class=" waves-effect waves-block" href="javascript:void(0);">Action</a></li>
-                                                            <li><a class=" waves-effect waves-block" href="javascript:void(0);">Another action</a></li>
-                                                            <li><a class=" waves-effect waves-block" href="javascript:void(0);">Something else here</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
                                             </div>
                                             <div class="body">
                                                 <form action="<?= base_url('sekre/surat/tambah_aksi') ?>" method="POST" enctype="multipart/form-data">
                                                     <label for="judul">judul </label>
                                                     <div class="form-group">
                                                         <div class="form-line">
+                                                            <input class="form-control" id="judul" type="text" name="judul" placeholder="Masukkan Judul Surat" required>
+                                                        </div>
+                                                    </div>
+                                                    <label for="alamat">Alamat </label>
+                                                    <div class="form-group">
+                                                        <div class="form-line">
                                                             <!-- <input class="form-control" id="judul" type="text" name="judul" placeholder="Enter your email address"> -->
-                                                            <textarea name="alamat" id="judul" cols="70" rows="10"></textarea>
-
+                                                            <textarea name="alamat" id="alamat" cols="70" rows="10" required></textarea>
                                                         </div>
                                                     </div>
                                                     <label for="keterangan">Keterangan</label>
                                                     <div class="form-group">
                                                         <div class="form-line">
                                                             <!-- <input class="form-control" id="keterangan" type="text" name="keterangan" placeholder="Enter your password"> -->
-                                                            <textarea name="keterangan" id="keterangan" cols="70" rows="10"></textarea>
+                                                            <textarea name="keterangan" id="keterangan" cols="70" rows="10" required></textarea>
                                                         </div>
                                                     </div>
-                                                    <label for="tgl_berlaku">Berlaku sampai tanggal</label>
+                                                    <label for="tgl_berlaku">Tanggal Buat</label>
                                                     <div class="form-group">
                                                         <div class="form-line">
-                                                            <input class="form-control" id="tgl_berlaku" type="date" name="tgl_berlaku" placeholder="Enter your password">
+                                                            <input class="form-control" id="tgl_berlaku" type="date" name="tgl_berlaku"  required>
                                                         </div>
                                                     </div>
 
@@ -66,18 +59,6 @@
                                 </div>
                             </div>
 
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
