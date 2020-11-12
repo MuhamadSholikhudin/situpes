@@ -11,7 +11,7 @@
 
                     </div>
                     <div class="body">
-                        <form action="<?= base_url('sekre/pegawai/update') ?>" method="POST" enctype="multipart/form-data">
+                        <form action="<?= base_url('sekre/pegawai/edit_absensi_aksi') ?>" method="POST" enctype="multipart/form-data">
                             <?php foreach ($absensi as $ab) : ?>
                                 <label for="username">NIP</label>
                                 <div class="form-group">
