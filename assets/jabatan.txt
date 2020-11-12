@@ -1,0 +1,34 @@
+<option value="1">Admin TU
+Admin TU / Keuangan
+Admin Program, Evaluasi dan Pelaporan Pelatihan
+Admin Penyelenggara Pelatihan
+Admin Pendaftaran Pelatihan
+Admin Umum dan Gudang
+Admin Pengadaan Barang dan Jasa
+PWU Kecamatan Kota
+PWU Kecamatan Bae
+PWU Kecamatan Dawe
+PWU Kecamatan Gebog
+PWU Kecamatan Jati
+PWU Kecamatan Jekulo
+PWU Kecamatan Kaliwungu
+PWU Kecamatan Mejobo
+PWU Kecamatan Undaan
+toolman otomotif
+toolman otomotif
+Toolmen Las
+Toolmen komputer
+TOOLMAN BUBUT & Perkayuan
+Toolman Boga
+TOOLMAN RIAS
+Toolman Jahit
+Driver UPTD BLK
+Adm. Sub Bag. Umum & Kepegawaian
+Adm. Sub Bag. Keuangan Sekretariat
+Adm. Sub Bag. PEP
+Adm. Bidang Koperasi dan UKM
+Adm. Bid. Perindustrian
+Adm. Bidang HIP
+Adm. Bidang Penempatan Tenaga Kerja
+Keamanan
+Penjaga

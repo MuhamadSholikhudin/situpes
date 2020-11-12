@@ -53,7 +53,10 @@ class Surat extends CI_Controller
         $data['dagas'] = $this->db->query(" SELECT * FROM  data_pegawai  WHERE no_surat = $no_surat ");
 
 
-        $data['user'] = $this->db->query(" SELECT * FROM user ")->result();
+        // $data['user'] = $this->db->query(" SELECT user.nama FROM user JOIN data_pegawai ON user.username = data_pegawai.nip
+        //  WHERE data_pegawai.no_surat != '$no_surat'")->result();
+
+$data['user'] = $this->db->query(" SELECT * FROM user")->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
@@ -66,14 +69,14 @@ class Surat extends CI_Controller
 
         // $judul = $this->input->post('judul');
         $keterangan = $this->input->post('keterangan');
-        $alamat = $this->input->post('alamat');
+        $isi_surat = $this->input->post('isi_surat');
         // $status_surat = 0;
 
 
         $data = array(
             // 'judul' => $judul,
             'keterangan' => $keterangan,
-            'alamat' => $alamat
+            'isi_surat' => $isi_surat
         );
 
         $this->Model_surat_penugasan->tambah_surat_penugasan($data, 'surat_penugasan');
@@ -104,12 +107,12 @@ class Surat extends CI_Controller
     public function edit_surat_aksi()
     {
         $keterangan = $this->input->post('keterangan');
-        $alamat = $this->input->post('alamat');
+        $isi_surat = $this->input->post('isi_surat');
         $no_surat = $this->input->post('no_surat');
 
         $data = [
             'keterangan' => $keterangan,
-            'alamat' => $alamat
+            'isi_surat' => $isi_surat
         ];
         $where = [
             'no_surat' => $no_surat

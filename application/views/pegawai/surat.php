@@ -42,9 +42,9 @@
                                             <td>a</td>
                                             <td></td>
                                             <td></td>
-                                            <td><?= $su->alamat ?></td>
+                                            <td><?= $su->isi_surat ?></td>
                                             <td><a href="<?= base_url("pegawai/absensi/pegawai/") . $su->no_surat ?>"><i class="material-icons">edit</i></a></td>
-                                            <td><?= $su->alamat ?></td>
+                                            <td><?= $su->isi_surat ?></td>
                                         </tr>
                                     <?php endforeach; ?>
 

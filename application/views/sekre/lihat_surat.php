@@ -29,7 +29,7 @@
                     <br>
                     <?php foreach ($surat as $sur) : ?>
                         <p class="lead">
-                            <?= $sur->alamat ?>
+                            <?= $sur->isi_surat ?>
                         </p>
                         <br>
                         <br>

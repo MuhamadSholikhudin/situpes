@@ -38,7 +38,7 @@
                     <?php foreach ($surat as $sur) : ?>
                         <p class="lead">
 
-                            <textarea name="alamat" id="alamat" cols="95"><?= $sur->alamat ?></textarea>
+                            <textarea name="isi_surat" id="isi_surat" cols="95"><?= $sur->isi_surat ?></textarea>
                         </p>
                         <br>
                         <br>
@@ -165,7 +165,7 @@
                                 </div>
                             </div>
                             <?php foreach ($surat as $sur) : ?>
-                                <input class="form-control" id="no_surat" type="number" name="no_surat" value="<?= $sur->no_surat ?>">
+                                <input class="form-control" id="no_surat" type="hidden" name="no_surat" value="<?= $sur->no_surat ?>">
                             <?php endforeach; ?>
                             <label for="jabatan">Jabatan</label>
                             <div class="form-group">

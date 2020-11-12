@@ -25,11 +25,11 @@
                                                             <input class="form-control" id="judul" type="text" name="judul" placeholder="Masukkan Judul Surat" required>
                                                         </div>
                                                     </div>
-                                                    <label for="alamat">Alamat </label>
+                                                    <label for="isi_surat">isi_surat </label>
                                                     <div class="form-group">
                                                         <div class="form-line">
                                                             <!-- <input class="form-control" id="judul" type="text" name="judul" placeholder="Enter your email address"> -->
-                                                            <textarea name="alamat" id="alamat" cols="70" rows="10" required></textarea>
+                                                            <textarea name="isi_surat" id="isi_surat" cols="70" rows="10" required></textarea>
                                                         </div>
                                                     </div>
                                                     <label for="keterangan">Keterangan</label>
@@ -81,7 +81,7 @@
                                             <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
-                                                <td><?= $sus->alamat ?></td>
+                                                <td><?= $sus->isi_surat ?></td>
                                                 <td><?= $sus->keterangan ?></td>
                                                 <td>
 

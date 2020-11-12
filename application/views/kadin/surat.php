@@ -30,7 +30,7 @@
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td><a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
-                                            <td><?= $sus->alamat ?></td>
+                                            <td><?= $sus->isi_surat ?></td>
                                             <td><?= $sus->keterangan ?></td>
                                             <td>
                                                 <?php if ($sus->status_surat == 1) { ?>
