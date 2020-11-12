@@ -1,8 +1,6 @@
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>Input Absensi</h2>
-            </div>
+
 
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
@@ -19,14 +17,15 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <?php foreach ($surat as $sur) : ?>
-                                        <input class="form-control" id="no_surat" type="text" name="no_surat" value="<?= $sur->no_surat ?>">
+                                        <input class="form-control" id="no_surat" type="hidden" name="no_surat" value="<?= $sur->no_surat ?>">
                                     <?php endforeach; ?>
                                     <?php foreach ($jadwal as $jad) : ?>
-                                        <input class="form-control" id="id_jadwal" type="text" name="id_jadwal" value="<?= $jad->no_surat ?>">
+                                        <input class="form-control" id="id_jadwal" type="hidden" name="id_jadwal" value="<?= $jad->no_surat ?>">
                                     <?php endforeach; ?>
                                     <input class="form-control" id="username" type="text" name="nip" value="<?= $this->session->userdata('username'); ?>" disabled>
                                 </div>
                             </div>
+
                             <label for="nama">Nama</label>
                             <div class="form-group">
                                 <div class="form-line">

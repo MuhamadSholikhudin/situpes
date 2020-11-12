@@ -7,6 +7,10 @@
                 <div class="card">
                     <div class="header">
                         <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH JADWAL PEGAWAI</button>
+                        <button><?php foreach ($pegawai as $peg) : ?>
+                                Jadwal Penugasan <?= $peg->nama ?>
+                            <?php endforeach; ?>
+                        </button>
                         <div tabindex="-1" class="modal fade" id="defaultModal" role="dialog" style="display: none;">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -18,6 +22,7 @@
                                                 </h2>
 
                                             </div>
+
                                             <div class="body">
                                                 <form action="<?= base_url('sekre/jadwal/tambah_aksi') ?>" method="POST" enctype="multipart/form-data">
 
@@ -48,6 +53,7 @@
                             </div>
                         </div>
 
+
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -70,10 +76,10 @@
                                                 <td><?= $jad->nip ?></td>
                                                 <td><?= $jad->jadwal ?></td>
                                                 <td><?= $jad->status_jadwal ?></td>
-                                                <td><a href="<?= base_url('sekre/jadwal/pegawai_edit/') . $jad->id_jadwal ?>"  class="btn btn-dark waves-effect">
+                                                <td><a href="<?= base_url('sekre/jadwal/pegawai_edit/') . $jad->id_jadwal ?>" class="btn btn-dark waves-effect">
                                                         <i class="material-icons">edit</i>
                                                     </a></td>
-                                                <td><a href="<?= base_url('sekre/jadwal/pegawai_hapus/'). $jad->id . '/'. $jad->id_jadwal  ?>" class="btn btn-danger waves-effect" type="button">
+                                                <td><a href="<?= base_url('sekre/jadwal/pegawai_hapus/') . $jad->id . '/' . $jad->id_jadwal  ?>" class="btn btn-danger waves-effect" type="button">
                                                         <i class="material-icons">delete_forever</i>
                                                     </a></td>
                                             </tr>

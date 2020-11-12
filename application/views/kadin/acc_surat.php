@@ -25,19 +25,8 @@
 
             </div>
             <div class="body">
-            <form action="<?= base_url('kadin/surat/acc_surat') ?>" method="POST" enctype="multipart/form-data">
-            
-            
-                <h3 class="text-center"><u>SURAT TUGAS</u> </h3>
-                <?php foreach ($surat as $sur) : ?>
-                    <h4 class="text-center">NO : <?= $sur->no_surat ?>/DINBLK/20/08/2020</h4>
-                <?php endforeach; ?>
-                <br>
-                <br>
-                <br>
-                <br>
+                <form action="<?= base_url('kadin/surat/acc_surat') ?>" method="POST" enctype="multipart/form-data">
 
-                <form action="<?= base_url('kadin/surat/acc/') ?>" enctype="multipart/form-data" method="POST">
                     <h3 class="text-center"><u>SURAT TUGAS</u> </h3>
                     <?php foreach ($surat as $sur) : ?>
                         <h4 class="text-center">NO : <?= $sur->no_surat ?>/DINBLK/20/08/2020</h4>
@@ -75,10 +64,9 @@
                                                         <h4>&nbsp;<?= $no++; ?> &nbsp;: &nbsp;</h4>
                                                         <input class="form-control" type="hidden" name="id[]" value="<?= $dsur->id; ?>">
 
-
                                                     </td>
                                                     <td>
-                                                    <input class="form-control" type="hidden" name="status_pegawai[]"  value="2">
+                                                        <input class="form-control" type="hidden" name="status_pegawai[]" value="2">
                                                         <h4>&nbsp;<?= $dsur->nama ?> &nbsp; &nbsp;</h4>
                                                         <input class="form-control" type="hidden" name="status_pegawai[]" value="1">
 
@@ -132,8 +120,10 @@
                                 <div>
                                     <br>
                                     <div class="justify-content-center">
+                                        <?php foreach ($surat as $sur) : ?>
+                                            <a href="<?= base_url('kadin/surat/kembalikan_surat/') . $sur->no_surat ?>" class="btn btn-warning">Kembalikan Surat </a>
 
-                                        <a href="<?= base_url('kadin/surat/kembalikan_surat/'). $no_surat ?>" class="btn btn-warning">Kembalikan Surat </a>
+                                        <?php endforeach; ?>
                                         <button type="submit" class="btn btn-primary">ACC Surat </button>
                                     </div>
                                     <br>
@@ -152,4 +142,3 @@
 
         </div>
 </section>
-

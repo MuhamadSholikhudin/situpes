@@ -28,11 +28,11 @@
       <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
       <a href="javascript:void(0);" class="bars"></a>
 
-      <?php if($this->session->userdata('level') == 1){?>
+      <?php if ($this->session->userdata('level') == 1) { ?>
         <a class="navbar-brand" href="<?= base_url('sekre/dashboard/index'); ?>">SISTEM PENUGASAN DINAS TENAGA KERJA KABUPATEN KUDUS</a>
-      <?php }elseif ($this->session->userdata('level') == 2) { ?>
+      <?php } elseif ($this->session->userdata('level') == 2) { ?>
         <a class="navbar-brand" href="<?= base_url('pegawai/dashboard/index'); ?>">SISTEM PENUGASAN DINAS TENAGA KERJA KABUPATEN KUDUS</a>
-      <?php }elseif ($this->session->userdata('level') == 3) { ?>
+      <?php } elseif ($this->session->userdata('level') == 3) { ?>
         <a class="navbar-brand" href="<?= base_url('kadin/dashboard/index'); ?>">SISTEM PENUGASAN DINAS TENAGA KERJA KABUPATEN KUDUS</a>
       <?php }
       ?>
@@ -69,6 +69,17 @@
         <img src="<?= base_url('assets/'); ?>img/user.png" width="48" height="48" alt="User" />
       </div>
       <div class="info-container">
+        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?php 
+        if($this->session->userdata('level') == 1){
+echo "Sekretariat Disnaker";
+        } elseif ($this->session->userdata('level') == 2) {
+          echo "Pegawai Disnaker";
+        } elseif ($this->session->userdata('level') == 3){
+echo "Kepala Disnaker";
+        }
+         ?>
+         </div>
         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('nama'); ?></div>
         <div class="email"><?= $this->session->userdata('username'); ?></div>
         <div class="btn-group user-helper-dropdown">

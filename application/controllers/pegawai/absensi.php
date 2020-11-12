@@ -51,8 +51,6 @@ class Absensi extends CI_Controller
         $where = array('id_jadwal' => $id_jadwal);
         $data['jadwal'] = $this->Model_jadwal_penugasan->edit_jadwal_penugasan($where, 'jadwal_penugasan')->result();
         
-
-
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('pegawai/input', $data);
@@ -61,10 +59,34 @@ class Absensi extends CI_Controller
 
     public function edit($id_jadwal)
     {
+
+        $where = array('id_jadwal' => $id_jadwal);
+        $data['absensi'] = $this->Model_absensi->edit_absensi($where, 'absensi')->result();
+
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('pegawai/update');
+        $this->load->view('pegawai/update', $data);
         $this->load->view('templates_admin/footer');
+    }
+
+    public function edit_absensi_aksi()
+    {
+        $keterangan = $this->input->post('keterangan');
+        $id_jadwal = $this->input->post('id_jadwal');
+        $status_absensi = $this->input->post('status_absensi');
+
+        $data = [
+            'status_absensi' => $status_absensi
+        ];
+        $where = [
+            'id_jadwal' => $id_jadwal
+        ];
+
+        $this->Model_absensi->update_data($where, $data, 'absensi');
+
+        $no_surat = $this->db->query(" SELECT no_surat FROM jadwal_penugasan WHERE id_jadwal = $id_jadwal")->result();
+        
+        redirect('pegawai/absensi/pegawai/' . $no_surat);
     }
 
 

@@ -43,29 +43,37 @@
                                             <td><?= $this->session->userdata('nama') ?></td>
                                             <td><?= $jad->nip ?></td>
                                             <td><?= $jad->jadwal ?></td>
-                                            <td><a href="<?= base_url("pegawai/absensi/input/") . $jad->id_jadwal . "/". $jad->no_surat ?>"><i class="material-icons">edit</i>input</a> 
-                                               <a href="<?= base_url("pegawai/absensi/edit/") . $jad->id_jadwal ?>"><i class="material-icons">edit</i>edit</a></td>
                                             <td>
-                                                <?php if ($jad->status_jadwal == 2) {
-                                                    echo "Sudah Di Acc";
-                                                }elseif ($jad->status_jadwal == 1) {
-                                                    echo "Sudah Bertugas";
-                                                }elseif ($jad->status_jadwal == 0) {
-                                                    echo "Belum Bertugas";
-                                                }
-                                                ?>                                                    
-                                            </td>
+                                                <?php if ($jad->status_jadwal == 1) {
+
+                                                ?>
+                                                    <a href="<?= base_url("pegawai/absensi/edit/") . $jad->id_jadwal ?>"><i class="material-icons">edit</i>edit</a></td>
+
+                                        <?php
+                                                } elseif ($jad->jadwal != date('Y-m-d')) {
+                                        ?> Tidak bisa di akses
+
+                                        <?php
+                                                } elseif ($jad->jadwal == date('Y-m-d')) {
+                                        ?>
+                                            <a href="<?= base_url("pegawai/absensi/input/") . $jad->id_jadwal . "/" . $jad->no_surat ?>"><i class="material-icons">edit</i>input</a>
+                                        <?php                                                }
+                                        ?>
+
+                                        <td>
+                                            <?php if ($jad->status_jadwal == 2) {
+                                                echo "Sudah Di Acc";
+                                            } elseif ($jad->status_jadwal == 1) {
+                                                echo "Sudah Bertugas";
+                                            } elseif ($jad->status_jadwal == 0) {
+                                                echo "Belum Bertugas";
+                                            }
+                                            ?>
+                                        </td>
                                         </tr>
                                     <?php endforeach; ?>
 
-                                    <tr>
-                                        <td>b</td>
-                                        <td><?= $this->session->userdata('nama') ?></td>
-                                        <td>adel</td>
-                                        <td>sekretaris</td>
-                                        <td>sekre</td>
-                                        <td></td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>

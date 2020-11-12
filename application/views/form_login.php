@@ -28,13 +28,13 @@
 <body class="login-page">
     <div class="login-box">
         <div class="logo">
-            <a href="javascript:void(0);">Admin<b>BSB</b></a>
-            <small>Admin BootStrap Based - Material Design</small>
+            <a href="javascript:void(0);">LOGIN</b></a>
+            <small>Sistem Penugasan Disnaker</small>
         </div>
         <div class="card">
             <div class="body">
                 <form id="sign_in" action="<?= base_url('auth/login'); ?>" method="POST">
-                    <div class="msg">Sign in to start your session</div>
+                    <div class="msg">Masuk untuk memulai</div>
                     <small><?= $this->session->flashdata('pesan'); ?></small>
                     <div class="input-group">
                         <span class="input-group-addon">
