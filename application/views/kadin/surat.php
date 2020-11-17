@@ -19,7 +19,7 @@
                                         <th>Judul</th>
                                         <th>Tanggal Berakhir</th>
                                         <th>Status</th>
-                                        <th>Ubah</th>
+                                        <th>Lihat</th>
                                         <th>Hapus</th>
                                     </tr>
                                 </thead>

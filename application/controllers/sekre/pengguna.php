@@ -61,6 +61,65 @@ class Pengguna extends CI_Controller
 
         $where = array('id_user' => $id_user);
         $data['user'] = $this->Model_user->edit_user($where, 'user')->result();
+        $data['level'] = ['1', '2', '3'];
+        $data['jabatan'] = [
+            'Kepala Disnaker ',
+            'Seketariat Disnaker ',
+            'Admin TU ',
+            'Admin TU / Keuangan ',
+            'Admin Program, Evaluasi dan Pelaporan Pelatihan ',
+            'Admin Penyelenggara Pelatihan ',
+            'Admin Pendaftaran Pelatihan ',
+            'Admin Umum dan Gudang ',
+            'Admin Pengadaan Barang dan Jasa ',
+            'PWU Kecamatan Kota ',
+            'PWU Kecamatan Bae ',
+            'PWU Kecamatan Dawe ',
+            'PWU Kecamatan Gebog ',
+            'PWU Kecamatan Jati ',
+            'PWU Kecamatan Jekulo ',
+            'PWU Kecamatan Kaliwungu ',
+            'PWU Kecamatan Mejobo ',
+            'PWU Kecamatan Undaan ',
+            'toolman otomotif ',
+            'toolman otomotif ',
+            'Toolmen Las ',
+            'Toolmen komputer ',
+            'TOOLMAN BUBUT & Perkayuan ',
+            'Toolman Boga ',
+            'TOOLMAN RIAS ',
+            'Toolman Jahit ',
+            'Driver UPTD BLK ',
+            'Adm. Sub Bag. Umum & Kepegawaian ',
+            'Adm. Sub Bag. Keuangan Sekretariat ',
+            'Adm. Sub Bag. PEP ',
+            'Adm. Bidang Koperasi dan UKM ',
+            'Adm. Bid. Perindustrian ',
+            'Adm. Bidang HIP ',
+            'Adm. Bidang Penempatan Tenaga Kerja ',
+            'Keamanan ',
+            'Penjaga '
+        ];
+
+        $data['pangkat'] = [
+            "Pembina Utama IV/e",
+            "Pembina UtamaMadya IV/d",
+            "Pembina Utama Muda IV/c",
+            "Pembina Tingkat I IV/b",
+            "Pembina IV/a",
+            "Penata Tingkat I III/d",
+            "Penata III/c",
+            "Penata Muda Tingkat I III/b",
+            "Penata Muda III/a",
+            "Pengatur Tingkat I II/d",
+            "Pengatur	II/c",
+            "Pengatur Muda Tingkat I II/b",
+            "Pengatur Muda II/a",
+            "Juru Tingkat I I/d",
+            "Juru I/c",
+            "Juru Muda Tingkat I I/b",
+            "Juru Muda I/a"
+        ];
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
@@ -77,12 +136,16 @@ class Pengguna extends CI_Controller
         $usernamelama = $this->input->post('usernamelama');
         $password = $this->input->post('password');
         $level = $this->input->post('level');
+        $jabatan = $this->input->post('jabatan');
+        $pangkat = $this->input->post('pangkat');
 
         $data = array(
             'nama' => $nama,
             'username' => $username,
             'password' => $password,
-            'level' => $level
+            'level' => $level,
+            'jabatan' => $jabatan,
+            'pangkat' => $pangkat,
         );
 
         $where = [

@@ -44,6 +44,47 @@
 </script>
 <script>
     $(document).ready(function() {
+
+        $('#nipku').change(function() {
+            var id = $(this).val();
+            // alert(id);
+
+            $.ajax({
+                url: "<?php echo base_url('sekre/surat/get_sub_user'); ?>",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                async: true,
+                dataType: 'json',
+                success: function(data) {
+                    var i;
+                    var sis = '';
+                    for (i = 0; i < data.length; i++) {
+                        sis += data[i].nama;
+                    }
+                    $('#namapeg').val(sis);
+
+                    var sus = '';
+                    for (i = 0; i < data.length; i++) {
+                        sus += data[i].jabatan;
+                    }
+                    $('#jb').val(sus);
+
+                    var sos = '';
+                    for (i = 0; i < data.length; i++) {
+                        sos += data[i].pangkat;
+                    }
+                    $('#pk').val(sos);
+                    
+
+                }
+            });
+            return false;
+        });
+
+
+
         $("button").click(function() {
             $.ajax({
                 url: "<?= base_url('git.txt') ?>",

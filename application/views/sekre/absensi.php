@@ -41,8 +41,8 @@
 
                                         <tr>
                                             <td>a</td>
-                                            <td><?= $sur->judul ?></td>
-                                            <td><?= $sur->alamat ?></td>
+                                            <td> <a href="<?= base_url('sekre/absensi/surat/' . $sur->no_surat) ?>"><?= $sur->judul ?></a></td>
+                                            <td><?= $sur->isi_surat ?></td>
                                             <td><?= $sur->keterangan ?></td>
                                             <td><?= $sur->tgl_buat ?></td>
                                             <td><?= $sur->status_surat ?></td>

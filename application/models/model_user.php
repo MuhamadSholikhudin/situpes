@@ -62,4 +62,11 @@ $result = $this->db->where('id_brg', $id_brg)->get('tb_user');
 
         return $this->db->get()->result();
     }
+
+    function get_sub_siuser($username)
+    {
+        $query = $this->db->query(" SELECT nama, jabatan, pangkat FROM  user  WHERE username = $username LIMIT 1");
+        // $query = $this->db->get_where('tb_transaksi', array('notransaksi' => $notransaksi));
+        return $query;
+    }
 }

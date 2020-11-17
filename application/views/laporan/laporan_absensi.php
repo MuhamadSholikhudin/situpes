@@ -29,7 +29,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Judul Surat</th>
-                                        <th>alamat</th>
+                                        <th>Isi Surat</th>
                                         <th>Keterangan</th>
                                         <th>Tanggal</th>
                                         <th>Status</th>
@@ -38,11 +38,11 @@
 
                                 <tbody>
                                     <?php foreach ($surat as $sur) : ?>
-
                                         <tr>
                                             <td>a</td>
-                                            <td><?= $sur->judul ?></td>
-                                            <td><?= $sur->alamat ?></td>
+                                            <td><a href="<?= base_url('sekre/laporan/absensi_pegawai/'. $sur->no_surat) ?>">
+                                                    <?= $sur->judul ?></a></td>
+                                            <td><?= $sur->isi_surat ?></td>
                                             <td><?= $sur->keterangan ?></td>
                                             <td><?= $sur->tgl_buat ?></td>
                                             <td><?= $sur->status_surat ?></td>

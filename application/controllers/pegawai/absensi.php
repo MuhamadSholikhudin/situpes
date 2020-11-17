@@ -76,6 +76,7 @@ class Absensi extends CI_Controller
         $status_absensi = $this->input->post('status_absensi');
 
         $data = [
+            'keterangan' => $keterangan,
             'status_absensi' => $status_absensi
         ];
         $where = [
@@ -100,6 +101,10 @@ class Absensi extends CI_Controller
         $no_surat = $this->input->post('no_surat');
         $id_jadwal = $this->input->post('id_jadwal');
 
+        $datat = array(
+            'id_jadwal' => $id_jadwal,
+            'status_jadwal' => $status_absensi
+        );
         $data = array(
             'nip' => $nip,
             'id_jadwal' => $id_jadwal,
@@ -108,21 +113,18 @@ class Absensi extends CI_Controller
             'status_absensi' => $status_absensi
         );
 
-        $this->Model_absensi->tambah_absensi($data, 'absensi');
-
-
-
-        $datat = array(
-            'status_jadwal' => $status_absensi
-        );
-
         $where = [
             'id_jadwal' => $id_jadwal
         ];
-
+        
         $this->Model_jadwal_penugasan->update_datat($where, $datat, 'jadwal_penugasan');
+
+        $this->Model_absensi->tambah_absensi($data, 'absensi');
 
         redirect('pegawai/absensi/pegawai/' . $no_surat);
     }
+
+
+
 
 }

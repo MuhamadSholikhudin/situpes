@@ -151,7 +151,7 @@
                         <form action="<?= base_url('sekre/surat/tambah_pegawai_aksi/') ?>" method="POST" enctype="multipart/form-data">
                             <label for="nip">nip</label>
                             <div class="form-group">
-                                <select class="selectpicker form-line" name="nip" id="nip">
+                                <select class="selectpicker form-line" name="nip" id="nipku">
                                     <?php
                                     foreach ($user as $sur) : ?>
                                         <option class="d-none" value="<?= $sur->username ?>"><?= $sur->nama ?> 2/ <?= $sur->username ?></option>
@@ -161,27 +161,25 @@
                             <label for="nama">Nama</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input class="form-control" id="nama" type="text" name="nama" placeholder="Masukkan nama pegawai">
+                                    <input class="form-control" id="namapeg" type="text" name="nama">
                                 </div>
                             </div>
                             <?php foreach ($surat as $sur) : ?>
                                 <input class="form-control" id="no_surat" type="hidden" name="no_surat" value="<?= $sur->no_surat ?>">
                             <?php endforeach; ?>
-                            <label for="jabatan">Jabatan</label>
+                            <!-- <input type="text" id="jb">
+                            <input type="text" id="pk"> -->
+                            <label for="jb">Jabtan</label>
                             <div class="form-group">
-                                <select class="selectpicker form-line" name="jabatan" id="jabatan">
-                                    <option value="1">Mustard</option>
-                                    <option value="2">Ketchup</option>
-                                    <option value="3" selected>Barbecue</option>
-                                </select>
+                                <div class="form-line">
+                                    <input class="form-control" id="jb" type="text" name="jabatan">
+                                </div>
                             </div>
-                            <label for="pangkat">Pangkat</label>
+                            <label for="pk">Pangkat</label>
                             <div class="form-group">
-                                <select class="selectpicker form-line" name="pangkat" id="pangkat">
-                                    <option value="1">Mustard</option>
-                                    <option value="2">Ketchup</option>
-                                    <option value="3" selected>Barbecue</option>
-                                </select>
+                                <div class="form-line">
+                                    <input class="form-control" id="pk" type="text" name="pangkat">
+                                </div>
                             </div>
                             <br>
                             <button class="btn btn-primary m-t-15 waves-effect" type="submit">SIMPAN</button>

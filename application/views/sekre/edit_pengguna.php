@@ -37,26 +37,63 @@
                                         <input class="form-control" id="password" type="password" name="password" value="<?= $us->password ?>">
                                     </div>
                                 </div>
-                                <label for="hakakses">Hak Akses</label>
+                                <label for="level">Hak Akses</label>
                                 <div class="form-group">
-                                    <div class="form-line">
-                                        <input class="form-control" id="hakakses" type="number" name="level" value="<?= $us->level ?>">
-                                    </div>
+                                    <select class="selectpicker form-line" name="level" id="level">
+                                        <?php foreach ($level as $lev) : ?>
+                                            <?php if ($lev == $us->jabatan) : ?>
+                                                <option value="<?= $lev; ?>" selected>
+                                                    <?php if ($lev == 1) {
+                                                        echo 'Sekretariat Pegawai Disnaker';
+                                                    } elseif ($lev == 2) {
+                                                        echo 'Pegawai Disnaker';
+                                                    } elseif ($lev == 3) {
+                                                        echo 'Kepala Disnaker';
+                                                    } ?>
+                                                </option>
+                                            <?php else : ?>
+                                                <option value="<?= $lev; ?>">
+                                                    <?php if ($lev == 1) {
+                                                        echo 'Sekretariat Pegawai Disnaker';
+                                                    } elseif ($lev == 2) {
+                                                        echo 'Pegawai Disnaker';
+                                                    } elseif ($lev == 3) {
+                                                        echo 'Kepala Disnaker';
+                                                    } ?> </option>
+                                            <?php endif ?>
+                                        <?php endforeach ?>
+                                    </select>
                                 </div>
                                 <label for="jabatan">Jabatan</label>
                                 <div class="form-group">
                                     <select class="selectpicker form-line" name="jabatan" id="jabatan">
-                                        <option value="1">Mustard</option>
-                                        <option value="2">Ketchup</option>
-                                        <option value="3" selected>Barbecue</option>
+                                        <?php foreach ($jabatan as $jab) : ?>
+                                            <?php if ($jab == $us->jabatan) : ?>
+                                                <option value="<?= $jab; ?>" selected>
+                                                    <?= $jab; ?>
+                                                </option>
+                                            <?php else : ?>
+                                                <option value="<?= $jab; ?>">
+                                                    <?= $jab; ?>
+                                                </option>
+                                            <?php endif ?>
+                                        <?php endforeach ?>
                                     </select>
                                 </div>
                                 <label for="pangkat">Pangkat</label>
                                 <div class="form-group">
                                     <select class="selectpicker form-line" name="pangkat" id="pangkat">
-                                        <option value="1">Mustard</option>
-                                        <option value="2">Ketchup</option>
-                                        <option value="3" selected>Barbecue</option>
+                                        <?php foreach ($pangkat as $pan) : ?>
+                                            <?php if ($pan == $us->pangkat) : ?>
+                                                <option value="<?= $pan; ?>" selected>
+                                                    <?= $pan; ?>
+                                                </option>
+                                            <?php else : ?>
+                                                <option value="<?= $pan; ?>">
+                                                    <?= $pan; ?>
+                                                </option>
+                                            <?php endif ?>
+                                        <?php endforeach ?>
                                     </select>
                                 </div>
 

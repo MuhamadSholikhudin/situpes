@@ -29,7 +29,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Judul Surat</th>
-                                        <th>alamat</th>
+                                        <th>Isi Surat</th>
                                         <th>Keterangan</th>
                                         <th>Tanggal</th>
                                         <th>Status</th>
@@ -37,16 +37,21 @@
                                 </thead>
 
                                 <tbody>
+                                    <?php $no = 1; ?>
                                     <?php foreach ($surat as $sur) : ?>
 
                                         <tr>
-                                            <td>a</td>
+                                            <td><?= $no; ?></td>
                                             <td><?= $sur->judul ?></td>
-                                            <td><?= $sur->alamat ?></td>
+                                            <td><?= $sur->isi_surat ?></td>
                                             <td><?= $sur->keterangan ?></td>
                                             <td><?= $sur->tgl_buat ?></td>
-                                            <td><?= $sur->status_surat ?></td>
+                                            <td>
+                                                <a href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a>
+
+                                            </td>
                                         </tr>
+                                        <?php $no++; ?>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>

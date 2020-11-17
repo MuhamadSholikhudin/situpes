@@ -36,4 +36,7 @@ class Model_surat_penugasan extends CI_Model
         $this->db->where($where);
         $this->db->delete($table);
     }
+
+
+  
 }

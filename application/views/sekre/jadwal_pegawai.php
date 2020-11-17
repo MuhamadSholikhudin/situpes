@@ -6,11 +6,14 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6"></div>
                         <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH JADWAL PEGAWAI</button>
-                        <button><?php foreach ($pegawai as $peg) : ?>
+                        <p class="btn btn-default waves-effect m-r-20"><?php foreach ($pegawai as $peg) : ?>
                                 Jadwal Penugasan <?= $peg->nama ?>
                             <?php endforeach; ?>
-                        </button>
+                        </p>
                         <div tabindex="-1" class="modal fade" id="defaultModal" role="dialog" style="display: none;">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -20,7 +23,6 @@
                                                 <h2>
                                                     TAMBAH JADWAL PEGAWAI
                                                 </h2>
-
                                             </div>
 
                                             <div class="body">
@@ -34,9 +36,9 @@
                                                     </div>
                                                     <?php foreach ($pegawai as $peg) : ?>
 
-                                                        <input class="form-control" id="no_surat" type="text" name="no_surat" value="<?= $peg->no_surat ?>">
-                                                        <input class="form-control" id="id" type="text" name="id" value="<?= $peg->id ?>">
-                                                        <input class="form-control" id="nip" type="text" name="nip" value="<?= $peg->nip ?>">
+                                                        <input class="form-control" id="no_surat" type="hidden" name="no_surat" value="<?= $peg->no_surat ?>">
+                                                        <input class="form-control" id="id" type="hidden" name="id" value="<?= $peg->id ?>">
+                                                        <input class="form-control" id="nip" type="hidden" name="nip" value="<?= $peg->nip ?>">
                                                     <?php endforeach; ?>
 
                                                     <br>

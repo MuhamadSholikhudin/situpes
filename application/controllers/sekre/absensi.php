@@ -29,4 +29,55 @@ class Absensi extends CI_Controller
         $this->load->view('templates_admin/footer');
     }
 
+
+    public function surat($no_surat){
+
+        $where = ['no_surat' => $no_surat];
+        $data['no_sur'] = ['no_surat' => $no_surat];
+        $data['jadwal'] = $this->db->query("SELECT data_pegawai.nip, data_pegawai.jabatan, data_pegawai.pangkat, jadwal_penugasan.id, jadwal_penugasan.jadwal, jadwal_penugasan.id_jadwal, jadwal_penugasan.status_jadwal FROM jadwal_penugasan JOIN data_pegawai ON jadwal_penugasan.id = data_pegawai.id WHERE data_pegawai.no_surat = '$no_surat' ")->result();
+
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('sekre/daftarjadwal', $data);
+        $this->load->view('templates_admin/footer');
+    }
+
+
+    public function acc_absen()
+    {
+        // $id_nilai = $this->input->post('id_nilai');
+        // $skor = $this->input->post('skor');
+        // $nilai = $this->input->post('nilai');
+        // $jumlah = $id_nilai * $skor;
+
+        //Update data attribut
+        $id_jadwal = $this->input->post('id_jadwal');
+        $no_sur = $this->input->post('no_surat');
+        $result = array();
+        foreach (
+            $id_jadwal 
+            as 
+            $key => $val) {
+            $result[] = array(
+                "id_jadwal" => $id_jadwal[$key],
+                "status_jadwal" => $_POST['status_jadwal'][$key] + 5
+                // "jumlah"  =>$_POST['nilai'][$key]
+                // "jumlah"  => $_POST['skor'][$key] * $_POST['nilai'][$key]
+            );
+        }
+        $this->db->update_batch('jadwal_penugasan', $result, 'id_jadwal');
+
+
+        $data = [
+            'status_surat' => 3
+        ];
+        $where = [
+            'no_surat' => $no_sur
+        ];
+
+        $this->Model_surat_penugasan->update_data($where, $data, 'surat_penugasan');
+
+        redirect('sekre/absensi/' . $no_sur);
+    }
+
 }

@@ -67,16 +67,19 @@ $data['user'] = $this->db->query(" SELECT * FROM user")->result();
     public function tambah_aksi()
     {
 
-        // $judul = $this->input->post('judul');
+        $judul = $this->input->post('judul');
         $keterangan = $this->input->post('keterangan');
         $isi_surat = $this->input->post('isi_surat');
-        // $status_surat = 0;
+        $tgl_buat = $this->input->post('tgl_buat');
+        $status_surat = 0;
 
 
         $data = array(
-            // 'judul' => $judul,
+            'judul' => $judul,
             'keterangan' => $keterangan,
-            'isi_surat' => $isi_surat
+            'isi_surat' => $isi_surat,
+            'status_surat' => $status_surat,
+            'tgl_buat' => $tgl_buat
         );
 
         $this->Model_surat_penugasan->tambah_surat_penugasan($data, 'surat_penugasan');
@@ -150,4 +153,10 @@ $data['user'] = $this->db->query(" SELECT * FROM user")->result();
     }
 
 
+    function get_sub_user()
+    {
+        $username = $this->input->post('id', TRUE);
+        $data = $this->Model_user->get_sub_siuser($username)->result();
+        echo json_encode($data);
+    }
 }

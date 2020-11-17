@@ -17,7 +17,7 @@
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input class="form-control" id="username" type="text" name="nip" value="<?= $ab->nip ?>" disabled>
-                                        <input class="form-control" id="id_jadwal" type="text" name="id_jadwal" value="<?= $ab->id_jadwal ?>" disabled>
+                                        <input class="form-control" id="id_jadwal" type="hidden" name="id_jadwal" value="<?= $ab->id_jadwal ?>" >
                                     </div>
                                 </div>
 
@@ -39,23 +39,23 @@
                                     <?php
                                     if ($ab->status_absensi == 1) {
                                     ?>
-                                        <input name="group1" type="radio" id="radio_1" value="1" checked="">
+                                        <input name="status_absensi" type="radio" id="radio_1" value="1" checked="">
                                         <label for="radio_1">Bertugas</label>
-                                        <input name="group1" type="radio" value="0" id="radio_2">
+                                        <input name="status_absensi" type="radio" value="0" id="radio_2">
                                         <label for="radio_2">TidaK</label>
                                     <?php
                                     } elseif ($ab->status_absensi == 0) {
                                     ?>
-                                        <input name="group1" type="radio" id="radio_1" value="1">
+                                        <input name="status_absensi" type="radio" id="radio_1" value="1">
                                         <label for="radio_1">Bertugas</label>
-                                        <input name="group1" type="radio" value="0" id="radio_2" checked="">
+                                        <input name="status_absensi" type="radio" value="0" id="radio_2" checked="">
                                         <label for="radio_2">TidaK</label>
                                     <?php
                                     } elseif ($ab->status_absensi == 2) {
                                     ?>
-                                        <input name="group1" type="radio" id="radio_1" value="1">
+                                        <input name="status_absensi" type="radio" id="radio_1" value="1">
                                         <label for="radio_1">Bertugas</label>
-                                        <input name="group1" type="radio" value="0" id="radio_2">
+                                        <input name="status_absensi" type="radio" value="0" id="radio_2">
                                         <label for="radio_2">TidaK</label>
                                     <?php
                                     }

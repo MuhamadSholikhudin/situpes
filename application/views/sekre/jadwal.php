@@ -29,8 +29,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>No Surat</th>
+                                        <th>Judul Surat</th>
+                                        <th>Isi Surat</th>
                                         <th>keterangan</th>
-                                        <th>Alamat</th>
                                         <th>Status</th>
                                         <th>Ubah</th>
                                     </tr>
@@ -42,23 +43,24 @@
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td><a href="<?= base_url('sekre/jadwal/data/') . $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
-                                            <td><?= $sus->alamat ?></td>
+                                            <td><?= $sus->judul ?></td>
+                                            <td><?= $sus->isi_surat ?></td>
                                             <td><?= $sus->keterangan ?></td>
                                             <td>
 
-                                                    <button class="btn btn-warning waves-effect" type="button">
-                                                        <i class="material-icons">call_missed_outgoing</i>
-                                                    </button>
-                                       
-                                            </td>
-                                            <td>
-                                                    <a href="<?= base_url('sekre/jadwal/data/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
-                                                        <i class="material-icons">remove_red_eye</i>
-                                                    </a>
-                                                
+                                                <button class="btn btn-primary waves-effect" type="button">
+                                                    <i class="material-icons">checked</i> sudah di acc
+                                                </button>
 
                                             </td>
-                                           
+                                            <td>
+                                                <a href="<?= base_url('sekre/jadwal/data/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
+                                                    <i class="material-icons">remove_red_eye</i>
+                                                </a>
+
+
+                                            </td>
+
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

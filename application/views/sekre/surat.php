@@ -39,10 +39,10 @@
                                                             <textarea name="keterangan" id="keterangan" cols="70" rows="10" required></textarea>
                                                         </div>
                                                     </div>
-                                                    <label for="tgl_berlaku">Tanggal Buat</label>
+                                                    <label for="tgl_buat">Tanggal Buat</label>
                                                     <div class="form-group">
                                                         <div class="form-line">
-                                                            <input class="form-control" id="tgl_berlaku" type="date" name="tgl_berlaku"  required>
+                                                            <input class="form-control" id="tgl_buat" type="date" name="tgl_buat" required>
                                                         </div>
                                                     </div>
 
@@ -68,7 +68,8 @@
                                             <th>No</th>
                                             <th>No Surat</th>
                                             <th>Judul</th>
-                                            <th>Tanggal Berakhir</th>
+                                            <th>isi surat</th>
+                                            <th>Keterangan</th>
                                             <th>Status</th>
                                             <th>Ubah</th>
                                             <th>Hapus</th>
@@ -81,6 +82,7 @@
                                             <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
+                                                <td><?= $sus->judul ?></td>
                                                 <td><?= $sus->isi_surat ?></td>
                                                 <td><?= $sus->keterangan ?></td>
                                                 <td>
