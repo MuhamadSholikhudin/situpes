@@ -38,7 +38,7 @@ class Absensi extends CI_Controller
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('sekre/daftarjadwal', $data);
+        $this->load->view('sekre/daftarabsensi', $data);
         $this->load->view('templates_admin/footer');
     }
 
@@ -52,7 +52,7 @@ class Absensi extends CI_Controller
 
         //Update data attribut
         $id_jadwal = $this->input->post('id_jadwal');
-        $no_sur = $this->input->post('no_surat');
+        $no_surat = $this->input->post('no_surat');
         $result = array();
         foreach (
             $id_jadwal 
@@ -72,12 +72,12 @@ class Absensi extends CI_Controller
             'status_surat' => 3
         ];
         $where = [
-            'no_surat' => $no_sur
+            'no_surat' => $no_surat
         ];
 
         $this->Model_surat_penugasan->update_data($where, $data, 'surat_penugasan');
 
-        redirect('sekre/absensi/' . $no_sur);
+        redirect('sekre/absensi/' . $no_surat);
     }
 
 }

@@ -6,14 +6,24 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <div class="col-sm-6"></div>
-                        <div class="col-sm-6"></div>
-                        <div class="col-sm-6"></div>
-                        <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH JADWAL PEGAWAI</button>
-                        <p class="btn btn-default waves-effect m-r-20"><?php foreach ($pegawai as $peg) : ?>
+                        <div class="col-sm-4">
+                            <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH JADWAL PEGAWAI</button>
+                            <?php foreach ($pegawai as $peg) : ?>
+                                <a href="<?= base_url('sekre/jadwal/data/' . $peg->no_surat) ?>">
+                                    <button class="btn btn-danger waves-effect m-r-20" type="button">Kembali</button>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="col-sm-8"><?php foreach ($pegawai as $peg) : ?>
                                 Jadwal Penugasan <?= $peg->nama ?>
                             <?php endforeach; ?>
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6"></div>
+
+                        <p>
                         </p>
+                        <br>
                         <div tabindex="-1" class="modal fade" id="defaultModal" role="dialog" style="display: none;">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -27,14 +37,26 @@
 
                                             <div class="body">
                                                 <form action="<?= base_url('sekre/jadwal/tambah_aksi') ?>" method="POST" enctype="multipart/form-data">
-
-                                                    <label for="tgl_berlaku">Berlaku sampai tanggal</label>
-                                                    <div class="form-group">
-                                                        <div class="form-line">
-                                                            <input class="form-control" id="tgl_berlaku" type="date" name="jadwal">
-                                                        </div>
-                                                    </div>
                                                     <?php foreach ($pegawai as $peg) : ?>
+                                                        <label for="nip">NIP</label>
+                                                        <div class="form-group">
+                                                            <div class="form-line">
+                                                                <input class="form-control" id="nip" type="text" value="<?= $peg->nip ?>" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <label for="nama">Nama</label>
+                                                        <div class="form-group">
+                                                            <div class="form-line">
+                                                                <input class="form-control" id="nama" type="text" value="<?= $peg->nama ?>" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <label for="tgl_berlaku">Tanggal tugas</label>
+                                                        <div class="form-group">
+                                                            <div class="form-line">
+                                                                <input class="form-control" id="tgl_berlaku" type="date" name="jadwal">
+                                                            </div>
+                                                        </div>
+
 
                                                         <input class="form-control" id="no_surat" type="hidden" name="no_surat" value="<?= $peg->no_surat ?>">
                                                         <input class="form-control" id="id" type="hidden" name="id" value="<?= $peg->id ?>">

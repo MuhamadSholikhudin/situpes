@@ -28,6 +28,7 @@
                             <th>Jadwal</th>
                             <th>NIP</th>
                             <th>Nama</th>
+                            <th>Jabatan</th>
                             <th>Pangkat</th>
                             <th>Status_jadwal</th>
                         </tr>
@@ -40,15 +41,15 @@
                                 <td><?= $jad->jadwal ?></td>
                                 <td><?= $jad->nip ?></td>
                                 <td><?= $jad->nama ?></td>
-                                <td><?= $jad->id_jadwal ?></td>
+                                <td><?= $jad->jabatan ?></td>
+                                <td><?= $jad->pangkat ?></td>
                                 <td>
-                            <?php if($jad->status_jadwal == 6){
-                                echo "Bertugas";
-                            }elseif($jad->status_jadwal){
-                                echo "Tidak Bertugas";
-
-                            }?>
-                            </td>
+                                    <?php if ($jad->status_jadwal == 6) {
+                                        echo "Bertugas";
+                                    } elseif ($jad->status_jadwal) {
+                                        echo "Tidak Bertugas";
+                                    } ?>
+                                </td>
                             </tr>
                             <?php $no++; ?>
                         <?php endforeach; ?>

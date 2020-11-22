@@ -22,7 +22,7 @@ class Absensi extends CI_Controller
     {
         $username = $this->session->userdata('username');
 
-        $data['surat'] = $this->db->query("SELECT surat_penugasan.no_surat, surat_penugasan.isi_surat FROM surat_penugasan JOIN data_pegawai ON surat_penugasan.no_surat = data_pegawai.no_surat WHERE status_surat = 2 AND data_pegawai.nip = '$username' ORDER BY surat_penugasan.no_surat DESC")->result();
+        $data['surat'] = $this->db->query("SELECT surat_penugasan.keterangan, surat_penugasan.judul, surat_penugasan.no_surat, surat_penugasan.isi_surat, surat_penugasan.status_surat FROM surat_penugasan JOIN data_pegawai ON surat_penugasan.no_surat = data_pegawai.no_surat WHERE status_surat = 2 AND data_pegawai.nip = '$username' ORDER BY surat_penugasan.no_surat DESC")->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');

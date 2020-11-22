@@ -20,7 +20,7 @@
                                         <input class="form-control" id="no_surat" type="hidden" name="no_surat" value="<?= $sur->no_surat ?>">
                                     <?php endforeach; ?>
                                     <?php foreach ($jadwal as $jad) : ?>
-                                        <input class="form-control" id="id_jadwal" type="text" name="id_jadwal" value="<?= $jad->id_jadwal ?>">
+                                        <input class="form-control" id="id_jadwal" type="hidden" name="id_jadwal" value="<?= $jad->id_jadwal ?>">
                                     <?php endforeach; ?>
                                     <input class="form-control" id="username" type="text" name="nip" value="<?= $this->session->userdata('username'); ?>" disabled>
                                 </div>

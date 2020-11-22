@@ -35,6 +35,9 @@ class Surat extends CI_Controller
         $data['surat'] = $this->Model_surat_penugasan->edit_surat_penugasan($where, 'surat_penugasan')->result();
 
         $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+
+        $data['datatugas'] = $this->db->query(" SELECT * FROM  data_pegawai  WHERE no_surat = $no_surat ")->result();
+        $data['dagas'] = $this->db->query(" SELECT * FROM  data_pegawai  WHERE no_surat = $no_surat ");
  
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');

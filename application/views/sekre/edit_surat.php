@@ -1,13 +1,6 @@
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>DASHBOARD</h2>
-            <!-- <div id="div1">
-                <h2>Let jQuery AJAX Change This Text</h2>
-            </div>
 
-            <button>Get External Content</button> -->
-        </div>
         <div class="card p-4">
             <div class="header">
                 <div class="row">
@@ -45,33 +38,62 @@
                         <div class="row">
 
 
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-2">
-                                <h4>Nama</h4>
-                                <!-- <button class="btn btn-dark">Tambah Pegawai</button> -->
-                            </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-2"></div>
+
+                            <div class="col-sm-10">
                                 <div>
 
                                     <table>
+                                        <thead>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <h4>No</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>Nip</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>Nama</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>Jabatan</h4>
+                                                </td>
+                                                <td>
+                                                    <h4>Pangkat</h4>
+                                                </td>
+                                                <td><H4>Hapus</H4></td>
+                                            </tr>
+                                        </thead>
                                         <tbody class="text-left">
                                             <?php $no = 1; ?>
                                             <?php foreach ($datatugas as $dsur) : ?>
                                                 <tr>
                                                     <td>
-                                                        <h4>&nbsp;<?= $no++; ?> &nbsp;: &nbsp;</h4>
+                                                        <h4><?= $no++; ?></h4>
+                                                        <input class="form-control" type="hidden" name="id[]" value="<?= $dsur->id; ?>">
+
                                                     </td>
                                                     <td>
+                                                        <h4> &nbsp;<?= $dsur->nip ?>&nbsp; &nbsp;</h4>
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control" type="hidden" name="status_pegawai[]" value="2">
                                                         <h4>&nbsp;<?= $dsur->nama ?> &nbsp; &nbsp;</h4>
+                                                        <input class="form-control" type="hidden" name="status_pegawai[]" value="1">
                                                     </td>
                                                     <td>
-                                                        <h4> &nbsp;<?= $dsur->nip ?></h4>
+                                                        <h4><?= $dsur->jabatan ?>&nbsp; &nbsp;</h4>
                                                     </td>
-                                                    <td><a href="<?= base_url('sekre/surat/hapus_pegawai_aksi/' . $dsur->no_surat . '/' . $dsur->nip) ?>"><i class="material-icons">delete</i></a></td>
+                                                    <td>
+                                                        <h4><?= $dsur->pangkat ?>&nbsp; &nbsp;</h4>
+                                                    </td>
+                                                    <td>
+                                                        <a href="<?= base_url('sekre/surat/hapus_pegawai_aksi/' . $dsur->no_surat . '/' . $dsur->nip) ?>"><i class="material-icons">delete</i></a>
+                                                    </td>
+
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
-
                                     </table>
 
                                 </div>
@@ -143,7 +165,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            TAMBAH SURAT TUGAS
+                            TAMBAH PEGAWAI BERTUGAS
                         </h2>
 
                     </div>
@@ -154,7 +176,7 @@
                                 <select class="selectpicker form-line" name="nip" id="nipku">
                                     <?php
                                     foreach ($user as $sur) : ?>
-                                        <option class="d-none" value="<?= $sur->username ?>"><?= $sur->nama ?> 2/ <?= $sur->username ?></option>
+                                        <option class="d-none" value="<?= $sur->username ?>"><?= $sur->nama ?> / <?= $sur->username ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

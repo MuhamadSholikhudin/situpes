@@ -28,9 +28,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Surat</th>
-                                        <th>Berlaku</th>
-                                        <th>Jumlah Absensi</th>
+                                        <th>Judul</th>
+                                        <th>Isi Surat</th>
+                                        <th>Keterangan</th>
                                         <th>Lihat</th>
                                         <th>Status</th>
                                     </tr>
@@ -40,11 +40,11 @@
                                     <?php foreach ($surat as $su) : ?>
                                         <tr>
                                             <td>a</td>
-                                            <td></td>
-                                            <td></td>
+                                            <td><?= $su->judul ?></td>
                                             <td><?= $su->isi_surat ?></td>
+                                            <td><?= $su->keterangan ?></td>
                                             <td><a href="<?= base_url("pegawai/absensi/pegawai/") . $su->no_surat ?>"><i class="material-icons">edit</i></a></td>
-                                            <td><?= $su->isi_surat ?></td>
+                                            <td><?= $su->status_surat ?></td>
                                         </tr>
                                     <?php endforeach; ?>
 

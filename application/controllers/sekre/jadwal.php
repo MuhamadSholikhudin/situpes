@@ -31,6 +31,7 @@ class Jadwal extends CI_Controller
 
     public function data($no_surat)
     {
+        
         $data['pegawai'] = $this->db->query("SELECT * FROM data_pegawai WHERE no_surat = $no_surat ORDER BY no_surat DESC")->result();
 
         $this->load->view('templates_admin/header');

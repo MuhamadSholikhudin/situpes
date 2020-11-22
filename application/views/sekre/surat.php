@@ -66,7 +66,6 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>No Surat</th>
                                             <th>Judul</th>
                                             <th>isi surat</th>
                                             <th>Keterangan</th>
@@ -81,8 +80,7 @@
                                         <?php foreach ($surat as $sus) : ?>
                                             <tr>
                                                 <td><?= $no++ ?></td>
-                                                <td><a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
-                                                <td><?= $sus->judul ?></td>
+                                                <td><a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>"><?= $sus->judul ?></a></td>
                                                 <td><?= $sus->isi_surat ?></td>
                                                 <td><?= $sus->keterangan ?></td>
                                                 <td>

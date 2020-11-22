@@ -6,21 +6,12 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>
-                            Laporan Surat
+                        <h2 class="text-center">
+                            Laporan Surat Penugasan
                         </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <h2 class="text-center">
+                            Dinas Tenaga Inkop dan UMKM
+                        </h2>
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -47,7 +38,7 @@
                                             <td><?= $sur->keterangan ?></td>
                                             <td><?= $sur->tgl_buat ?></td>
                                             <td>
-                                                <a href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a>
+                                                <a target="blank" href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a>
 
                                             </td>
                                         </tr>

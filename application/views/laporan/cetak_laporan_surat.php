@@ -26,19 +26,20 @@
             </div>
 
         </div>
+        <br>
+        <br>
         <div class="body">
 
             <h3 class="text-center"><u>SURAT TUGAS</u> </h3>
             <?php foreach ($surat as $sur) : ?>
                 <h4 class="text-center">NO : <?= $sur->no_surat ?>/DINBLK/20/08/2020</h4>
             <?php endforeach; ?>
-            <br>
-            <br>
+
             <br>
             <br>
             <form action="<?= base_url('sekre/surat/edit_surat_aksi') ?>" method="post" enctype="multipart/form-data">
                 <?php foreach ($surat as $sur) : ?>
-                    <h4 >
+                    <h4>
 
                         <p name="isi_surat" id="isi_surat" cols="95"><?= $sur->isi_surat ?></p>
                     </h4>
@@ -47,32 +48,61 @@
                     <div class="row">
 
 
-                        <div class="col-sm-3"></div>
                         <div class="col-sm-2">
-                            <h4>Nama</h4>
-                            <!-- <button class="btn btn-dark">Tambah Pegawai</button> -->
+
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-sm-10">
                             <div>
 
                                 <table>
+                                    <thead>
+                                        <tr class="text-center">
+                                            <td>
+                                                <h4>No</h4>
+                                            </td>
+                                            <td>
+                                                <h4>Nip</h4>
+                                            </td>
+                                            <td>
+                                                <h4>Nama</h4>
+                                            </td>
+                                            <td>
+                                                <h4>Jabatan</h4>
+                                            </td>
+                                            <td>
+                                                <h4>Pangkat</h4>
+                                            </td>
+                                            
+                                        </tr>
+                                    </thead>
                                     <tbody class="text-left">
                                         <?php $no = 1; ?>
                                         <?php foreach ($datatugas as $dsur) : ?>
                                             <tr>
                                                 <td>
-                                                    <h4>&nbsp;<?= $no++; ?> &nbsp;: &nbsp;</h4>
+                                                    <h4><?= $no++; ?></h4>
+                                                    <input class="form-control" type="hidden" name="id[]" value="<?= $dsur->id; ?>">
+
                                                 </td>
                                                 <td>
+                                                    <h4> &nbsp;<?= $dsur->nip ?>&nbsp; &nbsp;</h4>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="hidden" name="status_pegawai[]" value="2">
                                                     <h4>&nbsp;<?= $dsur->nama ?> &nbsp; &nbsp;</h4>
+                                                    <input class="form-control" type="hidden" name="status_pegawai[]" value="1">
                                                 </td>
                                                 <td>
-                                                    <h4> &nbsp;<?= $dsur->nip ?></h4>
+                                                    <h4><?= $dsur->jabatan ?>&nbsp; &nbsp;</h4>
                                                 </td>
+                                                <td>
+                                                    <h4><?= $dsur->pangkat ?>&nbsp; &nbsp;</h4>
+                                                </td>
+                                                
+
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
-
                                 </table>
 
                             </div>
@@ -96,7 +126,7 @@
 
                 <div class="row">
                     <div class="col-sm-8">
-                        
+
                     </div>
             </form>
             <div class="col-sm-4">

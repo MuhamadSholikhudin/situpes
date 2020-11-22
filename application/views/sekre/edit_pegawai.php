@@ -1,58 +1,66 @@
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>DASHBOARD</h2>
-            </div>
 
 
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
                         <h2>
-                            TAMBAH PEGAWAI
+                            EDIT PEGAWAI BERTUGAS
                         </h2>
 
                     </div>
                     <div class="body">
                         <form action="<?= base_url('sekre/pegawai/update') ?>" method="POST" enctype="multipart/form-data">
-                            <?php foreach ($data_pegawai as $us) :
+                            <?php foreach ($user as $us) :
                             ?>
-
-                                <label for="username">Username</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input class="form-control" id="username" type="hidden" name="niplama" value="<?= $us->nip ?>">
-                                        <input class="form-control" id="username" type="text" name="nip" value="<?= $us->nip ?>">
-                                    </div>
-                                </div>
                                 <label for="nama">Nama</label>
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input class="form-control" id="nama" type="text" name="nama" value="<?= $us->nama ?>">
+                                        <input class="form-control" id="id" type="hidden" name="id" value="<?= $us->id ?>">
                                     </div>
                                 </div>
+                                <label for="nip">NIP</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input class="form-control" id="nip" type="hidden" name="niplama" value="<?= $us->nip ?>">
+                                        <input class="form-control" id="nip" type="text" name="nip" value="<?= $us->nip ?>">
+                                    </div>
+                                </div>
+
+                                
                                 <label for="jabatan">Jabatan</label>
                                 <div class="form-group">
                                     <select class="selectpicker form-line" name="jabatan" id="jabatan">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
+                                        <?php foreach ($jabatan as $jab) : ?>
+                                            <?php if ($jab == $us->jabatan) : ?>
+                                                <option value="<?= $jab; ?>" selected>
+                                                    <?= $jab; ?>
+                                                </option>
+                                            <?php else : ?>
+                                                <option value="<?= $jab; ?>">
+                                                    <?= $jab; ?>
+                                                </option>
+                                            <?php endif ?>
+                                        <?php endforeach ?>
                                     </select>
                                 </div>
                                 <label for="pangkat">Pangkat</label>
                                 <div class="form-group">
                                     <select class="selectpicker form-line" name="pangkat" id="pangkat">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                                <label for="status_pegawai">Status Pegawai</label>
-                                <div class="form-group">
-                                    <select class="selectpicker form-line" name="status_pegawai" id="status_pegawai">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
+                                        <?php foreach ($pangkat as $pan) : ?>
+                                            <?php if ($pan == $us->pangkat) : ?>
+                                                <option value="<?= $pan; ?>" selected>
+                                                    <?= $pan; ?>
+                                                </option>
+                                            <?php else : ?>
+                                                <option value="<?= $pan; ?>">
+                                                    <?= $pan; ?>
+                                                </option>
+                                            <?php endif ?>
+                                        <?php endforeach ?>
                                     </select>
                                 </div>
 

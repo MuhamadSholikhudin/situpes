@@ -7,21 +7,10 @@
 
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                Jadwal Penugasan
+                            <h2 class="text-center">
+                                Data Absensi
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -34,7 +23,6 @@
                                             <th>Jabatan</th>
                                             <th>Tanggal</th>
                                             <th>Status</th>
-                                            <th>Ubah</th>
                                         </tr>
                                     </thead>
 
@@ -65,16 +53,17 @@
                                                 <td><?= $jad->jadwal ?></td>
                                                 <td>
                                                     <button class="btn btn-primary waves-effect" type="button">
-                                                        <?= $jad->status_jadwal ?>
+                                                        <?php if ($jad->status_jadwal == 5 or $jad->status_jadwal == 0) {
+                                                            echo "Tidak Bertugas";
+                                                        } elseif ($jad->status_jadwal == 6 or $jad->status_jadwal == 1) {
+                                                            echo " Bertugas";
+                                                        }
+                                                        ?>
                                                     </button>
                                                     <input type="hidden" name="status_jadwal[]" value="<?= $jad->status_jadwal ?>">
 
                                                 </td>
-                                                <td>
-                                                    <a href="" class="btn btn-success waves-effect" type="button">
-                                                        <i class="material-icons">remove_red_eye</i>
-                                                    </a>
-                                                </td>
+                                               
 
                                             </tr>
                                         <?php endforeach; ?>
@@ -82,9 +71,18 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-10"></div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary float-right">ACC Absensi</button>
+                            </div>
+
+                            <div class="col-sm-12">&nbsp;</div>
+                        </div>
+
                     </div>
 
-                    <button type="submit" class="btn btn-primary float-right">ACC Absensi</button>
+
 
                 </form>
             </div>
