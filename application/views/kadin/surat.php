@@ -21,7 +21,6 @@
                                         <th>Tanggal Berakhir</th>
                                         <th>Status</th>
                                         <th>Lihat</th>
-                                        <th>Hapus</th>
                                     </tr>
                                 </thead>
 
@@ -36,33 +35,41 @@
                                             <td><?= $sus->keterangan ?></td>
                                             <td>
                                                 <?php if ($sus->status_surat == 1) { ?>
-                                                    <button class="btn btn-primary waves-effect" type="button">
+                                                    <button class="btn bg-orange waves-effect" type="button">
+
                                                         <i class="material-icons">call_received</i>
+                                                        <span>Kembalikan</span>
                                                     </button>
                                                 <?php } elseif ($sus->status_surat == 2) { ?>
-                                                    <button class="btn btn-dark waves-effect" type="button">
+                                                    <button class="btn btn-primary waves-effect" type="button">
                                                         <i class="material-icons">verified_user</i>
+                                                        <span>ACC</span>
                                                     </button>
                                                 <?php } ?>
                                             </td>
-                                            <td><?php if ($sus->status_surat == 0) { ?>
-                                                    <a href="<?= base_url('kadin/surat/edit/') . $sus->no_surat ?>" class="btn btn-warning waves-effect" type="button">
+
+
+                                            <td>
+                                            <?php if ($sus->status_surat == 0) { ?>
+                                                    <a href="<?= base_url('kadin/surat/edit/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
                                                         <i class="material-icons">mode_edit</i>
+                                                        <span>Lihat</span>
+                                                        
                                                     </a>
                                                 <?php } elseif ($sus->status_surat == 1) { ?>
                                                     <a href="<?= base_url('kadin/surat/lihat_acc/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
                                                         <i class="material-icons">remove_red_eye</i>
+                                                        <span>Lihat</span>
+                                                        
                                                     </a>
                                                 <?php } elseif ($sus->status_surat == 2) { ?>
-                                                    <a href="<?= base_url('kadin/surat/lihat_batalkan/') . $sus->no_surat ?>" class="btn btn-danger waves-effect" type="button">
+                                                    <a href="<?= base_url('kadin/surat/lihat_batalkan/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
                                                         <i class="material-icons">remove_red_eye</i>
+                                                        <span>Lihat</span>
                                                     </a>
                                                 <?php } ?>
-
                                             </td>
-                                            <td><a href="<?= base_url('kadin/surat/hapus/') ?>" class="btn btn-danger waves-effect" type="button">
-                                                    <i class="material-icons">delete_forever</i>
-                                                </a></td>
+                                            
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

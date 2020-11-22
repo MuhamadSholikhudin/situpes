@@ -170,7 +170,7 @@
                                                 } ?>
 
                                             </td>
-                                            <td><a href="<?= base_url('sekre/pengguna/edit/') . $us->id_user ?>" class="btn btn-warning waves-effect" type="button">
+                                            <td><a href="<?= base_url('sekre/pengguna/edit/') . $us->id_user ?>" class="btn bg-light-green waves-effect" type="button">
                                                     <i class="material-icons">mode_edit</i>
                                                 </a></td>
                                             <td><a class="btn btn-danger waves-effect" type="button">

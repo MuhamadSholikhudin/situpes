@@ -22,7 +22,7 @@ class Absensi extends CI_Controller
     {
         $username = $this->session->userdata('username');
 
-        $data['surat'] = $this->db->query("SELECT surat_penugasan.keterangan, surat_penugasan.judul, surat_penugasan.no_surat, surat_penugasan.isi_surat, surat_penugasan.status_surat FROM surat_penugasan JOIN data_pegawai ON surat_penugasan.no_surat = data_pegawai.no_surat WHERE status_surat = 2 AND data_pegawai.nip = '$username' ORDER BY surat_penugasan.no_surat DESC")->result();
+        $data['surat'] = $this->db->query("SELECT surat_penugasan.keterangan, surat_penugasan.judul, surat_penugasan.no_surat, surat_penugasan.isi_surat, surat_penugasan.status_surat FROM surat_penugasan JOIN data_pegawai ON surat_penugasan.no_surat = data_pegawai.no_surat WHERE status_surat >= 2 AND data_pegawai.nip = '$username' ORDER BY surat_penugasan.no_surat DESC")->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
@@ -39,6 +39,34 @@ class Absensi extends CI_Controller
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('pegawai/pegawai', $data);
+        $this->load->view('templates_admin/footer');
+    }
+
+    public function baru ($no_surat){
+        $where = array('no_surat' => $no_surat);
+        $data = [
+            'status_surat' => 3
+        ];
+        $this->Model_surat_penugasan->update_data($where, $data, 'surat_penugasan');
+
+        redirect('pegawai/absensi/surat/'. $no_surat);
+        
+
+    }
+
+    public function surat($no_surat)
+    {
+        $where = array('no_surat' => $no_surat);
+        $data['surat'] = $this->Model_surat_penugasan->edit_surat_penugasan($where, 'surat_penugasan')->result();
+
+        $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+
+        $data['datatugas'] = $this->db->query(" SELECT * FROM  data_pegawai  WHERE no_surat = $no_surat ")->result();
+        $data['dagas'] = $this->db->query(" SELECT * FROM  data_pegawai  WHERE no_surat = $no_surat ");
+ 
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('pegawai/lihat_surat', $data);
         $this->load->view('templates_admin/footer');
     }
 

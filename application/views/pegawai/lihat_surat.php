@@ -27,7 +27,6 @@
                 <br>
                 <br>
                 <br>
-                <form action="<?= base_url('sekre/surat/edit_surat_aksi') ?>" method="post" enctype="multipart/form-data">
                     <?php foreach ($surat as $sur) : ?>
                         <p class="lead">
 
@@ -61,9 +60,7 @@
                                                 <td>
                                                     <h4>Pangkat <span> </span></h4> 
                                                 </td>
-                                                <td>
-                                                    <H4>Hapus</H4>
-                                                </td>
+                                               
                                             </tr>
                                         </thead>
                                         <tbody class="text-left">
@@ -89,9 +86,7 @@
                                                     <td>
                                                         <h4><?= $dsur->pangkat ?>&nbsp; &nbsp;</h4>
                                                     </td>
-                                                    <td>
-                                                        <a href="<?= base_url('sekre/surat/hapus_pegawai_aksi/' . $dsur->no_surat . '/' . $dsur->nip) ?>"><i class="material-icons">delete</i></a>
-                                                    </td>
+                                                    
 
                                                 </tr>
                                             <?php endforeach; ?>
@@ -129,7 +124,7 @@
                                 <br>
                                 <br>
                                 <br>
-                                <a href="<?= base_url('sekre/surat') ?>" class="btn btn-success">Kembali </a>
+                                <a href="<?= base_url('pegawai/absensi') ?>" class="btn btn-success">Kembali </a>
                              
                             </div>
                         </div>

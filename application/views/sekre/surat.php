@@ -87,21 +87,25 @@
 
                                                     <?php if ($sus->status_surat == 0) { ?>
                                                         <a href="<?= base_url('sekre/surat/ajukan_surat/') . $sus->no_surat ?>" class="btn btn-primary waves-effect" type="button">
-                                                            <i class="material-icons">done</i>
+                                                            <i class="material-icons">send</i>
+                                                            <span>Ajukan</span>
                                                         </a>
                                                     <?php } elseif ($sus->status_surat == 1) { ?>
                                                         <button class="btn btn-warning waves-effect" type="button">
                                                             <i class="material-icons">call_missed_outgoing</i>
+                                                            <span>Di Ajukan</span>
                                                         </button>
                                                     <?php } ?>
                                                 </td>
                                                 <td><?php if ($sus->status_surat == 0) { ?>
-                                                        <a href="<?= base_url('sekre/surat/edit/') . $sus->no_surat ?>" class="btn btn-warning waves-effect" type="button">
+                                                        <a href="<?= base_url('sekre/surat/edit/') . $sus->no_surat ?>" class="btn bg-light-green waves-effect" type="button">
                                                             <i class="material-icons">mode_edit</i>
+                                                            <span>Edit</span>
                                                         </a>
                                                     <?php } elseif ($sus->status_surat == 1) { ?>
-                                                        <a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>" class="btn btn-warning waves-effect" type="button">
+                                                        <a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
                                                             <i class="material-icons">remove_red_eye</i>
+                                                            <span>Lihat</span>
                                                         </a>
                                                     <?php } ?>
 
