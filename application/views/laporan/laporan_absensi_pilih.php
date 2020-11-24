@@ -92,9 +92,10 @@
 
                 </div>
 
+
                 <div class="card">
-                    <div class="header text-center">
-                        <h2 class="">
+                    <div class="header">
+                        <h2 class="text-center">
                             Laporan Absensi
                         </h2>
 

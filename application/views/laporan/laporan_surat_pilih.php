@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="header">
                         <div class="row clearfix">
-                            <form action="<?= base_url('sekre/laporan/absensi_pertanggal') ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?= base_url('sekre/laporan/surat') ?>" method="POST" enctype="multipart/form-data">
                                 <div class="col-sm-3">
                                     <label for=""> Pilih Pertanggal</label>
                                     <div class="form-group">
@@ -28,7 +28,7 @@
 
                             <div class="col-sm-1"></div>
 
-                            <form action="<?= base_url('sekre/laporan/absensi_perbulan') ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?= base_url('sekre/laporan/surat_perbulan') ?>" method="POST" enctype="multipart/form-data">
                                 <div class="col-sm-3">
                                     <label for="bulan">Pilih Bulan</label>
                                     <div class="form-group">
@@ -66,7 +66,8 @@
 
                             <div class="col-sm-1"></div>
 
-                            <form action="<?= base_url('sekre/laporan/absensi_pertahun') ?>" method="POST" enctype="multipart/form-data">
+
+                            <form action="<?= base_url('sekre/laporan/surat_pertahun') ?>" method="POST" enctype="multipart/form-data">
                                 <div class="col-sm-3">
                                     <label for="bulan">Pilih Tahun</label>
 
@@ -89,47 +90,79 @@
 
                         </div>
                     </div>
-
                 </div>
 
                 <div class="card">
-                    <div class="header text-center">
-                        <h2 class="">
-                            Laporan Absensi
+                    <div class="header">
+                        <h2 class="text-center">
+                            Laporan Surat Penugasan
                         </h2>
+                        <h2 class="text-center">
+                            Dinas Tenaga Inkop dan UMKM
+                        </h2>
+
 
                     </div>
                     <div class="body">
+
+
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Jadwal</th>
-                                        <th>NIP</th>
-                                        <th>Nama</th>
-                                        <th>Jabatan</th>
-                                        <th>Pangkat</th>
-                                        <th>Status_jadwal</th>
+                                        <th>No Surat</th>
+                                        <th>Judul Surat</th>
+                                        <th>Isi Surat</th>
+                                        <th>Keterangan</th>
+                                        <th>Tanggal</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <?php $no = 1; ?>
-                                    <?php foreach ($jadwal as $jad) : ?>
+                                    <?php foreach ($surat as $sur) : ?>
+
                                         <tr>
                                             <td><?= $no; ?></td>
-                                            <td><?= $jad->jadwal ?></td>
-                                            <td><?= $jad->nip ?></td>
-                                            <td><?= $jad->nama ?></td>
-                                            <td><?= $jad->jabatan ?></td>
-                                            <td><?= $jad->pangkat ?></td>
+                                            <td><?= $sur->no_surat ?></td>
+                                            <td><?= $sur->judul ?></td>
+                                            <td><?= $sur->isi_surat ?></td>
+                                            <td><?= $sur->keterangan ?></td>
+                                            <td><?= $sur->tgl_buat ?></td>
                                             <td>
-                                                <?php if ($jad->status_jadwal == 6) {
-                                                    echo "Bertugas";
-                                                } elseif ($jad->status_jadwal) {
-                                                    echo "Tidak Bertugas";
-                                                } ?>
+
+
+                                                <?php if ($sus->status_surat == 0) { ?>
+                                                    <a href="<?= base_url('sekre/surat/ajukan_surat/') . $sus->no_surat ?>" class="btn btn-primary waves-effect" type="button">
+                                                        <i class="material-icons">send</i>
+                                                        <span>Ajukan</span>
+                                                    </a>
+                                                <?php } elseif ($sus->status_surat == 1) { ?>
+                                                    <button class="btn btn-warning waves-effect" type="button">
+                                                        <i class="material-icons">call_missed_outgoing</i>
+                                                        <span>Di Ajukan</span>
+                                                    </button>
+                                                <?php } elseif ($sus->status_surat == 2) { ?>
+                                                    <button class="btn btn-warning waves-effect" type="button">
+                                                        <i class="material-icons">verified_user</i>
+                                                        <span>Di ACC</span>
+                                                    </button>
+                                                <?php } elseif ($sus->status_surat == 3) { ?>
+                                                    <button class="btn bg-deep-orange waves-effect" type="button">
+                                                        <i class="material-icons">update</i>
+                                                        <span>Dalam Process</span>
+                                                    </button>
+                                                <?php } elseif ($sus->status_surat == 4) { ?>
+                                                    
+                                                        <span>Selesai
+                                                    
+                                                <?php } ?>
+
+
+                                                <a target="blank" href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a>
+
                                             </td>
                                         </tr>
                                         <?php $no++; ?>
@@ -137,6 +170,12 @@
                                 </tbody>
                             </table>
                         </div>
+
+
+
+
+
+
                     </div>
                 </div>
             </div>

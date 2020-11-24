@@ -129,6 +129,20 @@ $data['user'] = $this->db->query(" SELECT * FROM user")->result();
     }
 
 
+
+    public function hapus($no_surat)
+    {
+        $where = [ 'no_surat' => $no_surat];
+
+$cari = $this->db->query(" SELECT status_surat FROM surat_penugasan WHERE no_surat = '$no_surat' AND status_surat = 0 ")->num_rows();
+        if($cari > 0){
+            $this->Model_surat_penugasan->hapus_data($where, 'surat_penugasan');
+            redirect('sekre/surat/');
+        }elseif($cari < 1){
+            redirect('sekre/surat/');
+        }
+    }
+
     public function hapus_pegawai_aksi($no_surat, $nip)
     {
 

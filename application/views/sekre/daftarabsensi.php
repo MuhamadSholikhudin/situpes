@@ -28,7 +28,7 @@
 
                                     <tbody>
                                         <?php foreach ($no_sur as $nos) : ?>
-                                            <input type="hidden" name="no_surat" value="<?= $nos ?>">
+                                            <input type="hidden" name="no_surat" value="<?= $nos->no_surat ?>">
                                         <?php endforeach; ?>
                                         <?php $no = 1; ?>
                                         <?php foreach ($jadwal as $jad) : ?>
@@ -63,7 +63,7 @@
                                                     <input type="hidden" name="status_jadwal[]" value="<?= $jad->status_jadwal ?>">
 
                                                 </td>
-                                               
+
 
                                             </tr>
                                         <?php endforeach; ?>
@@ -74,7 +74,13 @@
                         <div class="row">
                             <div class="col-sm-10"></div>
                             <div class="col-sm-2">
-                                <button type="submit" class="btn btn-primary float-right">ACC Absensi</button>
+                                <?php foreach ($no_sur as $nos) : ?>
+                                    <?php if($nos->status_surat == 3){
+
+                                        echo    '<button type="submit" class="btn btn-primary float-right">ACC Absensi</button>';
+                                    } ?>
+                                <?php endforeach; ?>
+
                             </div>
 
                             <div class="col-sm-12">&nbsp;</div>

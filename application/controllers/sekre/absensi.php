@@ -33,7 +33,9 @@ class Absensi extends CI_Controller
     public function surat($no_surat){
 
         $where = ['no_surat' => $no_surat];
-        $data['no_sur'] = ['no_surat' => $no_surat];
+        
+            $data['no_sur'] = $this->Model_surat_penugasan->edit_surat_penugasan($where, 'surat_penugasan')->result();
+
         $data['jadwal'] = $this->db->query("SELECT data_pegawai.nip, data_pegawai.jabatan, data_pegawai.pangkat, jadwal_penugasan.id, jadwal_penugasan.jadwal, jadwal_penugasan.id_jadwal, jadwal_penugasan.status_jadwal FROM jadwal_penugasan JOIN data_pegawai ON jadwal_penugasan.id = data_pegawai.id WHERE data_pegawai.no_surat = '$no_surat' ")->result();
 
         $this->load->view('templates_admin/header');
@@ -53,6 +55,19 @@ class Absensi extends CI_Controller
         //Update data attribut
         $id_jadwal = $this->input->post('id_jadwal');
         $no_surat = $this->input->post('no_surat');
+
+        $data = [
+            'status_surat' => 4
+        ];
+        $where = [
+            'no_surat' => $no_surat
+        ];
+
+        // $this->Model_surat_penugasan->update_data($where, $data, 'surat_penugasan');
+        // $this->db->query("UPDATE surat_penugasan SET status_surat = 4 WHERE 'no_surat' => '$no_surat' ");
+
+        $this->Model_surat_penugasan->update_data($where, $data, 'surat_penugasan');
+
         $result = array();
         foreach (
             $id_jadwal 
@@ -67,17 +82,7 @@ class Absensi extends CI_Controller
         }
         $this->db->update_batch('jadwal_penugasan', $result, 'id_jadwal');
 
-
-        $data = [
-            'status_surat' => 3
-        ];
-        $where = [
-            'no_surat' => $no_surat
-        ];
-
-        $this->Model_surat_penugasan->update_data($where, $data, 'surat_penugasan');
-
-        redirect('sekre/absensi/' . $no_surat);
+        redirect('sekre/absensi/surat/' . $no_surat);
     }
 
 }

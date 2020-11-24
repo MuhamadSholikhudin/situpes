@@ -45,22 +45,32 @@
                                                         <i class="material-icons">verified_user</i>
                                                         <span>ACC</span>
                                                     </button>
+                                                <?php } elseif ($sus->status_surat == 3) { ?>
+                                                    <button class="btn btn-deep-orange waves-effect" type="button">
+                                                        <i class="material-icons">update</i>
+                                                        <span>Dalam Process</span>
+                                                    </button>
+                                                <?php } elseif ($sus->status_surat == 4) { ?>
+                                                    <button class="btn bg-cyan waves-effect" type="button">
+                                                        <i class="material-icons">done_all</i>
+                                                        <span>Selesai</span>
+                                                    </button>
                                                 <?php } ?>
                                             </td>
 
 
                                             <td>
-                                            <?php if ($sus->status_surat == 0) { ?>
+                                                <?php if ($sus->status_surat == 0) { ?>
                                                     <a href="<?= base_url('kadin/surat/edit/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
                                                         <i class="material-icons">mode_edit</i>
                                                         <span>Lihat</span>
-                                                        
+
                                                     </a>
                                                 <?php } elseif ($sus->status_surat == 1) { ?>
                                                     <a href="<?= base_url('kadin/surat/lihat_acc/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
                                                         <i class="material-icons">remove_red_eye</i>
                                                         <span>Lihat</span>
-                                                        
+
                                                     </a>
                                                 <?php } elseif ($sus->status_surat == 2) { ?>
                                                     <a href="<?= base_url('kadin/surat/lihat_batalkan/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
@@ -69,7 +79,7 @@
                                                     </a>
                                                 <?php } ?>
                                             </td>
-                                            
+
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

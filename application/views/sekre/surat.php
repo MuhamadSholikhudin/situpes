@@ -8,7 +8,7 @@
                     <div class="header">
                         <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH SURAT TUGAS</button>
                         <div tabindex="-1" class="modal fade" id="defaultModal" role="dialog" style="display: none;">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="card">
@@ -29,14 +29,14 @@
                                                     <div class="form-group">
                                                         <div class="form-line">
                                                             <!-- <input class="form-control" id="judul" type="text" name="judul" placeholder="Enter your email address"> -->
-                                                            <textarea name="isi_surat" id="isi_surat" cols="70" rows="10" required></textarea>
+                                                            <textarea name="isi_surat" id="isi_surat" class="form-control no-resize" required></textarea>
                                                         </div>
                                                     </div>
                                                     <label for="keterangan">Keterangan</label>
                                                     <div class="form-group">
                                                         <div class="form-line">
                                                             <!-- <input class="form-control" id="keterangan" type="text" name="keterangan" placeholder="Enter your password"> -->
-                                                            <textarea name="keterangan" id="keterangan" cols="70" rows="10" required></textarea>
+                                                            <textarea name="keterangan" id="keterangan" class="form-control no-resize" required></textarea>
                                                         </div>
                                                     </div>
                                                     <label for="tgl_buat">Tanggal Buat</label>
@@ -95,6 +95,21 @@
                                                             <i class="material-icons">call_missed_outgoing</i>
                                                             <span>Di Ajukan</span>
                                                         </button>
+                                                    <?php } elseif ($sus->status_surat == 2) { ?>
+                                                        <button class="btn btn-warning waves-effect" type="button">
+                                                            <i class="material-icons">verified_user</i>
+                                                            <span>Di ACC</span>
+                                                        </button>
+                                                    <?php } elseif ($sus->status_surat == 3) { ?>
+                                                        <button class="btn bg-deep-orange waves-effect" type="button">
+                                                            <i class="material-icons">update</i>
+                                                            <span>Dalam Process</span>
+                                                        </button>
+                                                    <?php } elseif ($sus->status_surat == 4) { ?>
+                                                        <button class="btn bg-cyan waves-effect" type="button">
+                                                            <i class="material-icons">done_all</i>
+                                                            <span>Selesai</span>
+                                                        </button>
                                                     <?php } ?>
                                                 </td>
                                                 <td><?php if ($sus->status_surat == 0) { ?>
@@ -107,12 +122,28 @@
                                                             <i class="material-icons">remove_red_eye</i>
                                                             <span>Lihat</span>
                                                         </a>
+                                                    <?php } elseif ($sus->status_surat == 2) { ?>
+                                                        <a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
+                                                            <i class="material-icons">remove_red_eye</i>
+                                                            <span>Lihat</span>
+                                                        </a>
+                                                    <?php } elseif ($sus->status_surat == 3) { ?>
+                                                        <a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
+                                                            <i class="material-icons">remove_red_eye</i>
+                                                            <span>Lihat</span>
+                                                        </a>
+                                                    <?php } elseif ($sus->status_surat == 4) { ?>
+                                                        <a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
+                                                            <i class="material-icons">remove_red_eye</i>
+                                                            <span>Lihat</span>
+                                                        </a>
                                                     <?php } ?>
-
                                                 </td>
-                                                <td><a href="<?= base_url('sekre/surat/hapus/') ?>" class="btn btn-danger waves-effect" type="button">
+                                                <td><a href="<?= base_url('sekre/surat/hapus/' . $sus->no_surat) ?>" class="btn btn-danger waves-effect" type="button">
                                                         <i class="material-icons">delete_forever</i>
-                                                    </a></td>
+                                                        <span>Hapus</span>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
