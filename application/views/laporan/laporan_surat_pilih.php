@@ -134,34 +134,26 @@
                                             <td>
 
 
-                                                <?php if ($sus->status_surat == 0) { ?>
-                                                    <a href="<?= base_url('sekre/surat/ajukan_surat/') . $sus->no_surat ?>" class="btn btn-primary waves-effect" type="button">
-                                                        <i class="material-icons">send</i>
-                                                        <span>Ajukan</span>
-                                                    </a>
-                                                <?php } elseif ($sus->status_surat == 1) { ?>
-                                                    <button class="btn btn-warning waves-effect" type="button">
-                                                        <i class="material-icons">call_missed_outgoing</i>
-                                                        <span>Di Ajukan</span>
+                                                <?php if ($sur->status_surat == 0) { ?>
+                                                        Ajukan
+                                                <?php } elseif ($sur->status_surat == 1) { ?>
+                                                        Di Ajukan
+                                                <?php } elseif ($sur->status_surat == 2) { ?>
+                                                    
+                                                        Di ACC
                                                     </button>
-                                                <?php } elseif ($sus->status_surat == 2) { ?>
-                                                    <button class="btn btn-warning waves-effect" type="button">
-                                                        <i class="material-icons">verified_user</i>
-                                                        <span>Di ACC</span>
+                                                <?php } elseif ($sur->status_surat == 3) { ?>
+                                                    
+                                                        Dalam Process
                                                     </button>
-                                                <?php } elseif ($sus->status_surat == 3) { ?>
-                                                    <button class="btn bg-deep-orange waves-effect" type="button">
-                                                        <i class="material-icons">update</i>
-                                                        <span>Dalam Process</span>
-                                                    </button>
-                                                <?php } elseif ($sus->status_surat == 4) { ?>
+                                                <?php } elseif ($sur->status_surat == 4) { ?>
                                                     
                                                         <span>Selesai
                                                     
                                                 <?php } ?>
 
 
-                                                <a target="blank" href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a>
+                                                <!-- <a target="blank" href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a> -->
 
                                             </td>
                                         </tr>

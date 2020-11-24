@@ -134,8 +134,26 @@
                                             <td><?= $sur->keterangan ?></td>
                                             <td><?= $sur->tgl_buat ?></td>
                                             <td>
-                                                <a target="blank" href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a>
+                                                <!-- <a target="blank" href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a> -->
 
+
+                                                <?php if ($sur->status_surat == 0) { ?>
+                                                    Ajukan
+                                                <?php } elseif ($sur->status_surat == 1) { ?>
+                                                    Di Ajukan
+                                                <?php } elseif ($sur->status_surat == 2) { ?>
+
+                                                    Di ACC
+                                                    </button>
+                                                <?php } elseif ($sur->status_surat == 3) { ?>
+
+                                                    Dalam Process
+                                                    </button>
+                                                <?php } elseif ($sur->status_surat == 4) { ?>
+
+                                                    <span>Selesai
+
+                                                    <?php } ?>
                                             </td>
                                         </tr>
                                         <?php $no++; ?>
