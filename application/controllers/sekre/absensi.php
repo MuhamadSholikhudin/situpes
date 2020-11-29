@@ -21,7 +21,7 @@ class Absensi extends CI_Controller
     public function index()
     {
 
-        $data['surat'] = $this->db->get('surat_penugasan')->result();
+        $data['surat'] = $this->db->query('SELECT * FROM surat_penugasan WHERE status_surat > 2')->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');

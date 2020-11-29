@@ -9,114 +9,48 @@
                     </div>
                     <div class="col-md-10">
                         <h3 class="text-center">PEMERINTAH KABUPATEN KUDUS</h3>
-                        <h3 class="text-center">DINAS TENAGA KERJA PERINDUSTRIAN</h3>
-                        <h3 class="text-center">KOPERASI DAN USAHA KECIL DAN MENENGAH</h3>
-                        <h5 class="text-center">stain-ngembalrejo, Ngembal Rejo, Ngembalrejo, Kec. Bae, Kabupaten Kudus, Jawa Tengah 59322</h5>
-                        <h5 class="text-center">KOPERASI DAN USAHA KECIL DAN MENENGAH</h5>
+                        <h3 class="text-center">DINAS TENAGA KERJA, PERINDUSTRIAN,KOPERASI,</h3>
+                        <h3 class="text-center">USAHA KECIL DAN MENENGAH</h3>
+                        <h5 class="text-center">Jln. Conge Ngembalrejo No.99 Telp. .(0291) 438691, 431470, Fax (0291) 438691</h5>
+                        <h3 class="text-center">KUDUS 59322</h3>
                     </div>
                 </div>
 
             </div>
             <div class="body">
 
-                <h3 class="text-center"><u>SURAT TUGAS</u> </h3>
+                <h3 class="text-center"><u>SURAT PERINTAH TUGAS</u> </h3>
                 <?php foreach ($surat as $sur) : ?>
-                    <h4 class="text-center">NO : <?= $sur->no_surat ?>/DINBLK/20/08/2020</h4>
+                    <h4 class="text-center">NOMOR : 090 / 300.<?= $sur->no_surat ?> / 16.06 / <?= date('Y') ?></h4>
                 <?php endforeach; ?>
                 <br>
                 <br>
+
+                <div class="col-sm-2 lead">Dasar &nbsp;&nbsp;&nbsp;&nbsp; : 1.</div>
+                <div class="col-sm-10 lead"> Dokumen Pelaksanaan Perubahan Anggaran No. 2.01.2.01.01.18.06 tanggal 28 Januari 2019.</div>
+                <div class="col-sm-2 lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.</div>
+                <div class="col-sm-10 lead"> Surat Perintah Kerja Kepala Dinas Tenaga Kerja, Perindustrian, Koperasi, Usaha Kecil dan Menengah Kabupaten Kudus, tanggal 1 Februari 2019.</div>
+
                 <br>
                 <br>
-                <form action="<?= base_url('sekre/surat/edit_surat_aksi') ?>" method="post" enctype="multipart/form-data">
-                    <?php foreach ($surat as $sur) : ?>
-                        <p class="lead">
-
-                            <?= $sur->isi_surat ?>
-                        </p>
-                        <br>
-                        <br>
-                        <div class="row">
-
-
-                            <div class="col-sm-2"></div>
-
-                            <div class="col-sm-10">
-                                <div>
-
-                                    <table>
-                                        <thead>
-                                            <tr class="text-center">
-                                                <td>
-                                                    <h4>No</h4>
-                                                </td>
-                                                <td>
-                                                    <h4>Nip</h4> 
-                                                </td>
-                                                <td>
-                                                    <h4>Nama</h4>
-                                                </td>
-                                                <td>
-                                                    <h4>Jabatan</h4> 
-                                                </td>
-                                                <td>
-                                                    <h4>Pangkat <span> </span></h4> 
-                                                </td>
-                                                <td>
-                                                    <H4>Hapus</H4>
-                                                </td>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="text-left">
-                                            <?php $no = 1; ?>
-                                            <?php foreach ($datatugas as $dsur) : ?>
-                                                <tr>
-                                                    <td>
-                                                        <h4><?= $no++; ?></h4>
-                                                        <input class="form-control" type="hidden" name="id[]" value="<?= $dsur->id; ?>">
-
-                                                    </td>
-                                                    <td>
-                                                        <h4> &nbsp;<?= $dsur->nip ?>&nbsp; &nbsp;</h4>
-                                                    </td>
-                                                    <td>
-                                                        <input class="form-control" type="hidden" name="status_pegawai[]" value="2">
-                                                        <h4>&nbsp;<?= $dsur->nama ?> &nbsp; &nbsp;</h4>
-                                                        <input class="form-control" type="hidden" name="status_pegawai[]" value="1">
-                                                    </td>
-                                                    <td>
-                                                        <h4><?= $dsur->jabatan ?>&nbsp; &nbsp;</h4>
-                                                    </td>
-                                                    <td>
-                                                        <h4><?= $dsur->pangkat ?>&nbsp; &nbsp;</h4>
-                                                    </td>
-                                                    <td>
-                                                        <a href="<?= base_url('sekre/surat/hapus_pegawai_aksi/' . $dsur->no_surat . '/' . $dsur->nip) ?>"><i class="material-icons">delete</i></a>
-                                                    </td>
-
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-
-
-                            </div>
-                        </div>
-                        <br>
-
-
-                        <p class="lead">
-                            <input type="hidden" name="no_surat" value="<?= $sur->no_surat ?>">
-                            <?= $sur->keterangan ?>
-                        </p>
-                        <p class="lead">
-                            Demikian Surat ini diberikan agar dapat digunakan dengan semestinya.
-                        </p>
+                <br>
+                <h3 class="text-center">MEMERINTAHKAN </h3>
+                <div class="col-sm-1 lead">Kepada :</div>
+                <div class="col-sm-11 lead">
+                    <?php $no = 1; ?>
+                    <?php foreach ($datatugas as $dsur) : ?>
+                        <div class="col-sm-4 lead"> <?= $no++; ?>. &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; NAMA</div>
+                        <div class="col-sm-8 lead">: <?= $dsur->nama ?> </div>
+                        <div class="col-sm-4 lead"> &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Jabatan</div>
+                        <div class="col-sm-8 lead">: <?= $dsur->jabatan ?></div>
+                        <div class="col-sm-4 lead">&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; Unit Kerja</div>
+                        <div class="col-sm-8 lead">: Dinas Naker Perinkop UKM Kab Kudus</div>
                     <?php endforeach; ?>
+                </div>
 
+                <div class="col-sm-2 lead">Untuk &nbsp;&nbsp;&nbsp;&nbsp; : </div>
+                <div class="col-sm-10 lead"> Melaksanakan tugas sebagai pendamping Alumni UPTD BLK dan Kelompok Wirausaha baru di wilayah Kecamatan <strong><?= $sur->penempatan ?></strong>.</div>
+                  
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="content-bottom">
@@ -130,10 +64,10 @@
                                 <br>
                                 <br>
                                 <a href="<?= base_url('sekre/surat') ?>" class="btn btn-success">Kembali </a>
-                             
+
                             </div>
                         </div>
-                </form>
+                
                 <div class="col-sm-4">
                     <?php foreach ($kadin as $kad) : ?>
                         <div>

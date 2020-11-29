@@ -6,21 +6,10 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>
+                        <h2 class="text-center">
                             Jadwal Penugasan
                         </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -49,13 +38,15 @@
                                             <td>
 
                                                 <button class="btn btn-primary waves-effect" type="button">
-                                                    <i class="material-icons">checked</i> sudah di acc
+                                                    <i class="material-icons">checked</i>
+                                                    <span>Sudah di acc</span>
                                                 </button>
 
                                             </td>
                                             <td>
                                                 <a href="<?= base_url('sekre/jadwal/data/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
                                                     <i class="material-icons">remove_red_eye</i>
+                                                    <span>Lihat</span>
                                                 </a>
 
 

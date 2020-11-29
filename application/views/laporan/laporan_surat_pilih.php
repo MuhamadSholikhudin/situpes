@@ -115,6 +115,7 @@
                                         <th>Judul Surat</th>
                                         <th>Isi Surat</th>
                                         <th>Keterangan</th>
+                                        <th>Penempatan</th>
                                         <th>Tanggal</th>
                                         <th>Status</th>
                                     </tr>
@@ -130,30 +131,31 @@
                                             <td><?= $sur->judul ?></td>
                                             <td><?= $sur->isi_surat ?></td>
                                             <td><?= $sur->keterangan ?></td>
+                                            <td><?= $sur->penempatan ?></td>
                                             <td><?= $sur->tgl_buat ?></td>
                                             <td>
 
 
                                                 <?php if ($sur->status_surat == 0) { ?>
-                                                        Ajukan
+                                                    Ajukan
                                                 <?php } elseif ($sur->status_surat == 1) { ?>
-                                                        Di Ajukan
+                                                    Di Ajukan
                                                 <?php } elseif ($sur->status_surat == 2) { ?>
-                                                    
-                                                        Di ACC
+
+                                                    Di ACC
                                                     </button>
                                                 <?php } elseif ($sur->status_surat == 3) { ?>
-                                                    
-                                                        Dalam Process
+
+                                                    Dalam Process
                                                     </button>
                                                 <?php } elseif ($sur->status_surat == 4) { ?>
-                                                    
-                                                        <span>Selesai
-                                                    
-                                                <?php } ?>
+
+                                                    <span>Selesai
+
+                                                    <?php } ?>
 
 
-                                                <!-- <a target="blank" href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a> -->
+                                                    <!-- <a target="blank" href="<?= base_url('sekre/laporan/cetak_surat/' . $sur->no_surat) ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a> -->
 
                                             </td>
                                         </tr>

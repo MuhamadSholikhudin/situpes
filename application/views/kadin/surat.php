@@ -29,7 +29,7 @@
                                     <?php foreach ($surat as $sus) : ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
-                                            <td><a href="<?= base_url('sekre/surat/lihat/') . $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
+                                            <td><a href="<?= base_url('kadin/surat/lihat_acc/') . $sus->no_surat ?>"><?= $sus->no_surat ?></a></td>
                                             <td><?= $sus->judul ?></td>
                                             <td><?= $sus->isi_surat ?></td>
                                             <td><?= $sus->keterangan ?></td>

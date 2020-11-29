@@ -6,21 +6,10 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>
-                            Laporan Surat
+                        <h2 class="text-center">
+                            DATA ABSENSI PEGAWAI
                         </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -37,15 +26,43 @@
                                 </thead>
 
                                 <tbody>
-                                    <?php foreach ($surat as $sur) : ?>
+                                    <?php $no = 1;
+                                    foreach ($surat as $sur) : ?>
 
                                         <tr>
-                                            <td>a</td>
+                                            <td><?= $no++; ?></td>
                                             <td> <a href="<?= base_url('sekre/absensi/surat/' . $sur->no_surat) ?>"><?= $sur->judul ?></a></td>
                                             <td><?= $sur->isi_surat ?></td>
                                             <td><?= $sur->keterangan ?></td>
                                             <td><?= $sur->tgl_buat ?></td>
-                                            <td><?= $sur->status_surat ?></td>
+                                            <td>
+                                                <?php if ($sur->status_surat == 0) { ?>
+                                                    <a href="<?= base_url('sekre/surat/ajukan_surat/') . $sus->no_surat ?>" class="btn btn-primary waves-effect" type="button">
+                                                        <i class="material-icons">send</i>
+                                                        <span>Ajukan</span>
+                                                    </a>
+                                                <?php } elseif ($sur->status_surat == 1) { ?>
+                                                    <button class="btn btn-warning waves-effect" type="button">
+                                                        <i class="material-icons">call_missed_outgoing</i>
+                                                        <span>Di Ajukan</span>
+                                                    </button>
+                                                <?php } elseif ($sur->status_surat == 2) { ?>
+                                                    <button class="btn btn-warning waves-effect" type="button">
+                                                        <i class="material-icons">verified_user</i>
+                                                        <span>Di ACC</span>
+                                                    </button>
+                                                <?php } elseif ($sur->status_surat == 3) { ?>
+                                                    <button class="btn bg-deep-orange waves-effect" type="button">
+                                                        <i class="material-icons">update</i>
+                                                        <span>Dalam Process</span>
+                                                    </button>
+                                                <?php } elseif ($sur->status_surat == 4) { ?>
+                                                    <button class="btn bg-cyan waves-effect" type="button">
+                                                        <i class="material-icons">done_all</i>
+                                                        <span>Selesai</span>
+                                                    </button>
+                                                <?php } ?>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

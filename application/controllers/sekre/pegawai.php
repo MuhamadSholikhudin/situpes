@@ -62,13 +62,6 @@ class Pegawai extends CI_Controller
         $data['jabatan'] = [
             'Kepala Disnaker ',
             'Seketariat Disnaker ',
-            'Admin TU ',
-            'Admin TU / Keuangan ',
-            'Admin Program, Evaluasi dan Pelaporan Pelatihan ',
-            'Admin Penyelenggara Pelatihan ',
-            'Admin Pendaftaran Pelatihan ',
-            'Admin Umum dan Gudang ',
-            'Admin Pengadaan Barang dan Jasa ',
             'PWU Kecamatan Kota ',
             'PWU Kecamatan Bae ',
             'PWU Kecamatan Dawe ',
@@ -85,17 +78,7 @@ class Pegawai extends CI_Controller
             'TOOLMAN BUBUT & Perkayuan ',
             'Toolman Boga ',
             'TOOLMAN RIAS ',
-            'Toolman Jahit ',
-            'Driver UPTD BLK ',
-            'Adm. Sub Bag. Umum & Kepegawaian ',
-            'Adm. Sub Bag. Keuangan Sekretariat ',
-            'Adm. Sub Bag. PEP ',
-            'Adm. Bidang Koperasi dan UKM ',
-            'Adm. Bid. Perindustrian ',
-            'Adm. Bidang HIP ',
-            'Adm. Bidang Penempatan Tenaga Kerja ',
-            'Keamanan ',
-            'Penjaga '
+            'Toolman Jahit '
         ];
 
         $data['pangkat'] = [
