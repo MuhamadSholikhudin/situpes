@@ -12,16 +12,15 @@
                         <h3 class="text-center">DINAS TENAGA KERJA PERINDUSTRIAN</h3>
                         <h3 class="text-center">KOPERASI DAN USAHA KECIL DAN MENENGAH</h3>
                         <h5 class="text-center">stain-ngembalrejo, Ngembal Rejo, Ngembalrejo, Kec. Bae, Kabupaten Kudus, Jawa Tengah 59322</h5>
-                        <h5 class="text-center">KOPERASI DAN USAHA KECIL DAN MENENGAH</h5>
                     </div>
                 </div>
 
             </div>
             <div class="body">
 
-                <h3 class="text-center"><u>SURAT TUGAS</u> </h3>
+                <h3 class="text-center"><u>SURAT PERINTAH TUGAS</u> </h3>
                 <?php foreach ($surat as $sur) : ?>
-                    <h4 class="text-center">NO : <?= $sur->no_surat ?>/DINBLK/20/08/2020</h4>
+                    <h4 class="text-center">NOMOR : 090 / <?= $sur->no_surat ?>/16.06/2020</h4>
                 <?php endforeach; ?>
                 <br>
                 <br>
