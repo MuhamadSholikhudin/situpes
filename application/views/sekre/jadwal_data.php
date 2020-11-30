@@ -31,7 +31,7 @@
                                         <th>NIP</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
-                                        <th>Pangkat</th>
+                                        <th>penempatan</th>
                                         <th>Jadwal</th>
                                     </tr>
                                 </thead>
@@ -44,11 +44,12 @@
                                             <td><a href="<?= base_url('sekre/jadwal/pegawai/') . $peg->id ?>"><?= $peg->nip ?></a></td>
                                             <td><?= $peg->nama ?></td>
                                             <td><?= $peg->jabatan ?></td>
-                                            <td><?= $peg->pangkat ?></td>
+                                            <td><?= $peg->penempatan ?></td>
 
                                             <td>
                                                 <a href="<?= base_url('sekre/jadwal/pegawai/') .  $peg->id?>" class="btn btn-success waves-effect" >
                                                     <i class="material-icons">remove_red_eye</i>
+                                                    <span>Lihat</span>
                                                 </a>
 
 

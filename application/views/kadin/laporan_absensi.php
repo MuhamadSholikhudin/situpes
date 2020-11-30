@@ -32,7 +32,7 @@
                                     <th>NIP</th>
                                     <th>Nama</th>
                                     <th>Jabatan</th>
-                                    <th>Pangkat GOL</th>
+                                    <th>penempatan GOL</th>
                                     <th>Tanggal Tugas</th>
                                     <th>Status</th>
                                 </tr>

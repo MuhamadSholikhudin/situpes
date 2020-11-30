@@ -39,6 +39,12 @@
                                                             <textarea name="keterangan" id="keterangan" class="form-control no-resize" required></textarea>
                                                         </div>
                                                     </div>
+                                                    <label for="penempatan">Penempatan</label>
+                                                    <div class="form-group">
+                                                        <div class="form-line">
+                                                            <input class="form-control" id="penempatan" type="text" name="penempatan" required>
+                                                        </div>
+                                                    </div>
                                                     <label for="tgl_buat">Tanggal Buat</label>
                                                     <div class="form-group">
                                                         <div class="form-line">
@@ -61,6 +67,7 @@
 
                         </div>
                         <div class="body">
+                        <div class="text-center"><h3>DATA SURAT PENUGASAN</h3></div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>

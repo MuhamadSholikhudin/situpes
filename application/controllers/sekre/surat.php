@@ -74,6 +74,7 @@ $data['user'] = $this->db->query(" SELECT * FROM user")->result();
         $keterangan = $this->input->post('keterangan');
         $isi_surat = $this->input->post('isi_surat');
         $tgl_buat = $this->input->post('tgl_buat');
+        $penempatan = $this->input->post('penempatan');
         $status_surat = 0;
 
 
@@ -81,6 +82,7 @@ $data['user'] = $this->db->query(" SELECT * FROM user")->result();
             'judul' => $judul,
             'keterangan' => $keterangan,
             'isi_surat' => $isi_surat,
+            'penempatan' => $penempatan,
             'status_surat' => $status_surat,
             'tgl_buat' => $tgl_buat
         );
@@ -96,14 +98,14 @@ $data['user'] = $this->db->query(" SELECT * FROM user")->result();
         $no_surat = $this->input->post('no_surat');
         $nama = $this->input->post('nama');
         $jabatan = $this->input->post('jabatan');
-        $pangkat = $this->input->post('pangkat');
+        $penempatan = $this->input->post('penempatan');
 
         $data = array(
             'nip' => $nip,
             'no_surat' => $no_surat,
             'nama' => $nama,
             'jabatan' => $jabatan,
-            'pangkat' => $pangkat
+            'penempatan' => $penempatan
         );
 
         $this->Model_data_pegawai->tambah_data_pegawai($data, 'data_pegawai');
@@ -113,11 +115,13 @@ $data['user'] = $this->db->query(" SELECT * FROM user")->result();
     public function edit_surat_aksi()
     {
         $keterangan = $this->input->post('keterangan');
+        $penempatan = $this->input->post('penempatan');
         $isi_surat = $this->input->post('isi_surat');
         $no_surat = $this->input->post('no_surat');
 
         $data = [
             'keterangan' => $keterangan,
+            'penempatan' => $penempatan,
             'isi_surat' => $isi_surat
         ];
         $where = [

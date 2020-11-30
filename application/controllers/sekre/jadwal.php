@@ -21,7 +21,7 @@ class Jadwal extends CI_Controller
     public function index()
     {
 
-        $data['surat'] = $this->db->query("SELECT * FROM surat_penugasan ORDER BY no_surat DESC")->result();
+        $data['surat'] = $this->db->query("SELECT * FROM surat_penugasan WHERE status_surat > 1 ORDER BY no_surat DESC")->result();
 
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');

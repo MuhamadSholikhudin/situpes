@@ -29,7 +29,7 @@
                             <th>NIP</th>
                             <th>Nama</th>
                             <th>Jabatan</th>
-                            <th>Pangkat</th>
+                            <th>penempatan</th>
                             <th>Status_jadwal</th>
                         </tr>
                     </thead>
@@ -42,7 +42,7 @@
                                 <td><?= $jad->nip ?></td>
                                 <td><?= $jad->nama ?></td>
                                 <td><?= $jad->jabatan ?></td>
-                                <td><?= $jad->pangkat ?></td>
+                                <td><?= $jad->penempatan ?></td>
                                 <td>
                                     <?php if ($jad->status_jadwal == 6) {
                                         echo "Bertugas";

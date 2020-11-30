@@ -73,7 +73,7 @@
 
                     var sos = '';
                     for (i = 0; i < data.length; i++) {
-                        sos += data[i].pangkat;
+                        sos += data[i].penempatan;
                     }
                     $('#pk').val(sos);
                     

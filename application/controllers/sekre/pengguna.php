@@ -20,6 +20,18 @@ class Pengguna extends CI_Controller
 
     public function index()
     {
+        $data['penempatan'] = [
+  
+            "Kecamatan Kota",
+            "Kecamatan Bae",
+            "Kecamatan Dawe",
+            "Kecamatan Gebog",
+            "Kecamatan Jati",
+            "Kecamatan Jekulo",
+            "Kecamatan Kaliwungu",
+            "Kecamatan Mejobo",
+            "Kecamatan Undaan"
+                    ];
 
         $data['user'] = $this->db->get('user')->result();
 
@@ -65,13 +77,6 @@ class Pengguna extends CI_Controller
         $data['jabatan'] = [
             'Kepala Disnaker ',
             'Seketariat Disnaker ',
-            'Admin TU ',
-            'Admin TU / Keuangan ',
-            'Admin Program, Evaluasi dan Pelaporan Pelatihan ',
-            'Admin Penyelenggara Pelatihan ',
-            'Admin Pendaftaran Pelatihan ',
-            'Admin Umum dan Gudang ',
-            'Admin Pengadaan Barang dan Jasa ',
             'PWU Kecamatan Kota ',
             'PWU Kecamatan Bae ',
             'PWU Kecamatan Dawe ',
@@ -80,45 +85,20 @@ class Pengguna extends CI_Controller
             'PWU Kecamatan Jekulo ',
             'PWU Kecamatan Kaliwungu ',
             'PWU Kecamatan Mejobo ',
-            'PWU Kecamatan Undaan ',
-            'toolman otomotif ',
-            'toolman otomotif ',
-            'Toolmen Las ',
-            'Toolmen komputer ',
-            'TOOLMAN BUBUT & Perkayuan ',
-            'Toolman Boga ',
-            'TOOLMAN RIAS ',
-            'Toolman Jahit ',
-            'Driver UPTD BLK ',
-            'Adm. Sub Bag. Umum & Kepegawaian ',
-            'Adm. Sub Bag. Keuangan Sekretariat ',
-            'Adm. Sub Bag. PEP ',
-            'Adm. Bidang Koperasi dan UKM ',
-            'Adm. Bid. Perindustrian ',
-            'Adm. Bidang HIP ',
-            'Adm. Bidang Penempatan Tenaga Kerja ',
-            'Keamanan ',
-            'Penjaga '
+            'PWU Kecamatan Undaan '
         ];
 
-        $data['pangkat'] = [
-            "Pembina Utama IV/e",
-            "Pembina UtamaMadya IV/d",
-            "Pembina Utama Muda IV/c",
-            "Pembina Tingkat I IV/b",
-            "Pembina IV/a",
-            "Penata Tingkat I III/d",
-            "Penata III/c",
-            "Penata Muda Tingkat I III/b",
-            "Penata Muda III/a",
-            "Pengatur Tingkat I II/d",
-            "Pengatur	II/c",
-            "Pengatur Muda Tingkat I II/b",
-            "Pengatur Muda II/a",
-            "Juru Tingkat I I/d",
-            "Juru I/c",
-            "Juru Muda Tingkat I I/b",
-            "Juru Muda I/a"
+        $data['penempatan'] = [
+  
+"Kecamatan Kota",
+"Kecamatan Bae",
+"Kecamatan Dawe",
+"Kecamatan Gebog",
+"Kecamatan Jati",
+"Kecamatan Jekulo",
+"Kecamatan Kaliwungu",
+"Kecamatan Mejobo",
+"Kecamatan Undaan"
         ];
 
         $this->load->view('templates_admin/header');
@@ -137,7 +117,7 @@ class Pengguna extends CI_Controller
         $password = $this->input->post('password');
         $level = $this->input->post('level');
         $jabatan = $this->input->post('jabatan');
-        $pangkat = $this->input->post('pangkat');
+        $penempatan = $this->input->post('penempatan');
 
         $data = array(
             'nama' => $nama,
@@ -145,7 +125,7 @@ class Pengguna extends CI_Controller
             'password' => $password,
             'level' => $level,
             'jabatan' => $jabatan,
-            'pangkat' => $pangkat,
+            'penempatan' => $penempatan,
         );
 
         $where = [

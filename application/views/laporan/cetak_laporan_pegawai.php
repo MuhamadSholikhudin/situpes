@@ -28,7 +28,7 @@
                             <th>NIP</th>
                             <th>Nama</th>
                             <th>Jabatan</th>
-                            <th>Pangkat</th>
+                            <th>penempatan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +39,7 @@
                                 <td><?= $us->username ?></td>
                                 <td><?= $us->nama ?></td>
                                 <td><?= $us->jabatan ?></td>
-                                <td><?= $us->pangkat ?></td>
+                                <td><?= $us->penempatan ?></td>
                             </tr>
                             <?php $no++; ?>
                         <?php endforeach; ?>

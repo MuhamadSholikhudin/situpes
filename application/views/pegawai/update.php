@@ -29,7 +29,7 @@
 
                                     </div>
                                 </div>
-                                <label for="pangkat">Keterangan</label>
+                                <label for="keterangan">Keterangan</label>
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input class="form-control" id="keterangan" type="text" name="keterangan" value="<?= $ab->keterangan ?>">

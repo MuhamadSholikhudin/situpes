@@ -31,7 +31,7 @@
                                     <th>NIP</th>
                                     <th>Nama</th>
                                     <th>Jabatan</th>
-                                    <th>Pangkat</th>
+                                    <th>penempatan</th>
                                     <th>Alamat</th>
                                 </tr>
                             </thead>

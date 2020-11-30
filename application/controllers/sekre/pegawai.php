@@ -22,7 +22,7 @@ class Pegawai extends CI_Controller
     {
 
         // $data['data_pegawai'] = $this->db->get('data_pegawai')->result();
-        $data['data_pegawai'] = $this->db->query(" SELECT data_pegawai.id , data_pegawai.nip , data_pegawai.nama, data_pegawai.jabatan, data_pegawai.pangkat 
+        $data['data_pegawai'] = $this->db->query(" SELECT data_pegawai.id , data_pegawai.nip , data_pegawai.nama, data_pegawai.jabatan, data_pegawai.penempatan 
         FROM data_pegawai JOIN user ON data_pegawai.nip = user.username WHERE user.level != 1 ")->result();
 
         $this->load->view('templates_admin/header');
@@ -38,7 +38,7 @@ class Pegawai extends CI_Controller
         // $alamat = $this->input->post('alamat');
         $nama = $this->input->post('nama');
         $jabatan = $this->input->post('jabatan');
-        $pangkat = $this->input->post('pangkat');
+        $penempatan = $this->input->post('penempatan');
 
 
         $data = array(
@@ -46,7 +46,7 @@ class Pegawai extends CI_Controller
             // 'alamat' => $alamat,
             'nama' => $nama,
             'jabatan' => $jabatan,
-            'pangkat' => $pangkat
+            'penempatan' => $penempatan
         );
 
         $this->Model_data_pegawai->tambah_data_pegawai($data, 'data_pegawai');
@@ -62,13 +62,6 @@ class Pegawai extends CI_Controller
         $data['jabatan'] = [
             'Kepala Disnaker ',
             'Seketariat Disnaker ',
-            'Admin TU ',
-            'Admin TU / Keuangan ',
-            'Admin Program, Evaluasi dan Pelaporan Pelatihan ',
-            'Admin Penyelenggara Pelatihan ',
-            'Admin Pendaftaran Pelatihan ',
-            'Admin Umum dan Gudang ',
-            'Admin Pengadaan Barang dan Jasa ',
             'PWU Kecamatan Kota ',
             'PWU Kecamatan Bae ',
             'PWU Kecamatan Dawe ',
@@ -85,20 +78,10 @@ class Pegawai extends CI_Controller
             'TOOLMAN BUBUT & Perkayuan ',
             'Toolman Boga ',
             'TOOLMAN RIAS ',
-            'Toolman Jahit ',
-            'Driver UPTD BLK ',
-            'Adm. Sub Bag. Umum & Kepegawaian ',
-            'Adm. Sub Bag. Keuangan Sekretariat ',
-            'Adm. Sub Bag. PEP ',
-            'Adm. Bidang Koperasi dan UKM ',
-            'Adm. Bid. Perindustrian ',
-            'Adm. Bidang HIP ',
-            'Adm. Bidang Penempatan Tenaga Kerja ',
-            'Keamanan ',
-            'Penjaga '
+            'Toolman Jahit '
         ];
 
-        $data['pangkat'] = [
+        $data['penempatan'] = [
             "Pembina Utama IV/e",
             "Pembina UtamaMadya IV/d",
             "Pembina Utama Muda IV/c",
@@ -132,13 +115,13 @@ class Pegawai extends CI_Controller
         $nip = $this->input->post('username');
         $niplama = $this->input->post('niplama');
         $jabatan = $this->input->post('jabatan');
-        $pangkat = $this->input->post('pangkat');
+        $penempatan = $this->input->post('penempatan');
 
         $data = array(
             'nama' => $nama,
             'nip' => $nip,
             'jabatan' => $jabatan,
-            'pangkat' => $pangkat,
+            'penempatan' => $penempatan,
         );
 
         $where = [

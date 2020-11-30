@@ -63,12 +63,6 @@
                                                             <option value="Kepala Disnaker">Kepala Disnaker</option>
                                                             <option value="Seketariat Disnaker">Seketariat Disnaker</option>
                                                             <option value="Admin TU">Admin TU</option>
-                                                            <option value="Admin TU / Keuangan">Admin TU / Keuangan</option>
-                                                            <option value="Admin Program, Evaluasi dan Pelaporan Pelatihan">Admin Program, Evaluasi dan Pelaporan Pelatihan</option>
-                                                            <option value="Admin Penyelenggara Pelatihan">Admin Penyelenggara Pelatihan</option>
-                                                            <option value="Admin Pendaftaran Pelatihan">Admin Pendaftaran Pelatihan</option>
-                                                            <option value="Admin Umum dan Gudang">Admin Umum dan Gudang</option>
-                                                            <option value="Admin Pengadaan Barang dan Jasa">Admin Pengadaan Barang dan Jasa</option>
                                                             <option value="PWU Kecamatan Kota">PWU Kecamatan Kota</option>
                                                             <option value="PWU Kecamatan Bae">PWU Kecamatan Bae</option>
                                                             <option value="PWU Kecamatan Dawe">PWU Kecamatan Dawe</option>
@@ -78,46 +72,15 @@
                                                             <option value="PWU Kecamatan Kaliwungu">PWU Kecamatan Kaliwungu</option>
                                                             <option value="PWU Kecamatan Mejobo">PWU Kecamatan Mejobo</option>
                                                             <option value="PWU Kecamatan Undaan">PWU Kecamatan Undaan</option>
-                                                            <option value="toolman otomotif">toolman otomotif</option>
-                                                            <option value="toolman otomotif">toolman otomotif</option>
-                                                            <option value="Toolmen Las">Toolmen Las</option>
-                                                            <option value="Toolmen komputer">Toolmen komputer</option>
-                                                            <option value="TOOLMAN BUBUT & Perkayuan">TOOLMAN BUBUT & Perkayuan</option>
-                                                            <option value="Toolman Boga">Toolman Boga</option>
-                                                            <option value="TOOLMAN RIAS">TOOLMAN RIAS</option>
-                                                            <option value="Toolman Jahit">Toolman Jahit</option>
-                                                            <option value="Driver UPTD BLK">Driver UPTD BLK</option>
-                                                            <option value="Adm. Sub Bag. Umum & Kepegawaian">Adm. Sub Bag. Umum & Kepegawaian</option>
-                                                            <option value="Adm. Sub Bag. Keuangan Sekretariat">Adm. Sub Bag. Keuangan Sekretariat</option>
-                                                            <option value="Adm. Sub Bag. PEP">Adm. Sub Bag. PEP</option>
-                                                            <option value="Adm. Bidang Koperasi dan UKM">Adm. Bidang Koperasi dan UKM</option>
-                                                            <option value="Adm. Bid. Perindustrian">Adm. Bid. Perindustrian</option>
-                                                            <option value="Adm. Bidang HIP">Adm. Bidang HIP</option>
-                                                            <option value="Adm. Bidang Penempatan Tenaga Kerja">Adm. Bidang Penempatan Tenaga Kerja</option>
-                                                            <option value="Keamanan">Keamanan</option>
-                                                            <option value="Penjaga">Penjaga</option>
+                                                            
                                                         </select>
                                                     </div>
-                                                    <label for="pangkat">Pangkat</label>
+                                                    <label for="penempatan">penempatan</label>
                                                     <div class="form-group">
-                                                        <select class="selectpicker form-line" name="pangkat" id="pangkat">
-                                                            <option value="Pembina Utama IV/e">Pembina Utama IV/e</option>
-                                                            <option value="Pembina UtamaMadya IV/d">Pembina UtamaMadya IV/d</option>
-                                                            <option value="Pembina Utama Muda IV/c">Pembina Utama Muda IV/c</option>
-                                                            <option value="Pembina Tingkat I IV/b">Pembina Tingkat I IV/b</option>
-                                                            <option value="Pembina IV/a">Pembina IV/a</option>
-                                                            <option value="Penata Tingkat I III/d">Penata Tingkat I III/d</option>
-                                                            <option value="Penata III/c">Penata III/c</option>
-                                                            <option value="Penata Muda Tingkat I III/b">Penata Muda Tingkat I III/b</option>
-                                                            <option value="Penata Muda III/a">Penata Muda III/a</option>
-                                                            <option value="Pengatur Tingkat I II/d">Pengatur Tingkat I II/d</option>
-                                                            <option value="Pengatur	II/c">Pengatur II/c</option>
-                                                            <option value="Pengatur Muda Tingkat I II/b">Pengatur Muda Tingkat I II/b</option>
-                                                            <option value="Pengatur Muda II/a">Pengatur Muda II/a</option>
-                                                            <option value="Juru Tingkat I I/d">Juru Tingkat I I/d</option>
-                                                            <option value="Juru I/c">Juru I/c</option>
-                                                            <option value="Juru Muda Tingkat I I/b">Juru Muda Tingkat I I/b</option>
-                                                            <option value="Juru Muda I/a">Juru Muda I/a</option>
+                                                        <select class="selectpicker form-line" name="penempatan" id="penempatan">
+                                                           <?php foreach($penempatan as $penem): ?>
+<option value="<?= $penem ?>"><?= $penem ?></option>
+<?php endforeach; ?>
                                                         </select>
                                                     </div>
 
@@ -136,7 +99,10 @@
                         </div>
 
                     </div>
+
+
                     <div class="body">
+                    <div class="text-center"><h3>DATA PENGGUNA</h3></div>
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>

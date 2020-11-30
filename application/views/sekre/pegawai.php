@@ -19,7 +19,7 @@
                                         <th>NIP</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
-                                        <th>Pangkat</th>
+                                        <th>penempatan</th>
                                         <th>Ubah</th>
                                         <th>Hapus</th>
                                     </tr>
@@ -32,7 +32,7 @@
                                             <td><?= $us->nip ?></td>
                                             <td><?= $us->nama ?></td>
                                             <td><?= $us->jabatan ?></td>
-                                            <td><?= $us->pangkat ?></td>
+                                            <td><?= $us->penempatan ?></td>
                                             <td>
                                                 <a class="btn btn-warning waves-effect" href="<?= base_url('sekre/pegawai/edit/' . $us->id) ?>"><i class="material-icons">mode_edit</i></a>
                                             </td>

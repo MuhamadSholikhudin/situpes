@@ -70,7 +70,7 @@
                                                 <h4>Jabatan</h4>
                                             </td>
                                             <td>
-                                                <h4>Pangkat</h4>
+                                                <h4>penempatan</h4>
                                             </td>
                                             
                                         </tr>
@@ -96,7 +96,7 @@
                                                     <h4><?= $dsur->jabatan ?>&nbsp; &nbsp;</h4>
                                                 </td>
                                                 <td>
-                                                    <h4><?= $dsur->pangkat ?>&nbsp; &nbsp;</h4>
+                                                    <h4><?= $dsur->penempatan ?>&nbsp; &nbsp;</h4>
                                                 </td>
                                                 
 

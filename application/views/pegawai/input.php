@@ -39,7 +39,7 @@
                                     <input class="form-control" id="tanggal" type="text" name="tanggal" value="<?= date('d-m-Y') ?>" disabled>
                                 </div>
                             </div>
-                            <label for="pangkat">Keterangan</label>
+                            <label for="penempatan">Keterangan</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input class="form-control" id="keterangan" type="text" name="keterangan" value="">

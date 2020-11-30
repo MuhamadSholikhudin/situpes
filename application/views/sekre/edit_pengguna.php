@@ -78,11 +78,11 @@
                                         <?php endforeach ?>
                                     </select>
                                 </div>
-                                <label for="pangkat">Pangkat</label>
+                                <label for="penempatan">penempatan</label>
                                 <div class="form-group">
-                                    <select class="selectpicker form-line" name="pangkat" id="pangkat">
-                                        <?php foreach ($pangkat as $pan) : ?>
-                                            <?php if ($pan == $us->pangkat) : ?>
+                                    <select class="selectpicker form-line" name="penempatan" id="penempatan">
+                                        <?php foreach ($penempatan as $pan) : ?>
+                                            <?php if ($pan == $us->penempatan) : ?>
                                                 <option value="<?= $pan; ?>" selected>
                                                     <?= $pan; ?>
                                                 </option>
