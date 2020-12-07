@@ -13,13 +13,13 @@
                                     <label for=""> Pilih Pertanggal</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="date" name="tanggal_awal" class="form-control">
+                                            <input type="date" name="tanggal_awal" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-1"></div>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="date" name="tanggal_akhir" class="form-control">
+                                            <input type="date" name="tanggal_akhir" class="form-control" required>
                                         </div>
                                     </div>
                                     <button class="btn btn-primary" type="submit">Kirim</button>

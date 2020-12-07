@@ -48,10 +48,14 @@ class Laporan extends CI_Controller
 
         $data['surat'] = $this->db->query(" SELECT * FROM surat_penugasan WHERE tgl_buat BETWEEN '$tanggal_awal' AND '$tanggal_akhir' ")->result();
 
+        // $data['cetak'] = ['<script>window.location.href = "http://externalpage.com";target = "_blank";</script>'];
+
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('laporan/laporan_surat', $data);
         $this->load->view('templates_admin/footer');
+
+       
     }
 
     public function surat_pertanggal()
@@ -61,10 +65,16 @@ class Laporan extends CI_Controller
 
         $data['surat'] = $this->db->query(" SELECT * FROM surat_penugasan WHERE tgl_buat BETWEEN '$tanggal_awal' AND '$tanggal_akhir' ")->result();
 
-        $this->load->view('templates_admin/header');
-        $this->load->view('templates_admin/sidebar');
-        $this->load->view('laporan/laporan_surat_pilih', $data);
-        $this->load->view('templates_admin/footer');
+
+        $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+
+        // $this->load->view('templates_admin/header');
+        // $this->load->view('templates_admin/sidebar');
+        // $this->load->view('laporan/laporan_surat_pilih', $data);
+        // $this->load->view('templates_admin/footer');
+
+        $this->load->view('laporan/cetak_laporan_surat', $data);
+
     }
 
     public function surat_perbulan()
@@ -74,10 +84,15 @@ class Laporan extends CI_Controller
 
         $data['surat'] = $this->db->query(" SELECT * FROM surat_penugasan WHERE MONTH(tgl_buat) = '$bulan' AND YEAR(tgl_buat) = '$tahun'  ")->result();
 
-        $this->load->view('templates_admin/header');
-        $this->load->view('templates_admin/sidebar');
-        $this->load->view('laporan/laporan_surat_pilih', $data);
-        $this->load->view('templates_admin/footer');
+        $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+
+        // $this->load->view('templates_admin/header');
+        // $this->load->view('templates_admin/sidebar');
+        // $this->load->view('laporan/laporan_surat_pilih', $data);
+        // $this->load->view('templates_admin/footer');
+
+        $this->load->view('laporan/cetak_laporan_surat', $data);
+
     }
 
     public function surat_pertahun()
@@ -89,10 +104,15 @@ class Laporan extends CI_Controller
 
         $data['surat'] = $this->db->query(" SELECT * FROM surat_penugasan WHERE  YEAR(tgl_buat) = '$pertahun'  ")->result();
 
-        $this->load->view('templates_admin/header');
-        $this->load->view('templates_admin/sidebar');
-        $this->load->view('laporan/laporan_surat_pilih', $data);
-        $this->load->view('templates_admin/footer');
+        $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+
+        // $this->load->view('templates_admin/header');
+        // $this->load->view('templates_admin/sidebar');
+        // $this->load->view('laporan/laporan_surat_pilih', $data);
+        // $this->load->view('templates_admin/footer');
+
+        $this->load->view('laporan/cetak_laporan_surat', $data);
+
     }
 
     public function cetak_surat($no_surat){
@@ -132,6 +152,8 @@ class Laporan extends CI_Controller
         $this->load->view('templates_admin/sidebar');
         $this->load->view('laporan/laporan_absensi', $data);
         $this->load->view('templates_admin/footer');
+
+
     }
 
     public function absensi_pertanggal()
@@ -141,12 +163,18 @@ class Laporan extends CI_Controller
 
         // $data['surat'] = $this->db->query(" SELECT * FROM surat_penugasan WHERE tgl_buat BETWEEN '$tanggal_awal' AND '$tanggal_akhir' ")->result();
 
+        $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+
+
         $data['jadwal'] = $this->db->query(" SELECT * FROM jadwal_penugasan JOIN data_pegawai ON jadwal_penugasan.id = data_pegawai.id WHERE jadwal_penugasan.jadwal BETWEEN  '$tanggal_awal' AND '$tanggal_akhir' ")->result();
 
-        $this->load->view('templates_admin/header');
-        $this->load->view('templates_admin/sidebar');
-        $this->load->view('laporan/laporan_absensi_pilih', $data);
-        $this->load->view('templates_admin/footer');
+        // $this->load->view('templates_admin/header');
+        // $this->load->view('templates_admin/sidebar');
+        // $this->load->view('laporan/laporan_absensi_pilih', $data);
+        // $this->load->view('templates_admin/footer');
+
+        $this->load->view('laporan/cetak_laporan_absensi', $data);
+
     }
 
     public function absensi_perbulan()
@@ -154,13 +182,19 @@ class Laporan extends CI_Controller
         $bulan = $this->input->post('bulan');
         $tahun = $this->input->post('tahun');
 
+        $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+
+
         // $data['surat'] = $this->db->query(" SELECT * FROM surat_penugasan WHERE MONTH(tgl_buat) = '$bulan' AND YEAR(tgl_buat) = '$tahun'  ")->result();
         $data['jadwal'] = $this->db->query(" SELECT * FROM jadwal_penugasan JOIN data_pegawai ON jadwal_penugasan.id = data_pegawai.id WHERE MONTH(jadwal_penugasan.jadwal) = '$bulan' AND YEAR(jadwal_penugasan.jadwal) = '$tahun' ")->result();
 
-        $this->load->view('templates_admin/header');
-        $this->load->view('templates_admin/sidebar');
-        $this->load->view('laporan/laporan_absensi_pilih', $data);
-        $this->load->view('templates_admin/footer');
+        // $this->load->view('templates_admin/header');
+        // $this->load->view('templates_admin/sidebar');
+        // $this->load->view('laporan/laporan_absensi_pilih', $data);
+        // $this->load->view('templates_admin/footer');
+
+        $this->load->view('laporan/cetak_laporan_absensi', $data);
+
     }
 
     public function absensi_pertahun()
@@ -169,14 +203,19 @@ class Laporan extends CI_Controller
         if ($pertahun < 1) {
             redirect('sekre/laporan/surat');
         }
+        $data['kadin'] = $this->db->query(" SELECT * FROM user WHERE level = 3")->result();
+
 
         // $data['surat'] = $this->db->query(" SELECT * FROM surat_penugasan WHERE  YEAR(tgl_buat) = '$pertahun'  ")->result();
         $data['jadwal'] = $this->db->query(" SELECT * FROM jadwal_penugasan JOIN data_pegawai ON jadwal_penugasan.id = data_pegawai.id WHERE  YEAR(jadwal_penugasan.jadwal) = '$pertahun' ")->result();
 
-        $this->load->view('templates_admin/header');
-        $this->load->view('templates_admin/sidebar');
-        $this->load->view('laporan/laporan_absensi_pilih', $data);
-        $this->load->view('templates_admin/footer');
+        // $this->load->view('templates_admin/header');
+        // $this->load->view('templates_admin/sidebar');
+        // $this->load->view('laporan/laporan_absensi_pilih', $data);
+        // $this->load->view('templates_admin/footer');
+
+        $this->load->view('laporan/cetak_laporan_absensi', $data);
+
     }
 
 

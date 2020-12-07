@@ -16,11 +16,15 @@
         <div class="row">
             <div class="col-sm-12 mt-4 mb-4 text-center">
                 <strong>
-                    <h3>Laporan Data Pegawai Dinas Tenaga Kerja Perindustrian,</h3>
-                    <h3>Koperasi dan Usaha Menengah Kabupaten Kudus</h3>
+                    <h4>Rekap Data Pegawai Dinas Tenaga Kerja Perindustrian,</h4>
+                    <h4>Koperasi dan Usaha Menengah Kabupaten Kudus</h4>
                 </strong>
             </div>
-            <div class="col-sm-12">
+
+            <div class="col-sm-2">Unit Kerja &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</div>
+            <div class="col-sm-10 ">Satuan Kerja UPT BLK Kudus</div>
+            
+            <div class="col-sm-12 mt-3">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -57,8 +61,8 @@
                     <div class="col-sm-4">
                         <?php foreach ($kadin as $kad) : ?>
                             <div>
-                                <h4 class="text-center">Kudus, <?= date('d-m-Y') ?> </h4>
-                                <h4 class="text-center">Kepala Dinas BLK Kudus</h4>
+                                <h5 class="text-center">Kudus, <?= date('d-m-Y') ?> </h5>
+                                <h5 class="text-center">Kepala Dinas BLK Kudus</h5>
                             </div>
                             <div class="mb-3">
                                 <br>
@@ -67,8 +71,8 @@
                                 <br>
                             </div>
                             <div>
-                                <h4 class="text-center"><u><?= $kad->nama ?></u> </h4>
-                                <h4 class="text-center">NIP :<?= $kad->username ?></h4>
+                                <h5 class="text-center"><u><?= $kad->nama ?></u> </h5>
+                                <h5 class="text-center">NIP :<?= $kad->username ?></h5>
                             </div>
                         <?php endforeach; ?>
                     </div>
