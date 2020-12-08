@@ -46,6 +46,8 @@ class Jadwal extends CI_Controller
 
         $data['jadwal'] = $this->db->query("SELECT * FROM jadwal_penugasan WHERE id = $id ORDER BY id_jadwal DESC")->result();
 
+        $data['surat'] = $this->db->query("SELECT * FROM surat_penugasan JOIN data_pegawai ON surat_penugasan.no_surat = data_pegawai.no_surat WHERE data_pegawai.id = '$id' ")->result(); 
+       
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('sekre/jadwal_pegawai', $data);

@@ -43,7 +43,7 @@
                                                 <?php } elseif ($sus->status_surat == 2) { ?>
                                                     <button class="btn btn-primary waves-effect" type="button">
                                                         <i class="material-icons">verified_user</i>
-                                                        <span>ACC</span>
+                                                        <span>Di Setujui</span>
                                                     </button>
                                                 <?php } elseif ($sus->status_surat == 3) { ?>
                                                     <button class="btn btn-deep-orange waves-effect" type="button">

@@ -11,7 +11,7 @@
                         <h3 class="text-center">PEMERINTAH KABUPATEN KUDUS</h3>
                         <h3 class="text-center">DINAS TENAGA KERJA, PERINDUSTRIAN</h3>
                         <h3 class="text-center">KOPERASI DAN USAHA KECIL DAN MENENGAH</h3>
-                        <h5 class="text-center">Jln. Conge Ngembalrejo No.99 Telp..(0291)438691, 431470, Fax(0291)438691</h5> 
+                        <h5 class="text-center">Jln. Conge Ngembalrejo No.99 Telp..(0291)438691, 431470, Fax(0291)438691</h5>
                         <h3 class="text-center"> KUDUS 59322</h3>
                     </div>
                 </div>
@@ -64,7 +64,6 @@
                             <br>
                             <br>
                             <a href="<?= base_url('pegawai/absensi/') ?>" class="btn btn-success">Kembali </a>
-
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -75,9 +74,7 @@
                             </div>
                             <div class="mb-3">
                                 <br>
-                                <br>
-                                <br>
-                                <br>
+                                <h4 class="text-center">Telah Disetujui</h4><br>
                             </div>
                             <div>
                                 <h4 class="text-center"><u><?= $kad->nama ?></u> </h4>

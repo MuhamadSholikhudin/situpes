@@ -9,7 +9,7 @@
                         <h2>
                             Data Absensi Pegawai
                         </h2>
-                        
+
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -26,7 +26,8 @@
                                 </thead>
 
                                 <tbody>
-                                    <?php $no =1; foreach ($jadwal as $jad) : ?>
+                                    <?php $no = 1;
+                                    foreach ($jadwal as $jad) : ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
                                             <td><?= $this->session->userdata('nama') ?></td>
@@ -34,9 +35,11 @@
                                             <td><?= $jad->jadwal ?></td>
                                             <td>
                                                 <?php if ($jad->status_jadwal == 1) {
-
                                                 ?>
-                                                    <a href="<?= base_url("pegawai/absensi/edit/") . $jad->id_jadwal ?>"><i class="material-icons">edit</i>edit</a></td>
+                                                    <a href="<?= base_url("pegawai/absensi/edit/") . $jad->id_jadwal ?>"><i class="material-icons">edit</i>
+                                                        <span>edit</span>
+                                                    </a>
+                                            </td>
 
                                         <?php
                                                 } elseif ($jad->jadwal == date('Y-m-d')) {

@@ -9,7 +9,7 @@
                         <h2>
                             Data Surat Tugas pegawai
                         </h2>
-                        
+
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -33,7 +33,12 @@
                                             <td><?= $su->judul ?></td>
                                             <td><?= $su->isi_surat ?></td>
                                             <td><?= $su->keterangan ?></td>
-                                            <td><a href="<?= base_url("pegawai/absensi/pegawai/") . $su->no_surat ?>"><i class="material-icons">edit</i></a></td>
+                                            <td>
+                                                <a href="<?= base_url("pegawai/absensi/pegawai/") . $su->no_surat ?>" class="btn bg-success waves-effect"><i class="material-icons">remove_red_eye</i>
+                                                    <span>Lihat</span>
+                                                </a>
+
+                                            </td>
                                             <td>
                                                 <?php if ($su->status_surat == 2) {
                                                 ?>

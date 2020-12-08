@@ -56,6 +56,8 @@ class Absensi extends CI_Controller
         $id_jadwal = $this->input->post('id_jadwal');
         $no_surat = $this->input->post('no_surat');
 
+
+
         $data = [
             'status_surat' => 4
         ];
@@ -91,7 +93,7 @@ class Absensi extends CI_Controller
         }
         $this->db->update_batch('absensi', $hasil, 'id_jadwal');
 
-        redirect('sekre/absensi/surat/' . $no_surat);
+        redirect('sekre/absensi/');
     }
 
 }

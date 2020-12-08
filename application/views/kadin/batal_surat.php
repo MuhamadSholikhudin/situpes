@@ -1,13 +1,6 @@
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>DASHBOARD</h2>
-            <!-- <div id="div1">
-                <h2>Let jQuery AJAX Change This Text</h2>
-            </div>
-
-            <button>Get External Content</button> -->
-        </div>
+        
         <div class="card p-4">
             <div class="header">
                 <div class="row">
@@ -85,7 +78,7 @@
                                 <div>
                                     <br>
                                     <div class="justify-content-center">
-                                        <button type="submit" class="btn btn-danger btn-lg btn-block">Batalkan Acc Surat </button>
+                                        <button type="submit" class="btn btn-danger btn-lg btn-block">Batalkan Persetujuan</button>
                                     </div>
                                     <br>
                                 </div>

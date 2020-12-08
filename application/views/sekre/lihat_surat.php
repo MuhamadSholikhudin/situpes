@@ -50,44 +50,42 @@
 
                 <div class="col-sm-2 lead">Untuk &nbsp;&nbsp;&nbsp;&nbsp; : </div>
                 <div class="col-sm-10 lead"> Melaksanakan tugas sebagai pendamping Alumni UPTD BLK dan Kelompok Wirausaha baru di wilayah Kecamatan <strong><?= $sur->penempatan ?></strong>.</div>
-                  
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <div class="content-bottom">
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <a href="<?= base_url('sekre/surat') ?>" class="btn btn-success">Kembali </a>
 
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="content-bottom">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <a href="<?= base_url('sekre/surat') ?>" class="btn btn-success">Kembali </a>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <?php foreach ($kadin as $kad) : ?>
+                            <div>
+                                <h4 class="text-center">Kudus, <?= date('d-m-Y') ?> </h4>
+                                <h4 class="text-center">Kepala Dinas BLK Kudus</h4>
                             </div>
-                        </div>
-                
-                <div class="col-sm-4">
-                    <?php foreach ($kadin as $kad) : ?>
-                        <div>
-                            <h4 class="text-center">Kudus, <?= date('d-m-Y') ?> </h4>
-                            <h4 class="text-center">Kepala Dinas BLK Kudus</h4>
-                        </div>
-                        <div class="mb-3">
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                        </div>
-                        <div>
-                            <h4 class="text-center"><u><?= $kad->nama ?></u> </h4>
-                            <h4 class="text-center">NIP :<?= $kad->username ?></h4>
-                        </div>
-                    <?php endforeach; ?>
+                            <div class="mb-3">
+                                <br>
+                                <h4 class="text-center">Telah Disetujui</h4><br>
+                            </div>
+                            <div>
+                                <h4 class="text-center"><u><?= $kad->nama ?></u> </h4>
+                                <h4 class="text-center">NIP :<?= $kad->username ?></h4>
+                            </div>
+                        <?php endforeach; ?>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </section>

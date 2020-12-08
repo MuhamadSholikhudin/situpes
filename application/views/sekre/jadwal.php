@@ -37,28 +37,28 @@
                                             <td><?= $sus->keterangan ?></td>
                                             <td>
 
-                                            <?php if ($sus->status_surat == 1) { ?>
-                                                <button class="btn bg-orange waves-effect" type="button">
+                                                <?php if ($sus->status_surat == 1) { ?>
+                                                    <button class="btn bg-orange waves-effect" type="button">
 
-                                                    <i class="material-icons">call_received</i>
-                                                    <span>Kembalikan</span>
-                                                </button>
-                                            <?php } elseif ($sus->status_surat == 2) { ?>
-                                                <button class="btn btn-primary waves-effect" type="button">
-                                                    <i class="material-icons">verified_user</i>
-                                                    <span>ACC</span>
-                                                </button>
-                                            <?php } elseif ($sus->status_surat == 3) { ?>
-                                                <button class="btn btn-deep-orange waves-effect" type="button">
-                                                    <i class="material-icons">update</i>
-                                                    <span>Dalam Process</span>
-                                                </button>
-                                            <?php } elseif ($sus->status_surat == 4) { ?>
-                                                <button class="btn bg-cyan waves-effect" type="button">
-                                                    <i class="material-icons">done_all</i>
-                                                    <span>Selesai</span>
-                                                </button>
-                                            <?php } ?>
+                                                        <i class="material-icons">call_received</i>
+                                                        <span>Kembalikan</span>
+                                                    </button>
+                                                <?php } elseif ($sus->status_surat == 2) { ?>
+                                                    <button class="btn btn-primary waves-effect" type="button">
+                                                        <i class="material-icons">verified_user</i>
+                                                        <span>Di Setujui</span>
+                                                    </button>
+                                                <?php } elseif ($sus->status_surat == 3) { ?>
+                                                    <button class="btn btn-deep-orange waves-effect" type="button">
+                                                        <i class="material-icons">update</i>
+                                                        <span>Dalam Process</span>
+                                                    </button>
+                                                <?php } elseif ($sus->status_surat == 4) { ?>
+                                                    <button class="btn bg-cyan waves-effect" type="button">
+                                                        <i class="material-icons">done_all</i>
+                                                        <span>Selesai</span>
+                                                    </button>
+                                                <?php } ?>
 
                                             </td>
                                             <td>

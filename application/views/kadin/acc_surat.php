@@ -90,7 +90,7 @@
                                             <a href="<?= base_url('kadin/surat/kembalikan_surat/') . $sur->no_surat ?>" class="btn btn-warning">Kembalikan Surat </a>
 
                                         <?php endforeach; ?>
-                                        <button type="submit" class="btn btn-primary">ACC Surat </button>
+                                        <button type="submit" class="btn btn-primary">Menyetujui</button>
                                     </div>
                                     <br>
                                 </div>

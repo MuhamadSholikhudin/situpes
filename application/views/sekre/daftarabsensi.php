@@ -27,10 +27,22 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+
+
+                                    
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <?php foreach ($no_sur as $nos) : ?>
-                                            <input type="hidden" name="no_surat" value="<?= $nos->no_surat ?>">
+                                            <input type="text" name="no_surat" value="<?= $nos->no_surat ?>">
                                         <?php endforeach; ?>
+                                    </div>
+
+
+
+
+                                    <tbody>
+
                                         <?php $no = 1; ?>
                                         <?php foreach ($jadwal as $jad) : ?>
                                             <tr>
@@ -71,9 +83,9 @@
                                                     ?>
                                                 </td>
                                                 <td>
-                                                    <?php if ($jad->status_jadwal == 5 or $jad->status_jadwal == 0) {
+                                                    <?php if ($kil->status_absensi == 5 or $kil->status_absensi == 0) {
                                                         echo "Tidak Bertugas";
-                                                    } elseif ($jad->status_jadwal == 6 or $jad->status_jadwal == 1) {
+                                                    } elseif ($kil->status_absensi == 6 or $kil->status_absensi == 1) {
                                                         echo " Bertugas";
                                                     }
                                                     ?>

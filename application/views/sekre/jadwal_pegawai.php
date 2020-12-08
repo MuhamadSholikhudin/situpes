@@ -7,10 +7,15 @@
                 <div class="card">
                     <div class="header">
                         <div class="col-sm-4">
-                            <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH JADWAL PEGAWAI</button>
+                            <?php foreach ($surat as $srt) :
+                                if ($srt->status_surat > 2) { ?>
 
+                                <?php    } elseif ($srt->status_surat == 2) { ?>
 
+                                    <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH JADWAL PEGAWAI</button>
+                            <?php    }
 
+                            endforeach; ?>
                         </div>
                         <div class="col-sm-8">
                             <?php foreach ($pegawai as $peg) : ?>
@@ -65,9 +70,9 @@
 
                                                 <?php $endjad = $this->db->query(" SELECT id_jadwal FROM jadwal_penugasan ORDER BY id_jadwal DESC");
                                                 $idja = $endjad->row();
-                                                echo $idja->id_jadwal;
+
                                                 ?>
-                                                <input class="form-control" id="id_jadwalabsensi" type="text" name="id_jadwalabsensi" value="<?= $idja->id_jadwal + 1 ?>">
+                                                <input class="form-control" id="id_jadwalabsensi" type="hidden" name="id_jadwalabsensi" value="<?= $idja->id_jadwal + 1 ?>">
 
                                                 <br>
                                                 <button class="btn btn-primary m-t-15 waves-effect" type="submit">SIMPAN</button>
@@ -105,16 +110,43 @@
                                             <td><?= $no++ ?></td>
                                             <td><?= $jad->nip ?></td>
                                             <td><?= $jad->jadwal ?></td>
-                                            <td><?= $jad->status_jadwal ?></td>
                                             <td>
-                                                <a href="<?= base_url('sekre/jadwal/pegawai_edit/') . $jad->id_jadwal ?>" class="btn btn-dark waves-effect">
-                                                    <i class="material-icons">edit</i>
-                                                </a>
+                                                <?= $jad->status_jadwal ?>
+                                        </td>
+                                            <td>
+
+                                                <?php foreach ($surat as $srt) :
+                                                    if ($srt->status_surat > 2) { ?>
+                                                        <button class="btn bg-light-green waves-effect">
+                                                            <i class="material-icons">edit</i>
+                                                            <span>Edit</span>
+                                                        </button>
+                                                    <?php    } elseif ($srt->status_surat == 2) { ?>
+                                                        <a href="<?= base_url('sekre/jadwal/pegawai_edit/') . $jad->id_jadwal ?>" class="btn bg-light-green waves-effect">
+                                                            <i class="material-icons">edit</i>
+                                                            <span>Edit</span>
+                                                        </a>
+                                                <?php    }
+
+                                                endforeach; ?>
+
                                             </td>
                                             <td>
-                                                <a href="<?= base_url('sekre/jadwal/pegawai_hapus/') . $jad->id . '/' . $jad->id_jadwal  ?>" class="btn btn-danger waves-effect" type="button">
-                                                    <i class="material-icons">delete_forever</i>
-                                                </a>
+                                                <?php foreach ($surat as $srt) :
+                                                    if ($srt->status_surat > 2) { ?>
+                                                        <button class="btn btn-danger waves-effect">
+                                                            <i class="material-icons">delete_forever</i>
+                                                            <span>Hapus</span>
+                                                        </button>
+                                                    <?php    } elseif ($srt->status_surat == 2) { ?>
+                                                        <a href="<?= base_url('sekre/jadwal/pegawai_hapus/') . $jad->id . '/' . $jad->id_jadwal  ?>" class="btn btn-danger waves-effect" type="button">
+                                                            <i class="material-icons">delete_forever</i>
+                                                            <span>Hapus</span>
+                                                        </a>
+                                                <?php    }
+
+                                                endforeach; ?>
+
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -125,7 +157,7 @@
                         <br>
                         <?php foreach ($pegawai as $peg) : ?>
                             <a href="<?= base_url('sekre/jadwal/data/' . $peg->no_surat) ?>">
-                                <button class="btn btn-danger waves-effect m-r-20" type="button">Kembali</button>
+                                <button class="btn btn-success waves-effect m-r-20" type="button">Kembali</button>
                             </a>
                         <?php endforeach; ?>
 
