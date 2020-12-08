@@ -38,49 +38,48 @@
                                                 <td><?php
                                                     $idj = $jad->id;
                                                     $nam = $this->db->query("SELECT * FROM data_pegawai WHERE id = '$idj' ");
-                                                    
+
                                                     $okl = $nam->row();
                                                     echo $okl->nip;
 
                                                     ?>
                                                 </td>
 
-                                                <td><?php 
+                                                <td><?php
                                                     echo $okl->nama;
 
                                                     ?>
-                                                         
-                                                     <?php 
-                                                // endforeach; ?>
-                                                 <input type="hidden" name="id_jadwal[]" value="<?= $jad->id_jadwal ?>">
+
+
+                                                    <input type="hidden" name="id_jadwal[]" value="<?= $jad->id_jadwal ?>">
 
 
                                                 </td>
                                                 <td>
-                                                <?php 
+                                                    <?php
                                                     echo $okl->jabatan;
 
                                                     ?>
                                                 </td>
                                                 <td><?= $jad->jadwal ?></td>
                                                 <td>
-                                                <?php $idj = $jad->id_jadwal;
+                                                    <?php $idj = $jad->id_jadwal;
                                                     $ket = $this->db->query("SELECT * FROM absensi WHERE id_jadwal = '$idj' ");
-                                                    
+
                                                     $kil = $ket->row();
                                                     echo $kil->keterangan;
-                                                ?>
+                                                    ?>
                                                 </td>
                                                 <td>
-                                                    
-                                                        <?php if ($jad->status_jadwal == 5 or $jad->status_jadwal == 0) {
-                                                            echo "Tidak Bertugas";
-                                                        } elseif ($jad->status_jadwal == 6 or $jad->status_jadwal == 1) {
-                                                            echo " Bertugas";
-                                                        }
-                                                        ?>
-                                                    
+                                                    <?php if ($jad->status_jadwal == 5 or $jad->status_jadwal == 0) {
+                                                        echo "Tidak Bertugas";
+                                                    } elseif ($jad->status_jadwal == 6 or $jad->status_jadwal == 1) {
+                                                        echo " Bertugas";
+                                                    }
+                                                    ?>
+
                                                     <input type="hidden" name="status_jadwal[]" value="<?= $jad->status_jadwal ?>">
+                                                    <input type="hidden" name="status_absensi[]" value="<?= $kil->status_absensi ?>">
 
                                                 </td>
 
@@ -95,7 +94,7 @@
                             <div class="col-sm-10"></div>
                             <div class="col-sm-2">
                                 <?php foreach ($no_sur as $nos) : ?>
-                                    <?php if($nos->status_surat == 3){
+                                    <?php if ($nos->status_surat == 3) {
 
                                         echo    '<button type="submit" class="btn btn-primary float-right">ACC Absensi</button>';
                                     } ?>

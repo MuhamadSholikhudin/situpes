@@ -8,9 +8,9 @@
                     <div class="header">
                         <div class="col-sm-4">
                             <button class="btn btn-default waves-effect m-r-20" type="button" data-target="#defaultModal" data-toggle="modal"> TAMBAH JADWAL PEGAWAI</button>
-                                                
-                            
-                            
+
+
+
                         </div>
                         <div class="col-sm-8">
                             <?php foreach ($pegawai as $peg) : ?>
@@ -62,6 +62,12 @@
                                                     <input class="form-control" id="id" type="hidden" name="id" value="<?= $peg->id ?>">
                                                     <input class="form-control" id="nip" type="hidden" name="nip" value="<?= $peg->nip ?>">
                                                 <?php endforeach; ?>
+
+                                                <?php $endjad = $this->db->query(" SELECT id_jadwal FROM jadwal_penugasan ORDER BY id_jadwal DESC");
+                                                $idja = $endjad->row();
+                                                echo $idja->id_jadwal;
+                                                ?>
+                                                <input class="form-control" id="id_jadwalabsensi" type="text" name="id_jadwalabsensi" value="<?= $idja->id_jadwal + 1 ?>">
 
                                                 <br>
                                                 <button class="btn btn-primary m-t-15 waves-effect" type="submit">SIMPAN</button>
@@ -116,12 +122,12 @@
                             </table>
                         </div>
 
-<br>
+                        <br>
                         <?php foreach ($pegawai as $peg) : ?>
-                                <a href="<?= base_url('sekre/jadwal/data/' . $peg->no_surat) ?>">
-                                    <button class="btn btn-danger waves-effect m-r-20" type="button">Kembali</button>                                   
-                                </a>
-                            <?php endforeach; ?>
+                            <a href="<?= base_url('sekre/jadwal/data/' . $peg->no_surat) ?>">
+                                <button class="btn btn-danger waves-effect m-r-20" type="button">Kembali</button>
+                            </a>
+                        <?php endforeach; ?>
 
                     </div>
 

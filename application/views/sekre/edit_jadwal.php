@@ -1,9 +1,6 @@
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>DASHBOARD</h2>
-        </div>
-        <div>
+        
 
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">

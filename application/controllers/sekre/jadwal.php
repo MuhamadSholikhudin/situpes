@@ -77,7 +77,16 @@ class Jadwal extends CI_Controller
             'id_jadwal' => $id_jadwal
         ];
 
+        $datat = array(
+            'tanggal' => $jadwal
+        );
+
+        $wheret = [
+            'id_jadwal' => $id_jadwal
+        ];
+
         $this->Model_jadwal_penugasan->update_data($where, $data, 'jadwal_penugasan');
+        $this->Model_absensi->update_datat($wheret, $datat, 'absensi');
         redirect('sekre/jadwal/pegawai/' . $id);
     }
 
@@ -89,6 +98,7 @@ class Jadwal extends CI_Controller
         $id = $this->input->post('id');
         $nip = $this->input->post('nip');
         $no_surat = $this->input->post('no_surat');
+        $id_jadwalabsensi = $this->input->post('id_jadwalabsensi');
         // $status_surat = 0;
 
 
@@ -99,7 +109,16 @@ class Jadwal extends CI_Controller
             'no_surat' => $no_surat
         );
 
+        $datat = array(
+            'nip' => $nip,
+            'tanggal' => $jadwal,
+            'id_jadwal' => $id_jadwalabsensi,
+            
+        );
+
         $this->Model_jadwal_penugasan->tambah_jadwal_penugasan($data, 'jadwal_penugasan');
+        $this->Model_absensi->tambah_absensit($datat, 'absensi');
+        
         redirect('sekre/jadwal/pegawai/'. $id);
     }
 

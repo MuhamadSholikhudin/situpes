@@ -19,6 +19,11 @@ class Model_absensi extends CI_Model
         $this->db->insert($table, $data);
     }
 
+    public function tambah_absensit($datat, $table)
+    {
+        $this->db->insert($table, $datat);
+    }
+
     public function edit_absensi($where, $table)
     {
         return $this->db->get_where($table, $where);
@@ -30,9 +35,16 @@ class Model_absensi extends CI_Model
         $this->db->update($table, $data);
     }
 
+    public function update_datat($wheret, $datat, $table)
+    {
+        $this->db->where($wheret);
+        $this->db->update($table, $datat);
+    }
+
     public function hapus_data($where, $table)
     {
         $this->db->where($where);
         $this->db->delete($table);
     }
+
 }

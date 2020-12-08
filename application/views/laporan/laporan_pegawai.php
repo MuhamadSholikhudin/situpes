@@ -8,12 +8,16 @@
                     <div class="header">
                         <div>
                             Laporan Pegawai
-                            <a href="<?= base_url('sekre/laporan/cetak_pegawai') ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a>
+                            <?php if ($this->session->userdata('level') == 1) { ?>
+                                <a href="<?= base_url('sekre/laporan/cetak_pegawai') ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a>
+                            <?php } elseif ($this->session->userdata('level') == 3) { ?>
+                                <a href="<?= base_url('kadin/laporan/cetak_pegawai') ?>" target="blank" class="btn btn-warning"><i class="material-icons">print</i> Cetak</a>
+                            <?php } ?>
                         </div>
 
                         <form action="" method="post">
-                        
-                        
+
+
                         </form>
                     </div>
                     <div class="body">

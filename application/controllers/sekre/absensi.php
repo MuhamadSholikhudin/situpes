@@ -50,10 +50,7 @@ class Absensi extends CI_Controller
 
     public function acc_absen()
     {
-        // $id_nilai = $this->input->post('id_nilai');
-        // $skor = $this->input->post('skor');
-        // $nilai = $this->input->post('nilai');
-        // $jumlah = $id_nilai * $skor;
+        
 
         //Update data attribut
         $id_jadwal = $this->input->post('id_jadwal');
@@ -79,11 +76,20 @@ class Absensi extends CI_Controller
             $result[] = array(
                 "id_jadwal" => $id_jadwal[$key],
                 "status_jadwal" => $_POST['status_jadwal'][$key] + 5
-                // "jumlah"  =>$_POST['nilai'][$key]
-                // "jumlah"  => $_POST['skor'][$key] * $_POST['nilai'][$key]
             );
         }
         $this->db->update_batch('jadwal_penugasan', $result, 'id_jadwal');
+
+        $hasil = array();
+        foreach ($id_jadwal
+            as
+            $key => $val) {
+            $hasil[] = array(
+                "id_jadwal" => $id_jadwal[$key],
+                "status_absensi" => $_POST['status_absensi'][$key] + 5
+            );
+        }
+        $this->db->update_batch('absensi', $hasil, 'id_jadwal');
 
         redirect('sekre/absensi/surat/' . $no_surat);
     }

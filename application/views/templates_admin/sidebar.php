@@ -81,7 +81,6 @@
           ?>
         </div>
         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('nama'); ?></div>
-        <div class="email"><?= $this->session->userdata('nama'); ?></div>
 
       </div>
     </div>

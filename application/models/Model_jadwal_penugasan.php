@@ -30,9 +30,9 @@ class Model_jadwal_penugasan extends CI_Model
         $this->db->update($table, $data);
     }
 
-    public function update_datat($where, $datat, $table)
+    public function update_datat($wheret, $datat, $table)
     {
-        $this->db->where($where);
+        $this->db->where($wheret);
         $this->db->update($table, $datat);
     }
 
@@ -41,4 +41,5 @@ class Model_jadwal_penugasan extends CI_Model
         $this->db->where($where);
         $this->db->delete($table);
     }
+
 }
