@@ -111,12 +111,24 @@ class Absensi extends CI_Controller
             'id_jadwal' => $id_jadwal
         ];
 
+        $datat = [
+            'status_jadwal' => $status_absensi
+        ];
+        $wheret = [
+            'id_jadwal' => $id_jadwal
+        ];
+
+        $no_sur = $this->db->query("SELECT no_surat FROM jadwal_penugasan WHERE id_jadwal = '$id_jadwal' ");
+        $row = $no_sur->row();
+        $no_surat = $row->no_surat;
+
         $this->Model_absensi->update_data($where, $data, 'absensi');
+        $this->Model_jadwal_penugasan->update_data($wheret, $datat, 'jadwal_penugasan');
 
         // $surat = $this->db->query(" SELECT no_surat FROM jadwal_penugasan WHERE id_jadwal = '$id_jadwal'");
         
 
-        redirect('pegawai/absensi/');
+        redirect('pegawai/absensi/pegawai/'.$no_surat);
     }
 
 

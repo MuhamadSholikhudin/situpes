@@ -22,6 +22,7 @@
                                             <th>Nama</th>
                                             <th>Jabatan</th>
                                             <th>Tanggal</th>
+                                            <th>Keterangan</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -34,32 +35,51 @@
                                         <?php foreach ($jadwal as $jad) : ?>
                                             <tr>
                                                 <td><?= $no++ ?></td>
-                                                <td><?= $jad->nip ?>
-
-                                                </td>
-
                                                 <td><?php
-                                                    $nip = $jad->nip;
-                                                    $nam = $this->db->query("SELECT nama FROM user WHERE username = '$nip' ")->result();
+                                                    $idj = $jad->id;
+                                                    $nam = $this->db->query("SELECT * FROM data_pegawai WHERE id = '$idj' ");
+                                                    
+                                                    $okl = $nam->row();
+                                                    echo $okl->nip;
+
                                                     ?>
-                                                    <?php foreach ($nam as $na) : ?>
-                                                        <?= $na->nama; ?>
-                                                    <?php endforeach; ?>
-                                                    <input type="hidden" name="id_jadwal[]" value="<?= $jad->id_jadwal ?>">
+                                                </td>
+
+                                                <td><?php 
+                                                    echo $okl->nama;
+
+                                                    ?>
+                                                         
+                                                     <?php 
+                                                // endforeach; ?>
+                                                 <input type="hidden" name="id_jadwal[]" value="<?= $jad->id_jadwal ?>">
 
 
                                                 </td>
-                                                <td><?= $jad->jabatan ?></td>
+                                                <td>
+                                                <?php 
+                                                    echo $okl->jabatan;
+
+                                                    ?>
+                                                </td>
                                                 <td><?= $jad->jadwal ?></td>
                                                 <td>
-                                                    <button class="btn btn-primary waves-effect" type="button">
+                                                <?php $idj = $jad->id_jadwal;
+                                                    $ket = $this->db->query("SELECT * FROM absensi WHERE id_jadwal = '$idj' ");
+                                                    
+                                                    $kil = $ket->row();
+                                                    echo $kil->keterangan;
+                                                ?>
+                                                </td>
+                                                <td>
+                                                    
                                                         <?php if ($jad->status_jadwal == 5 or $jad->status_jadwal == 0) {
                                                             echo "Tidak Bertugas";
                                                         } elseif ($jad->status_jadwal == 6 or $jad->status_jadwal == 1) {
                                                             echo " Bertugas";
                                                         }
                                                         ?>
-                                                    </button>
+                                                    
                                                     <input type="hidden" name="status_jadwal[]" value="<?= $jad->status_jadwal ?>">
 
                                                 </td>

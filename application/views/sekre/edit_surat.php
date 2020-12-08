@@ -122,7 +122,7 @@
                                 <select class="selectpicker form-line" name="nip" id="nipku">
                                     <?php
                                     foreach ($user as $sur) : ?>
-                                        <option class="d-none" value="<?= $sur->username ?>"> <?= $sur->username ?> / <?= $sur->nama ?></option>
+                                        <option class="d-none" value="<?= $sur->username ?>"> <?= $sur->username ?> / <?= $sur->nama ?> / <?= $sur->penempatan ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

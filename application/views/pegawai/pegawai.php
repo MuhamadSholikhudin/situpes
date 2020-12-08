@@ -26,9 +26,9 @@
                                 </thead>
 
                                 <tbody>
-                                    <?php foreach ($jadwal as $jad) : ?>
+                                    <?php $no =1; foreach ($jadwal as $jad) : ?>
                                         <tr>
-                                            <td>a</td>
+                                            <td><?= $no++; ?></td>
                                             <td><?= $this->session->userdata('nama') ?></td>
                                             <td><?= $jad->nip ?></td>
                                             <td><?= $jad->jadwal ?></td>

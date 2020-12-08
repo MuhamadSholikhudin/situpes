@@ -36,8 +36,11 @@ class Absensi extends CI_Controller
         
             $data['no_sur'] = $this->Model_surat_penugasan->edit_surat_penugasan($where, 'surat_penugasan')->result();
 
-        $data['jadwal'] = $this->db->query("SELECT data_pegawai.nip, data_pegawai.jabatan, data_pegawai.penempatan, jadwal_penugasan.id, jadwal_penugasan.jadwal, jadwal_penugasan.id_jadwal, jadwal_penugasan.status_jadwal FROM jadwal_penugasan JOIN data_pegawai ON jadwal_penugasan.id = data_pegawai.id WHERE data_pegawai.no_surat = '$no_surat' ")->result();
+        // $data['jadwal'] = $this->db->query("SELECT absensi.keterangan, jadwal_penugasan.id, jadwal_penugasan.jadwal, jadwal_penugasan.id_jadwal, jadwal_penugasan.status_jadwal FROM jadwal_penugasan 
+        // JOIN absensi ON jadwal_penugasan.id_jadwal = absensi.id_jadwal WHERE jadwal_penugasan.no_surat = '$no_surat' ")->result();
 
+        $data['jadwal'] = $this->db->query("SELECT * FROM jadwal_penugasan WHERE no_surat = '$no_surat' ")->result();
+        
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('sekre/daftarabsensi', $data);
