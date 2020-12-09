@@ -153,6 +153,7 @@ class Jadwal extends CI_Controller
 
         $where = ['id_jadwal' => $id_jadwal];
         $this->Model_jadwal_penugasan->hapus_data($where, 'jadwal_penugasan');
+        $this->Model_absensi->hapus_data($where, 'absensi');
         redirect('sekre/jadwal/pegawai/' . $id);
     }
 

@@ -77,6 +77,16 @@
                                                         <i class="material-icons">remove_red_eye</i>
                                                         <span>Lihat</span>
                                                     </a>
+                                                <?php } elseif ($sus->status_surat == 3) { ?>
+                                                    <a href="<?= base_url('kadin/surat/lihat/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
+                                                        <i class="material-icons">remove_red_eye</i>
+                                                        <span>Lihat</span>
+                                                    </a>
+                                                <?php } elseif ($sus->status_surat == 4) { ?>
+                                                    <a href="<?= base_url('kadin/surat/lihat/') . $sus->no_surat ?>" class="btn btn-success waves-effect" type="button">
+                                                        <i class="material-icons">remove_red_eye</i>
+                                                        <span>Lihat</span>
+                                                    </a>
                                                 <?php } ?>
                                             </td>
 

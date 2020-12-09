@@ -34,7 +34,7 @@
                                             <td><?= $su->isi_surat ?></td>
                                             <td><?= $su->keterangan ?></td>
                                             <td>
-                                                <a href="<?= base_url("pegawai/absensi/pegawai/") . $su->no_surat ?>" class="btn bg-success waves-effect"><i class="material-icons">remove_red_eye</i>
+                                                <a href="<?= base_url("pegawai/absensi/pegawai/") . $su->no_surat ?>" class="btn btn-success waves-effect"><i class="material-icons">remove_red_eye</i>
                                                     <span>Lihat</span>
                                                 </a>
 

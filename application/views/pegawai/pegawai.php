@@ -42,11 +42,11 @@
                                             </td>
 
                                         <?php
-                                                } elseif ($jad->jadwal == date('Y-m-d')) {
+                                                } elseif ($jad->jadwal != date('Y-m-d')) {
                                         ?> Tidak bisa di akses
 
                                         <?php
-                                                } elseif ($jad->jadwal != date('Y-m-d')) {
+                                                } elseif ($jad->jadwal == date('Y-m-d')) {
                                         ?>
                                             <a href="<?= base_url("pegawai/absensi/input/") . $jad->id_jadwal . "/" . $jad->no_surat ?>"><i class="material-icons">edit</i>input</a>
                                         <?php                                                }
